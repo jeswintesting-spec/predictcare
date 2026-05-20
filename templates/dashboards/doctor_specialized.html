@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+
+{% block title %}Specialized Insights - Dr. {{ doctor.doctor_name }}{% endblock %}
+
+{% block header_title %}Specialized Insights & Details{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+
+    <!-- Header Section -->
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+            <div>
+                <h2 class="text-2xl font-bold text-gray-800">Dr. {{ doctor.doctor_name }}</h2>
+                <p class="text-gray-500 font-medium mt-1">{{ doctor.specialization }} | {{ doctor.department.name }}
+                    Department</p>
+            </div>
+            <div class="mt-4 md:mt-0 flex gap-4">
+                <div class="bg-blue-50 px-4 py-2 rounded-lg border border-blue-100 flex items-center gap-3">
+                    <div class="bg-blue-100 p-2 rounded-full text-blue-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase font-bold">Total Patients</p>
+                        <p class="text-lg font-bold text-gray-800">{{ total_visits }}</p>
+                    </div>
+                </div>
+                <div class="bg-indigo-50 px-4 py-2 rounded-lg border border-indigo-100 flex items-center gap-3">
+                    <div class="bg-indigo-100 p-2 rounded-full text-indigo-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase font-bold">Unique Patients</p>
+                        <p class="text-lg font-bold text-gray-800">{{ unique_patients }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PREDICTION CHART -->
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="font-bold text-gray-700 text-lg flex items-center gap-2">
+                <span class="w-2 h-6 bg-purple-500 rounded-full"></span> Personalized Patient Load Forecast
+            </h3>
+            <span
+                class="bg-purple-50 text-purple-600 text-xs font-bold px-3 py-1 rounded-full border border-purple-100 flex items-center gap-1">
+                <span>🤖</span> AI Forecast
+            </span>
+        </div>
+        <p class="text-gray-500 text-sm mb-6 max-w-3xl">
+            Based on your historical patient volume, this is the expected number of patients you will see over the
+            upcoming months. Use this to aid in scheduling and resource planning.
+        </p>
+        <div class="h-80">
+            <canvas id="predChart"></canvas>
+        </div>
+    </div>
+
+    <!-- DETAILS / RECENT REPORTS TABLE -->
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="font-bold text-gray-700 text-lg flex items-center gap-2">
+                <span class="w-2 h-6 bg-blue-500 rounded-full"></span> Your Recent Patient Visits
+            </h3>
+            <a href="{% url 'reports' %}" class="text-sm text-blue-600 hover:text-blue-800 font-medium">View Full
+                Advanced Reports &rarr;</a>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="p-4 border-b text-sm font-semibold text-gray-600">Date</th>
+                        <th class="p-4 border-b text-sm font-semibold text-gray-600">Patient ID</th>
+                        <th class="p-4 border-b text-sm font-semibold text-gray-600">Patient Name</th>
+                        <th class="p-4 border-b text-sm font-semibold text-gray-600">Case Type</th>
+                        <th class="p-4 border-b text-sm font-semibold text-gray-600">Medicines Pref.</th>
+                        <th class="p-4 border-b text-sm font-semibold text-gray-600">Symptoms</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for visit in recent_visits %}
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="p-3 text-sm text-gray-600">{{ visit.date }}</td>
+                        <td class="p-3 font-mono text-sm font-semibold text-blue-600">{{ visit.id }}</td>
+                        <td class="p-3 font-medium text-gray-800">{{ visit.name }}</td>
+                        <td class="p-3 text-sm">
+                            <span class="px-2 py-1 rounded-full text-xs font-bold 
+                                {% if visit.case_type == 'Emergency' %}bg-red-100 text-red-800
+                                {% elif visit.case_type == 'Critical' %}bg-orange-100 text-orange-800
+                                {% else %}bg-green-100 text-green-800{% endif %}">
+                                {{ visit.case_type }}
+                            </span>
+                        </td>
+                        <!-- prettier-ignore -->
+                        <td class="p-3 text-sm text-gray-600 max-w-xs truncate" title="{{ visit.medicines }}">
+                            {{ visit.medicines }}
+                        </td>
+                        <!-- prettier-ignore -->
+                        <td class="p-3 text-sm text-gray-600 max-w-xs truncate" title="{{ visit.symptoms }}">
+                            {{ visit.symptoms }}
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="p-8 text-center text-gray-500">No recent visits found for you.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    const predLabels = JSON.parse('{{ pred_labels|safe }}');
+    const predData = JSON.parse('{{ pred_data|safe }}');
+
+    // Prediction Chart Initialization
+    new Chart(document.getElementById('predChart'), {
+        type: 'bar',
+        data: {
+            labels: predLabels,
+            datasets: [{
+                label: 'Projected Patients',
+                data: predData,
+                backgroundColor: '#8B5CF6', // Purple 500
+                borderRadius: 6,
+                barThickness: 40,
+                hoverBackgroundColor: '#7C3AED'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    padding: 12,
+                    titleFont: { size: 14 },
+                    bodyFont: { size: 14, weight: 'bold' },
+                    displayColors: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: { borderDash: [4, 4], color: '#f3f4f6' },
+                    border: { display: false },
+                    ticks: { precision: 0 }
+                },
+                x: {
+                    grid: { display: false },
+                    border: { display: false },
+                    ticks: { font: { weight: 'bold' } }
+                }
+            }
+        }
+    });
+</script>
+{% endblock %}

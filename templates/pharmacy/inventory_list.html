@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block title %}Pharmacy Inventory - PredictCare{% endblock %}
+
+{% block header_title %}Pharmacy Inventory{% endblock %}
+
+{% block content %}
+<div class="bg-white p-6 shadow rounded-lg border border-gray-200">
+
+    <!-- HEADER ACTIONS -->
+    <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+        <!-- SEARCH -->
+        <div class="w-full md:w-1/2">
+            <form method="get" action="" class="flex items-center">
+                <div class="relative flex-grow">
+                    <input type="text" name="q" value="{{ query|default:'' }}" placeholder="Search medicines by name..."
+                        class="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <span class="absolute left-3 top-2.5 text-gray-400">🔍</span>
+                </div>
+                <button type="submit"
+                    class="ml-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors">Search</button>
+                {% if query %}
+                <a href="{% url 'pharmacy_inventory' %}"
+                    class="ml-2 text-red-600 hover:text-red-800 text-sm font-semibold">Clear</a>
+                {% endif %}
+            </form>
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="flex flex-wrap gap-2 justify-end">
+            <a href="{% url 'add_medicine' %}"
+                class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-1">
+                <span>➕</span> Add Medicine
+            </a>
+            <!-- Links to other pharmacy actions (redundant if using sidebar, but useful for context) -->
+            <a href="{% url 'pharmacy_billing' %}"
+                class="bg-indigo-50 text-indigo-700 hover:bg-indigo-100 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
+                Patient Billing
+            </a>
+            <a href="{% url 'manual_billing' %}"
+                class="bg-purple-50 text-purple-700 hover:bg-purple-100 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
+                Manual Billing
+            </a>
+        </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr class="bg-gray-100 text-gray-600 uppercase text-xs tracking-wider">
+                    <th class="p-4 font-semibold border-b">Medicine Name</th>
+                    <th class="p-4 font-semibold border-b">Price (₹)</th>
+                    <th class="p-4 font-semibold border-b">Stock</th>
+                    <th class="p-4 font-semibold border-b">Expiry</th>
+                    <th class="p-4 font-semibold border-b">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="text-gray-700 text-sm">
+                {% for med in medicines %}
+                <tr
+                    class="border-b hover:bg-gray-50 transition-colors {% if med.stock_quantity < med.min_stock_level %}bg-red-50{% endif %}">
+                    <td class="p-4 font-medium text-gray-900">{{ med.name }}</td>
+                    <td class="p-4">₹{{ med.price }}</td>
+                    <td class="p-4">
+                        <span
+                            class="px-2 py-1 rounded text-xs font-bold {% if med.stock_quantity < med.min_stock_level %}text-red-700 bg-red-100{% else %}text-green-700 bg-green-100{% endif %}">
+                            {{ med.stock_quantity }}
+                        </span>
+                        {% if med.stock_quantity < med.min_stock_level %} <span
+                            class="ml-1 text-xs text-red-500 font-semibold">(Low)</span>
+                            {% endif %}
+                    </td>
+                    <td class="p-4">{{ med.expiry_date }}</td>
+                    <td class="p-4 flex gap-2">
+                        <a href="{% url 'dispense_medicine' med.id %}"
+                            class="text-orange-600 hover:text-orange-800 bg-orange-50 hover:bg-orange-100 px-3 py-1 rounded text-xs font-semibold transition-colors border border-orange-200">
+                            -1 Dispense
+                        </a>
+                        <a href="{% url 'edit_medicine' med.id %}"
+                            class="text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3 py-1 rounded text-xs font-semibold transition-colors border border-blue-200">
+                            Edit
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="p-8 text-center text-gray-500 italic">No medicines found in inventory.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PAGINATION -->
+    {% if medicines.has_other_pages %}
+    <div class="mt-8 flex items-center justify-between">
+        <div class="text-sm text-gray-500">
+            Showing page {{ medicines.number }} of {{ medicines.paginator.num_pages }}
+        </div>
+        <div class="flex gap-2">
+            {% if medicines.has_previous %}
+            <a href="?page=1{% if query %}&q={{ query }}{% endif %}" class="px-3 py-1 bg-white border rounded text-xs font-bold hover:bg-gray-50 transition-colors">« First</a>
+            <a href="?page={{ medicines.previous_page_number }}{% if query %}&q={{ query }}{% endif %}" class="px-3 py-1 bg-white border rounded text-xs font-bold hover:bg-gray-50 transition-colors">Previous</a>
+            {% endif %}
+
+            {% if medicines.has_next %}
+            <a href="?page={{ medicines.next_page_number }}{% if query %}&q={{ query }}{% endif %}" class="px-3 py-1 bg-white border rounded text-xs font-bold hover:bg-gray-50 transition-colors">Next</a>
+            <a href="?page={{ medicines.paginator.num_pages }}{% if query %}&q={{ query }}{% endif %}" class="px-3 py-1 bg-white border rounded text-xs font-bold hover:bg-gray-50 transition-colors">Last »</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

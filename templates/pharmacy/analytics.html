@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+
+{% block title %}Pharmacy Analytics - PredictCare{% endblock %}
+
+{% block header_title %}Pharmacy Insights & Forensics{% endblock %}
+
+{% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- INFO CARDS -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center space-x-4">
+            <div class="p-4 bg-red-50 text-red-500 rounded-lg text-2xl">🚨</div>
+            <div>
+                <p class="text-sm text-gray-400 font-semibold uppercase tracking-wider">Critical Stock</p>
+                <h3 class="text-2xl font-bold text-gray-800">{{ low_stock.count }} <span
+                        class="text-sm font-medium text-gray-500">Items</span></h3>
+            </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center space-x-4">
+            <div class="p-4 bg-green-50 text-green-500 rounded-lg text-2xl">📈</div>
+            <div>
+                <p class="text-sm text-gray-400 font-semibold uppercase tracking-wider">Top Moving</p>
+                <h3 class="text-2xl font-bold text-gray-800">{{ top_selling|length }} <span
+                        class="text-sm font-medium text-gray-500">Meds</span></h3>
+            </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center space-x-4">
+            <div class="p-4 bg-indigo-50 text-indigo-500 rounded-lg text-2xl">⚡</div>
+            <div>
+                <p class="text-sm text-gray-400 font-semibold uppercase tracking-wider">Demand Predictions</p>
+                <h3 class="text-2xl font-bold text-gray-800">{{ predictions|length }} <span
+                        class="text-sm font-medium text-gray-500">Meds Forecast</span></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- SALES TREND CHART -->
+    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h4 class="text-gray-700 font-bold mb-6 flex items-center">
+            <span class="mr-2">📅</span> Sales Performance (Last 30 Days)
+        </h4>
+        <div class="relative h-72">
+            <canvas id="salesChart"></canvas>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- TOP MEDICINES -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h4 class="text-gray-700 font-bold mb-4 flex items-center">
+                <span class="mr-2">🏆</span> Top Selling Medicines
+            </h4>
+            <div class="space-y-4">
+                {% for med in top_selling %}
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <span class="font-medium text-gray-700">{{ med.medicine__name }}</span>
+                    <span class="text-sm font-bold text-indigo-600">{{ med.total_qty }} units</span>
+                </div>
+                {% empty %}
+                <p class="text-gray-400 text-center py-4 italic">No sales data yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- LOW STOCK ALERTS -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h4 class="text-gray-700 font-bold mb-4 flex items-center">
+                <span class="mr-2">⚠️</span> Inventory Reorder Alerts
+            </h4>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left">
+                    <thead class="bg-gray-50 text-gray-500 uppercase text-xs">
+                        <tr>
+                            <th class="px-4 py-3">Medicine</th>
+                            <th class="px-4 py-3">Stock</th>
+                            <th class="px-4 py-3">Min</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        {% for med in low_stock %}
+                        <tr class="hover:bg-red-50 transition-colors">
+                            <td class="px-4 py-3 font-medium text-gray-800">{{ med.name }}</td>
+                            <td class="px-4 py-3 text-red-600 font-bold">{{ med.stock_quantity }}</td>
+                            <td class="px-4 py-3 text-gray-400">{{ med.min_stock_level }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="3" class="px-4 py-8 text-center text-green-500 italic">Inventory levels are
+                                healthy!</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- PREDICTIONS -->
+    <div class="bg-indigo-900 text-white p-8 rounded-2xl shadow-xl overflow-hidden relative">
+        <div class="relative z-10">
+            <h4 class="text-xl font-bold mb-6 flex items-center">
+                <span class="mr-2">🔮</span> AI Demand Forecast (Next Month)
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {% for med, qty in predictions.items %}
+                <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20">
+                    <p class="text-indigo-200 text-xs font-semibold uppercase">{{ med }}</p>
+                    <p class="text-2xl font-bold mt-1">{{ qty }} <span
+                            class="text-sm font-normal opacity-70">units</span></p>
+                </div>
+                {% empty %}
+                <p class="col-span-full text-indigo-300 italic">Collecting more visit data to refine predictions...</p>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- Decorative blob -->
+        <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-indigo-500 rounded-full blur-3xl opacity-20"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    const salesCtx = document.getElementById('salesChart').getContext('2d');
+    const labels = JSON.parse('{{ sales_chart_labels|safe }}');
+    const values = JSON.parse('{{ sales_chart_values|safe }}');
+
+    new Chart(salesCtx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Daily Revenue',
+                data: values,
+                borderColor: '#6366f1',
+                backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4,
+                pointRadius: 4,
+                pointBackgroundColor: '#6366f1'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: { color: '#f3f4f6' },
+                    ticks: { callback: value => '₹' + value }
+                },
+                x: { grid: { display: false } }
+            }
+        }
+    });
+</script>
+{% endblock %}

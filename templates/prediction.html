@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Analytics & Predictions</title>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #f3f4f6;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 min-h-screen text-gray-800 font-sans">
+
+    <!-- Navbar -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-20 mb-8">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <a href="{% url 'hub' %}"
+                    class="bg-gray-100 hover:bg-gray-200 text-gray-600 px-3 py-2 rounded-lg transition-colors flex items-center gap-2 text-sm font-semibold">
+                    ← Back
+                </a>
+                <h1 class="text-xl font-bold text-gray-900">Hospital Analytics <span class="text-indigo-600">&
+                        Predictions</span></h1>
+            </div>
+            <div class="text-sm text-gray-500 font-medium">
+                Live Data Overview
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 pb-12">
+        <!-- Summary Stats Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <div class="card bg-gradient-to-br from-indigo-500 to-indigo-600 text-white border-none">
+                <p class="text-indigo-100 text-sm font-medium uppercase tracking-wider">Total Visits</p>
+                <h2 id="stat-total-visits" class="text-3xl font-bold mt-1">—</h2>
+                <p class="text-indigo-100 text-xs mt-2">Overall Patient Volume</p>
+            </div>
+            <div class="card bg-gradient-to-br from-emerald-500 to-emerald-600 text-white border-none">
+                <p class="text-emerald-100 text-sm font-medium uppercase tracking-wider">Busiest Dept</p>
+                <h2 id="stat-top-dept" class="text-2xl font-bold mt-1 truncate">—</h2>
+                <p class="text-emerald-100 text-xs mt-2">Highest Patient Load</p>
+            </div>
+            <div class="card bg-gradient-to-br from-blue-500 to-blue-600 text-white border-none">
+                <p class="text-blue-100 text-sm font-medium uppercase tracking-wider">Active Doctors</p>
+                <h2 id="stat-total-docs" class="text-3xl font-bold mt-1">—</h2>
+                <p class="text-blue-100 text-xs mt-2">Staffing Capacity</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+
+            <!-- Row 1: Doctor Load (Scrollable, Taller) -->
+            <div class="card md:col-span-2 flex flex-col min-h-[500px]">
+                <h3 class="text-xl font-bold mb-4 text-gray-800 border-b pb-2">Visits per Doctor (All Staff)</h3>
+                <div class="flex-1 min-h-0 overflow-y-auto max-h-[600px] pr-2">
+                    <div class="relative w-full" id="doctorLoadContainer">
+                        <canvas id="doctorLoadChart"></canvas>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500 mt-2 text-center italic">Scroll to see all doctors</p>
+            </div>
+
+            <!-- Row 1b: Dept Load (Full Width) -->
+            <div class="card h-96 md:col-span-2 flex flex-col">
+                <h3 class="text-xl font-bold mb-4 text-gray-800 border-b pb-2">Visits per Department</h3>
+                <div class="flex-1 min-h-0">
+                    <canvas id="deptLoadChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Row 2: Distributions -->
+            <!-- Case Type Distribution -->
+            <div class="card h-96 flex flex-col">
+                <h3 class="text-lg font-semibold mb-4 text-gray-700 border-b pb-2">Case Type Distribution</h3>
+                <div class="flex-1 min-h-0 flex justify-center p-2">
+                    <canvas id="caseTypeChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Reported Symptoms -->
+            <div class="card h-96 flex flex-col">
+                <h3 class="text-lg font-semibold mb-4 text-gray-700 border-b pb-2">Reported Symptoms</h3>
+                <div class="flex-1 min-h-0 flex justify-center p-2">
+                    <canvas id="symptomChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Row 3: Prescribed Medicines (Scrollable) -->
+            <div class="card md:col-span-2 flex flex-col min-h-[500px]">
+                <h3 class="text-xl font-bold mb-4 text-gray-800 border-b pb-2">Prescribed Medicines (All)</h3>
+                <div class="flex-1 min-h-0 overflow-y-auto max-h-[600px] pr-2">
+                    <div class="relative w-full" id="medicineContainer">
+                        <canvas id="medicineChart"></canvas>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500 mt-2 text-center italic">Scroll to see all medicines</p>
+            </div>
+
+            <!-- Row 4: Predictions -->
+            <!-- Predicted Load (Next Month) -->
+            <div class="card h-96 flex flex-col border-l-4 border-blue-500">
+                <h3 class="text-lg font-bold mb-4 text-blue-800 border-b pb-2">Predicted Load (Next Month)</h3>
+                <div class="flex-1 min-h-0">
+                    <canvas id="barChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Predicted Trend (Next 3 Months) -->
+            <div class="card h-96 flex flex-col border-l-4 border-purple-500">
+                <h3 class="text-lg font-bold mb-4 text-purple-800 border-b pb-2">Predicted Trend (Next 3 Months)</h3>
+                <div class="flex-1 min-h-0">
+                    <canvas id="lineChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Row 5: Historical Trend (Full Width) -->
+            <div class="card h-96 md:col-span-2 flex flex-col">
+                <h3 class="text-lg font-semibold mb-4 text-gray-700 border-b pb-2">Monthly Visit Trend (Historical)</h3>
+                <div class="flex-1 min-h-0">
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Row 6: Resource Planning (New Section) -->
+            <div class="md:col-span-2 mt-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center border-t pt-8">Resource Planning &
+                    Artificial Intelligence</h2>
+            </div>
+
+            <!-- Staffing Recommendations Table -->
+            <div class="card md:col-span-2 flex flex-col overflow-hidden">
+                <h3 class="text-xl font-bold mb-4 text-gray-800 border-b pb-2">Staffing Recommendations (AI Analysis)
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-sm text-left">
+                        <thead class="bg-gray-100 text-gray-700 font-bold">
+                            <tr>
+                                <th class="p-3">Department</th>
+                                <th class="p-3 border-l hover:bg-gray-200" title="Doctors">Docs</th>
+                                <th class="p-3" title="Visits per Doctor">Load/Doc</th>
+                                <th class="p-3">Doc Status</th>
+                                <th class="p-3 border-r">Doc Rec</th>
+                                <th class="p-3 border-l hover:bg-gray-200" title="Nurses">Nurses</th>
+                                <th class="p-3" title="Visits per Nurse">Load/Nurse</th>
+                                <th class="p-3">Nurse Status</th>
+                                <th class="p-3">Nurse Rec</th>
+                            </tr>
+                        </thead>
+                        <tbody id="staffingTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Medicine Forecast -->
+            <div class="card h-[500px] md:col-span-2 flex flex-col">
+                <h3 class="text-xl font-bold mb-4 text-gray-800 border-b pb-2">Predicted Medicine Stock Requirements
+                    (Next Month)</h3>
+                <div class="flex-1 min-h-0">
+                    <canvas id="medicineForecastChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Drill-down Modal -->
+    <div id="drilldownModal"
+        class="fixed inset-0 bg-black/50 hidden z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col transform transition-all scale-95 opacity-0"
+            id="modalContent">
+            <!-- Modal Header -->
+            <div class="p-6 border-b flex justify-between items-center bg-gray-50">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900" id="modalTitle">Loading...</h2>
+                    <p class="text-sm text-gray-500" id="modalSubTitle">Detailed Analytics</p>
+                </div>
+                <button onclick="closeModal()" title="Close"
+                    class="text-gray-400 hover:text-gray-600 p-2 rounded-full hover:bg-gray-100 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-8 overflow-y-auto flex-1 space-y-8" id="modalBody">
+                <div class="flex items-center justify-center h-48">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-6 border-t bg-gray-50 text-right">
+                <button onclick="closeModal()"
+                    class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors shadow-md">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enlarge Chart Modal -->
+    <div id="enlargeModal"
+        class="fixed inset-0 bg-black/80 hidden z-[60] flex items-center justify-center p-4 backdrop-blur-md transition-opacity duration-300 opacity-0"
+        onclick="if(event.target === this) closeEnlargeModal()">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-[95vw] h-[90vh] flex flex-col transform transition-all scale-95 duration-300"
+            id="enlargeContent">
+            <!-- Header -->
+            <div class="p-4 border-b flex justify-between items-center bg-gray-50 rounded-t-2xl">
+                <h2 class="text-2xl font-bold text-gray-800" id="enlargeTitle">Enlarged View</h2>
+                <button onclick="closeEnlargeModal()"
+                    class="p-2 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-full transition-colors focus:outline-none">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Body -->
+            <div class="p-6 flex-1 w-full h-full min-h-0 bg-white rounded-b-2xl relative">
+                <canvas id="enlargeCanvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Color Generator
+        function generateColors(count) {
+            const colors = [];
+            for (let i = 0; i < count; i++) {
+                // Golden angle approximation for distinct colors
+                const hue = (i * 137.508) % 360;
+                colors.push(`hsla(${hue}, 70%, 50%, 0.7)`);
+            }
+            return colors;
+        }
+
+        const commonOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false } // Default to no legend for bars
+            },
+            scales: {
+                x: {
+                    ticks: { font: { size: 13, weight: 'bold' }, color: '#374151' },
+                    title: { display: true, text: '', font: { size: 14, weight: 'bold' } }
+                },
+                y: {
+                    ticks: { font: { size: 13, weight: 'bold' }, color: '#374151' },
+                    title: { display: true, text: '', font: { size: 14, weight: 'bold' } }
+                }
+            }
+        };
+
+        async function fetchJSON(url) {
+            const resp = await fetch(url);
+            if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+            return await resp.json();
+        }
+
+        // --- 1. Load Analytics Data ---
+        fetchJSON("/analytics-data/")
+            .then(data => {
+                // Doctor Load (Dynamic Height)
+                const docKeys = Object.keys(data.doctor_load);
+                const docCount = docKeys.length;
+
+                // Set height dynamically: 30px per doctor, min 500px
+                const docContainer = document.getElementById('doctorLoadContainer');
+                if (docContainer) {
+                    const newHeight = Math.max(500, docCount * 30);
+                    docContainer.style.height = `${newHeight}px`;
+                }
+
+                new Chart(document.getElementById('doctorLoadChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: docKeys,
+                        datasets: [{
+                            label: 'Visits',
+                            data: Object.values(data.doctor_load),
+                            backgroundColor: generateColors(docCount),
+                            borderColor: 'rgba(0,0,0,0.1)',
+                            borderWidth: 1,
+                            barPercentage: 0.7,
+                            categoryPercentage: 0.9
+                        }]
+                    },
+                    options: {
+                        ...commonOptions,
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                title: { display: true, text: 'Number of Visits' },
+                                ticks: { font: { size: 12 } },
+                                position: 'top' // Move X axis to top for better visibility when scrolling? No, stick to bottom.
+                            },
+                            y: {
+                                title: { display: true, text: 'Doctor Name' },
+                                ticks: {
+                                    font: { size: 13, weight: '600' },
+                                    autoSkip: false // Force show all
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Populate Metadata Stats
+                if (data.metadata) {
+                    document.getElementById('stat-total-visits').textContent = data.metadata.total_visits.toLocaleString();
+                    document.getElementById('stat-top-dept').textContent = data.metadata.top_department;
+                    document.getElementById('stat-total-docs').textContent = data.metadata.total_doctors;
+                }
+
+                // Dept Load - Enhanced & Sorted
+                const deptEntries = Object.entries(data.dept_load).sort((a, b) => b[1] - a[1]);
+                const sortedDeptLabels = deptEntries.map(e => e[0]);
+                const sortedDeptValues = deptEntries.map(e => e[1]);
+                const totalDeptVisits = sortedDeptValues.reduce((a, b) => a + b, 0);
+
+                new Chart(document.getElementById('deptLoadChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: sortedDeptLabels,
+                        datasets: [{
+                            label: 'Visits',
+                            data: sortedDeptValues,
+                            backgroundColor: (context) => {
+                                const chart = context.chart;
+                                const { ctx, chartArea } = chart;
+                                if (!chartArea) return null;
+                                const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+                                gradient.addColorStop(0, '#6366f1');
+                                gradient.addColorStop(1, '#818cf8');
+                                return gradient;
+                            },
+                            borderColor: '#4f46e5',
+                            borderWidth: 1,
+                            borderRadius: 6,
+                            barPercentage: 0.6
+                        }]
+                    },
+                    options: {
+                        ...commonOptions,
+                        indexAxis: 'y',
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    afterLabel: (item) => {
+                                        const percentage = ((item.raw / totalDeptVisits) * 100).toFixed(1);
+                                        return `${percentage}% of total hospital load`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: { display: true, text: 'Number of Visits' },
+                                grid: { color: '#f3f4f6' }
+                            },
+                            y: {
+                                title: { display: true, text: 'Department' },
+                                ticks: { font: { weight: '600' } },
+                                grid: { display: false }
+                            }
+                        }
+                    }
+                });
+
+                // Case Type
+                const caseKeys = Object.keys(data.cases_type);
+                new Chart(document.getElementById('caseTypeChart'), {
+                    type: 'pie',
+                    data: {
+                        labels: caseKeys,
+                        datasets: [{
+                            data: Object.values(data.cases_type),
+                            backgroundColor: generateColors(caseKeys.length),
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'right', labels: { font: { size: 12 } } }
+                        }
+                    }
+                });
+
+                // Symptoms
+                const symKeys = Object.keys(data.symptom_dist);
+                new Chart(document.getElementById('symptomChart'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: symKeys,
+                        datasets: [{
+                            data: Object.values(data.symptom_dist),
+                            backgroundColor: generateColors(symKeys.length),
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '50%',
+                        plugins: {
+                            legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } }
+                        }
+                    }
+                });
+
+                // Medicines (Dynamic Height)
+                const medKeys = Object.keys(data.medicine_usage);
+                const medCount = medKeys.length;
+
+                // Set height dynamically
+                const medContainer = document.getElementById('medicineContainer');
+                if (medContainer) {
+                    const newHeight = Math.max(500, medCount * 28);
+                    medContainer.style.height = `${newHeight}px`;
+                }
+
+                new Chart(document.getElementById('medicineChart'), {
+                    type: 'bar',
+                    indexAxis: 'y',
+                    data: {
+                        labels: medKeys,
+                        datasets: [{
+                            label: 'Prescriptions',
+                            data: Object.values(data.medicine_usage),
+                            backgroundColor: generateColors(medCount),
+                            borderColor: 'rgba(0,0,0,0.1)',
+                            borderWidth: 1,
+                            barPercentage: 0.7
+                        }]
+                    },
+                    options: {
+                        ...commonOptions,
+                        scales: {
+                            x: {
+                                title: { display: true, text: 'Prescription Count' },
+                                ticks: { font: { size: 12 } }
+                            },
+                            y: {
+                                title: { display: true, text: 'Medicine Name' },
+                                ticks: {
+                                    font: { size: 13, weight: '500' },
+                                    autoSkip: false
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Historical Trend
+                new Chart(document.getElementById('trendChart'), {
+                    type: 'line',
+                    data: {
+                        labels: Object.keys(data.monthly_trend),
+                        datasets: [{
+                            label: 'Total Visits',
+                            data: Object.values(data.monthly_trend),
+                            borderColor: '#7C3AED',
+                            tension: 0.3,
+                            fill: true,
+                            backgroundColor: 'rgba(124, 58, 237, 0.1)',
+                            pointBackgroundColor: '#7C3AED',
+                            pointRadius: 5,
+                            pointHoverRadius: 7
+                        }]
+                    },
+                    options: {
+                        ...commonOptions,
+                        plugins: { legend: { display: true } },
+                        scales: {
+                            x: {
+                                title: { display: true, text: 'Month (YYYY-MM)' },
+                                ticks: { font: { size: 12 } }
+                            },
+                            y: {
+                                title: { display: true, text: 'Total Visits' },
+                                ticks: { font: { size: 12 } }
+                            }
+                        }
+                    }
+                });
+            });
+
+        // --- 2. Load Predictions ---
+        fetchJSON("{% url 'predict_load' %}")
+            .then(data => {
+                const predictions = data.predictions || data;
+                new Chart(document.getElementById('barChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: Object.keys(predictions),
+                        datasets: [{
+                            label: 'Predicted Visits',
+                            data: Object.values(predictions),
+                            backgroundColor: '#3B82F6',
+                            borderRadius: 4
+                        }]
+                    },
+                    options: {
+                        ...commonOptions,
+                        plugins: { legend: { display: true } },
+                        scales: {
+                            x: { title: { display: true, text: 'Department' } },
+                            y: { title: { display: true, text: 'Predicted Visits' } }
+                        }
+                    }
+                });
+            });
+
+        const months = 3;
+        fetchJSON("{% url 'predict_load_over_time' %}?months=" + months)
+            .then(data => {
+                const labels = [...Array(months).keys()].map(i => `Month ${i + 1}`);
+                const datasets = Object.entries(data).map(([dept, values], idx) => ({
+                    label: dept,
+                    data: values,
+                    borderColor: `hsl(${(idx * 60) % 360},70%,50%)`,
+                    tension: 0.2,
+                    pointRadius: 4
+                }));
+
+                new Chart(document.getElementById('lineChart'), {
+                    type: 'line',
+                    data: { labels, datasets },
+                    options: {
+                        ...commonOptions,
+                        plugins: { legend: { display: true } },
+                        scales: {
+                            x: { title: { display: true, text: 'Future Months' } },
+                            y: { title: { display: true, text: 'Predicted Visits' } }
+                        }
+                    }
+                });
+            });
+
+        // --- 3. Load Resource Planning ---
+        fetchJSON("/planning-data/")
+            .then(data => {
+                // 1. Staffing Table
+                const tbody = document.getElementById('staffingTableBody');
+                const rows = Object.entries(data.staffing).map(([dept, info]) => {
+                    // Doctor Logic
+                    let docClass = "text-gray-600";
+                    if (info.doc_status === "Overloaded" || info.doc_status === "Critical") docClass = "text-red-600 font-bold";
+                    else if (info.doc_status === "Underutilized") docClass = "text-yellow-600 font-bold";
+                    else docClass = "text-green-600 font-bold";
+
+                    // Nurse Logic
+                    let nurseClass = "text-gray-600";
+                    if (info.nurse_status === "Overloaded" || info.nurse_status === "Critical") nurseClass = "text-red-600 font-bold";
+                    else if (info.nurse_status === "Underutilized") nurseClass = "text-yellow-600 font-bold";
+                    else if (info.nurse_status === "Optimal") nurseClass = "text-green-600 font-bold";
+
+                    return `
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="p-3 font-medium text-gray-800">${dept}</td>
+                            
+                            <!-- Doctor Cols -->
+                            <td class="p-3 border-l">${info.doc_count}</td>
+                            <td class="p-3">${info.doc_ratio}</td>
+                            <td class="p-3 ${docClass}">${info.doc_status}</td>
+                            <td class="p-3 font-semibold border-r">${info.doc_rec}</td>
+                            
+                            <!-- Nurse Cols -->
+                            <td class="p-3 border-l">${info.nurse_count}</td>
+                            <td class="p-3">${info.nurse_ratio}</td>
+                            <td class="p-3 ${nurseClass}">${info.nurse_status}</td>
+                            <td class="p-3 font-semibold">${info.nurse_rec}</td>
+                        </tr>
+                    `;
+                }).join('');
+                tbody.innerHTML = rows;
+
+                // 2. Medicine Forecast Chart
+                const meds = Object.keys(data.medicine_forecast);
+                const counts = Object.values(data.medicine_forecast);
+
+                new Chart(document.getElementById('medicineForecastChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: meds,
+                        datasets: [{
+                            label: 'Required Stock (Predicted)',
+                            data: counts,
+                            backgroundColor: generateColors(meds.length),
+                            borderRadius: 4
+                        }]
+                    },
+                    options: {
+                        ...commonOptions,
+                        scales: {
+                            x: { title: { display: true, text: 'Medicine Name' } },
+                            y: { title: { display: true, text: 'Projected Units Needed' } }
+                        }
+                    }
+                });
+            });
+
+        // --- Drill-down Logic ---
+        function openModal(dimension, value) {
+            const modal = document.getElementById('drilldownModal');
+            const content = document.getElementById('modalContent');
+            const body = document.getElementById('modalBody');
+            const title = document.getElementById('modalTitle');
+            const subtitle = document.getElementById('modalSubTitle');
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 10);
+
+            title.innerText = value;
+            subtitle.innerText = `Analyzing ${dimension.charAt(0).toUpperCase() + dimension.slice(1)}`;
+
+            body.innerHTML = `
+                <div class="flex items-center justify-center h-48">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+                </div>
+            `;
+
+            fetchJSON(`/analytics-drilldown/?dimension=${dimension}&value=${encodeURIComponent(value)}`)
+                .then(data => {
+                    let html = "";
+
+                    if (dimension === "department") {
+                        html = `
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <section>
+                                    <h4 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+                                        <span class="w-2 h-6 bg-indigo-500 rounded"></span> Top Performing Doctors
+                                    </h4>
+                                    <div class="space-y-2">
+                                        ${data.top_doctors.map(d => `
+                                            <div class="flex justify-between p-3 bg-indigo-50 rounded-lg border border-indigo-100">
+                                                <span class="font-medium text-indigo-900">${d.doctor__doctor_name}</span>
+                                                <span class="bg-indigo-200 text-indigo-800 px-2 py-1 rounded text-xs font-bold">${d.count} visits</span>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </section>
+                                <section>
+                                    <h4 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+                                        <span class="w-2 h-6 bg-emerald-500 rounded"></span> Common Symptoms
+                                    </h4>
+                                    <div class="space-y-2">
+                                        ${Object.entries(data.top_symptoms).map(([s, c]) => `
+                                            <div class="flex justify-between p-3 bg-emerald-50 rounded-lg border border-emerald-100">
+                                                <span class="font-medium text-emerald-900">${s}</span>
+                                                <span class="bg-emerald-200 text-emerald-800 px-2 py-1 rounded text-xs font-bold">${c} reports</span>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </section>
+                                <section class="md:col-span-2">
+                                    <h4 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+                                        <span class="w-2 h-6 bg-amber-500 rounded"></span> Top Medicines Used
+                                    </h4>
+                                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                                        ${Object.entries(data.top_medicines).map(([m, c]) => `
+                                            <div class="p-3 bg-amber-50 rounded-lg border border-amber-100 text-center">
+                                                <div class="text-amber-800 font-bold text-xl">${c}</div>
+                                                <div class="text-amber-900 text-xs truncate">${m}</div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </section>
+                            </div>
+                        `;
+                    } else if (dimension === "doctor") {
+                        html = `
+                            <div class="space-y-8">
+                                <div class="bg-blue-600 text-white p-6 rounded-xl shadow-lg flex justify-between items-center">
+                                    <div>
+                                        <h4 class="text-2xl font-bold">${data.profile.name}</h4>
+                                        <p class="text-blue-100">${data.profile.qual} | ${data.profile.dept}</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-4xl font-extrabold">${data.profile.total_visits}</div>
+                                        <div class="text-blue-100 text-xs uppercase tracking-widest">Total Patients Treated</div>
+                                    </div>
+                                </div>
+                                <section>
+                                    <h4 class="text-lg font-bold text-gray-800 mb-4">Common Cases Handled</h4>
+                                    <div class="flex flex-wrap gap-3">
+                                        ${Object.entries(data.top_symptoms).map(([s, c]) => `
+                                            <div class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-semibold border border-gray-200">
+                                                ${s} (${c})
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </section>
+                            </div>
+                        `;
+                    } else if (dimension === "case_type") {
+                        html = `
+                            <section>
+                                <h4 class="text-lg font-bold text-gray-800 mb-4">Historical Trend for ${value} cases</h4>
+                                <div class="h-64">
+                                    <canvas id="drilldownChart"></canvas>
+                                </div>
+                            </section>
+                        `;
+                    } else if (dimension === "symptom") {
+                        html = `
+                            <section>
+                                <h4 class="text-lg font-bold text-gray-800 mb-4">Departments handling ${value}</h4>
+                                <div class="space-y-3">
+                                    ${data.top_departments.map(d => `
+                                        <div class="p-4 bg-purple-50 rounded-lg border border-purple-100 flex justify-between items-center">
+                                            <span class="font-bold text-purple-900">${d.department__name}</span>
+                                            <div class="text-purple-600 font-bold">${d.count} occurrences</div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </section>
+                        `;
+                    }
+
+                    body.innerHTML = html;
+
+                    if (dimension === "case_type" && data.trend) {
+                        const ctx = document.getElementById('drilldownChart');
+                        new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: Object.keys(data.trend),
+                                datasets: [{
+                                    label: 'Visits',
+                                    data: Object.values(data.trend),
+                                    borderColor: '#6366f1',
+                                    backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                                    fill: true,
+                                    tension: 0.4
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: { legend: { display: false } }
+                            }
+                        });
+                    }
+                })
+                .catch(err => {
+                    body.innerHTML = `<p class="text-red-500 font-bold">Error loading detailed analytics: ${err.message}</p>`;
+                });
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('drilldownModal');
+            const content = document.getElementById('modalContent');
+            content.classList.add('scale-95', 'opacity-0');
+            content.classList.remove('scale-100', 'opacity-100');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                closeEnlargeModal();
+            }
+        });
+
+        // --- Enlarge Chart Logic ---
+        let enlargedChartInstance = null;
+
+        function openEnlargeModal(chartId, titleText) {
+            const originalChart = Chart.getChart(chartId);
+            if (!originalChart) return;
+
+            const modal = document.getElementById('enlargeModal');
+            const content = document.getElementById('enlargeContent');
+            const title = document.getElementById('enlargeTitle');
+
+            title.innerText = titleText || 'Enlarged View';
+
+            modal.classList.remove('hidden');
+            // Small delay to allow display:block to apply before animating opacity
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.classList.add('opacity-100');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+
+            // Destroy existing if any
+            if (enlargedChartInstance) {
+                enlargedChartInstance.destroy();
+            }
+
+            const ctx = document.getElementById('enlargeCanvas');
+
+            // Deep clone data to avoid reference mutation issues
+            const clonedData = JSON.parse(JSON.stringify(originalChart.data));
+            // Preserve functions (like background functions for gradients) from datasets
+            originalChart.data.datasets.forEach((origDs, i) => {
+                if (origDs.backgroundColor && typeof origDs.backgroundColor === 'function') {
+                    clonedData.datasets[i].backgroundColor = origDs.backgroundColor;
+                }
+            });
+
+            // Clone options but strip out interactive click events intended for the dashboard
+            const clonedOptions = Object.assign({}, originalChart.config.options);
+            if (clonedOptions.onClick) delete clonedOptions.onClick;
+            if (clonedOptions.plugins && clonedOptions.plugins.tooltip && clonedOptions.plugins.tooltip.footer) {
+                delete clonedOptions.plugins.tooltip.footer;
+            }
+
+            // Force fonts bigger for modal
+            if (clonedOptions.scales) {
+                if (clonedOptions.scales.x && clonedOptions.scales.x.ticks) clonedOptions.scales.x.ticks.font = { size: 14, weight: 'bold' };
+                if (clonedOptions.scales.y && clonedOptions.scales.y.ticks) clonedOptions.scales.y.ticks.font = { size: 14, weight: 'bold' };
+            }
+            if (clonedOptions.plugins && clonedOptions.plugins.legend && clonedOptions.plugins.legend.labels) {
+                clonedOptions.plugins.legend.labels.font = { size: 16 };
+            }
+
+            // Re-render
+            enlargedChartInstance = new Chart(ctx, {
+                type: originalChart.config.type,
+                data: clonedData,
+                options: clonedOptions
+            });
+        }
+
+        function closeEnlargeModal() {
+            const modal = document.getElementById('enlargeModal');
+            const content = document.getElementById('enlargeContent');
+
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                if (enlargedChartInstance) {
+                    enlargedChartInstance.destroy();
+                    enlargedChartInstance = null;
+                }
+            }, 300);
+        }
+
+        // Add cursor pointer to all canvases to indicate they are clickable
+        document.querySelectorAll('canvas').forEach(canvas => {
+            if (canvas.id !== 'enlargeCanvas' && canvas.id !== 'drilldownChart') {
+                canvas.style.cursor = 'pointer';
+                canvas.title = "Click to enlarge graph";
+
+                // Add click listener that catches clicks anywhere on the canvas
+                canvas.addEventListener('click', function (e) {
+                    // Try to extract the title from the closest card heading
+                    let chartTitle = "Enlarged Chart View";
+                    const card = this.closest('.card');
+                    if (card) {
+                        const heading = card.querySelector('h2, h3');
+                        if (heading) chartTitle = heading.innerText;
+                    }
+                    openEnlargeModal(this.id, chartTitle);
+                });
+            }
+        });
+
+        // Add Chart Interaction Event Handlers
+        function addChartClickHandlers() {
+            // 1. Doctor Load
+            const doctorLoadChart = Chart.getChart("doctorLoadChart");
+            if (doctorLoadChart) {
+                doctorLoadChart.options.onClick = (evt, elements) => {
+                    if (elements.length > 0) {
+                        const index = elements[0].index;
+                        const label = doctorLoadChart.data.labels[index];
+                        openModal('doctor', label);
+                    }
+                };
+                doctorLoadChart.options.plugins.tooltip.footer = () => "Click to see profile";
+                doctorLoadChart.update();
+            }
+
+            // 2. Dept Load
+            const deptLoadChart = Chart.getChart("deptLoadChart");
+            if (deptLoadChart) {
+                deptLoadChart.options.onClick = (evt, elements) => {
+                    if (elements.length > 0) {
+                        const index = elements[0].index;
+                        const label = deptLoadChart.data.labels[index];
+                        openModal('department', label);
+                    }
+                };
+                deptLoadChart.options.plugins.tooltip.footer = () => "Click to see top staff & symptoms";
+                deptLoadChart.update();
+            }
+
+            // 3. Case Type
+            const caseTypeChart = Chart.getChart("caseTypeChart");
+            if (caseTypeChart) {
+                caseTypeChart.options.onClick = (evt, elements) => {
+                    if (elements.length > 0) {
+                        const index = elements[0].index;
+                        const label = caseTypeChart.data.labels[index];
+                        openModal('case_type', label);
+                    }
+                };
+                caseTypeChart.options.plugins.tooltip.footer = () => "Click to see volume trend";
+                caseTypeChart.update();
+            }
+
+            // 4. Symptoms
+            const symptomChart = Chart.getChart("symptomChart");
+            if (symptomChart) {
+                symptomChart.options.onClick = (evt, elements) => {
+                    if (elements.length > 0) {
+                        const index = elements[0].index;
+                        const label = symptomChart.data.labels[index];
+                        openModal('symptom', label);
+                    }
+                };
+                symptomChart.options.plugins.tooltip.footer = () => "Click to see departments";
+                symptomChart.update();
+            }
+        }
+
+        // Delay slightly to ensure charts are initialized
+        setTimeout(addChartClickHandlers, 2000);
+    </script>
+</body>
+
+</html>

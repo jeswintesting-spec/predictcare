@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="p-6 lg:p-10 max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div>
+            <h1 class="text-4xl font-black text-gray-900 tracking-tight mb-2">Hospital Settings</h1>
+            <p class="text-gray-500 font-medium italic">Configure the details that appear on generated bills and invoices.</p>
+        </div>
+        <div class="flex items-center gap-2 text-sm font-bold text-indigo-600 bg-indigo-50 px-4 py-2 rounded-full border border-indigo-100">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+            </span>
+            Admin Access Only
+        </div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="p-8 lg:p-12">
+            <form method="POST" class="space-y-8">
+                {% csrf_token %}
+                
+                {% if messages %}
+                <div class="space-y-4 mb-8">
+                    {% for message in messages %}
+                    <div class="p-4 rounded-xl {% if message.tags == 'success' %}bg-green-50 text-green-700 border border-green-100{% else %}bg-red-50 text-red-700 border border-red-100{% endif %} flex items-center gap-3 animate-in fade-in slide-in-from-top-4">
+                        <span class="text-lg">{% if message.tags == 'success' %}✅{% else %}⚠️{% endif %}</span>
+                        <p class="font-bold text-sm">{{ message }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <!-- Basic Identification -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-2">
+                        <label class="text-xs font-black text-gray-400 uppercase tracking-widest px-1">Hospital name</label>
+                        {{ form.hospital_name }}
+                        {% if form.hospital_name.errors %}<p class="text-red-500 text-xs font-bold mt-1">{{ form.hospital_name.errors.0 }}</p>{% endif %}
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs font-black text-gray-400 uppercase tracking-widest px-1">Subtitle / Slogan</label>
+                        {{ form.hospital_subtitle }}
+                        {% if form.hospital_subtitle.errors %}<p class="text-red-500 text-xs font-bold mt-1">{{ form.hospital_subtitle.errors.0 }}</p>{% endif %}
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-2">
+                        <label class="text-xs font-black text-gray-400 uppercase tracking-widest px-1">Contact Phone</label>
+                        {{ form.hospital_phone }}
+                        {% if form.hospital_phone.errors %}<p class="text-red-500 text-xs font-bold mt-1">{{ form.hospital_phone.errors.0 }}</p>{% endif %}
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs font-black text-gray-400 uppercase tracking-widest px-1">Email Address</label>
+                        {{ form.hospital_email }}
+                        {% if form.hospital_email.errors %}<p class="text-red-500 text-xs font-bold mt-1">{{ form.hospital_email.errors.0 }}</p>{% endif %}
+                    </div>
+                </div>
+
+                <!-- Detailed Info -->
+                <div class="space-y-2">
+                    <label class="text-xs font-black text-gray-400 uppercase tracking-widest px-1">Office Address</label>
+                    {{ form.hospital_address }}
+                    {% if form.hospital_address.errors %}<p class="text-red-500 text-xs font-bold mt-1">{{ form.hospital_address.errors.0 }}</p>{% endif %}
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-xs font-black text-gray-400 uppercase tracking-widest px-1">Bill Footer Message</label>
+                    {{ form.hospital_footer_text }}
+                    {% if form.hospital_footer_text.errors %}<p class="text-red-500 text-xs font-bold mt-1">{{ form.hospital_footer_text.errors.0 }}</p>{% endif %}
+                    <p class="text-[10px] text-gray-400 font-medium">This text will appear at the very bottom of every printed invoice.</p>
+                </div>
+
+                <!-- Actions -->
+                <div class="pt-6 border-t border-gray-50 flex items-center justify-end gap-4">
+                    <a href="{% url 'admin_dashboard' %}" class="px-6 py-3 rounded-xl border border-gray-200 text-gray-500 font-bold hover:bg-gray-50 transition-all">
+                        Cancel
+                    </a>
+                    <button type="submit" class="px-10 py-3 rounded-xl bg-indigo-600 text-white font-black hover:bg-indigo-700 shadow-lg shadow-indigo-200 transition-all transform active:scale-95">
+                        Save Configuration
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Preview Tip -->
+    <div class="mt-8 p-6 bg-indigo-900 rounded-3xl text-white flex items-center justify-between overflow-hidden relative">
+        <div class="relative z-10">
+            <h4 class="text-lg font-black mb-1">Live Preview Tip</h4>
+            <p class="text-indigo-200 text-sm font-medium">Any changes made here will reflect immediately on the **Pharmacy Billing** print outs.</p>
+        </div>
+        <div class="opacity-10 absolute -right-4 -bottom-4 text-8xl">🏥</div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,601 @@
+staff_id,department,nurse_name,gender,qualifications,email,phone,shift_start,shift_end,work_days,shift_type
+NUR001,ENT,Nurse Mary Panicker,Female,B.Sc Nursing,nursemarypanicker@bmh.com,+91 7691490943,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR002,Orthopaedics,Nurse Mariamma Chacko,Female,B.Sc Nursing,nursemariammachacko@bmh.com,+91 8416355777,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR003,Women's Care (Obstetrics & Gynaecology),Nurse Dhanya Eapen,Female,B.Sc Nursing,nursedhanyaeapen@bmh.com,+91 7535978185,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR004,Anaesthesiology,Nurse Devika Faisal,Female,B.Sc Nursing,nursedevikafaisal@bmh.com,+91 8353630174,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR005,General Medicine,Nurse Mary Hashim,Female,B.Sc Nursing,nursemaryhashim@bmh.com,+91 9601272016,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR006,Critical Care,Nurse Devika Varghese,Female,B.Sc Nursing,nursedevikavarghese@bmh.com,+91 9147143705,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR007,Neurosciences,Nurse Leelamma Varghese,Female,B.Sc Nursing,nurseleelammavarghese@bmh.com,+91 7789059803,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR008,Urology,Nurse Mary Samuel,Female,B.Sc Nursing,nursemarysamuel@bmh.com,+91 9765354526,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR009,ENT,Nurse Rahul Philip,Male,B.Sc Nursing,nurserahulphilip@bmh.com,+91 9389880643,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR010,Endocrinology,Nurse Antony Hashim,Male,B.Sc Nursing,nurseantonyhashim@bmh.com,+91 7192206853,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR011,Oncology,Nurse Nithin Philip,Male,B.Sc Nursing,nursenithinphilip@bmh.com,+91 7344670380,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR012,Endocrinology,Nurse Sumayya Philip,Female,B.Sc Nursing,nursesumayyaphilip@bmh.com,+91 8456806087,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR013,Pulmonology,Nurse Thomas Faisal,Male,B.Sc Nursing,nursethomasfaisal@bmh.com,+91 7120618302,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR014,Pathology,Nurse Sophy Kurup,Female,B.Sc Nursing,nursesophykurup@bmh.com,+91 7016366660,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR015,General Medicine,Nurse Midhun Nair,Male,B.Sc Nursing,nursemidhunnair@bmh.com,+91 7749762392,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR016,Women's Care (Obstetrics & Gynaecology),Nurse Rohan Varghese,Male,B.Sc Nursing,nurserohanvarghese@bmh.com,+91 9485381221,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR017,Emergency,Nurse Antony Philip,Male,B.Sc Nursing,nurseantonyphilip@bmh.com,+91 7757928641,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR018,Child Care (Paediatrics),Nurse Antony Nair,Male,B.Sc Nursing,nurseantonynair@bmh.com,+91 8463936636,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR019,Pulmonology,Nurse Sreelekshmi Nambiar,Female,B.Sc Nursing,nursesreelekshminambiar@bmh.com,+91 7713941843,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR020,Psychiatry,Nurse Devika Nambiar,Female,B.Sc Nursing,nursedevikanambiar@bmh.com,+91 7935441499,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR021,Critical Care,Nurse Siddharth Rahman,Male,B.Sc Nursing,nursesiddharthrahman@bmh.com,+91 9418329530,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR022,Orthopaedics,Nurse Jitin Joseph,Male,B.Sc Nursing,nursejitinjoseph@bmh.com,+91 9321632253,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR023,General Medicine,Nurse Dhanya Thampi,Female,B.Sc Nursing,nursedhanyathampi@bmh.com,+91 8464771829,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR024,ENT,Nurse Rahul Siddique,Male,B.Sc Nursing,nurserahulsiddique@bmh.com,+91 8641069432,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR025,Psychiatry,Nurse Nithin Menon,Male,B.Sc Nursing,nursenithinmenon@bmh.com,+91 9385175635,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR026,Urology,Nurse Ann Kurian,Female,B.Sc Nursing,nurseannkurian@bmh.com,+91 7855083989,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR027,Dermatology,Nurse Rohan Samuel,Male,B.Sc Nursing,nurserohansamuel@bmh.com,+91 9603043048,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR028,Neurosciences,Nurse Kiran Nair,Male,B.Sc Nursing,nursekirannair@bmh.com,+91 9637508710,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR029,General Surgery,Nurse Midhun Thomas,Male,B.Sc Nursing,nursemidhunthomas@bmh.com,+91 7565925573,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR030,Oncology,Nurse Parvathy Pillai,Female,B.Sc Nursing,nurseparvathypillai@bmh.com,+91 8280791060,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR031,Anaesthesiology,Nurse Vineeth Ibrahim,Male,B.Sc Nursing,nursevineethibrahim@bmh.com,+91 7143539392,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR032,Pulmonology,Nurse Aiswarya Philip,Female,B.Sc Nursing,nurseaiswaryaphilip@bmh.com,+91 9818963921,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR033,Dermatology,Nurse Mariamma Samuel,Female,B.Sc Nursing,nursemariammasamuel@bmh.com,+91 9781642924,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR034,ENT,Nurse Rahul Warrier,Male,B.Sc Nursing,nurserahulwarrier@bmh.com,+91 8611421581,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR035,Child Care (Paediatrics),Nurse Fathima Eapen,Female,B.Sc Nursing,nursefathimaeapen@bmh.com,+91 7461679714,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR036,Orthopaedics,Nurse Rahul Varghese,Male,B.Sc Nursing,nurserahulvarghese@bmh.com,+91 7557541728,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR037,Cardiology,Nurse Greeshma Ibrahim,Female,B.Sc Nursing,nursegreeshmaibrahim@bmh.com,+91 9880865326,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR038,Women's Care (Obstetrics & Gynaecology),Nurse Manu Kurian,Male,B.Sc Nursing,nursemanukurian@bmh.com,+91 8043963852,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR039,Urology,Nurse Kavya Rahman,Female,B.Sc Nursing,nursekavyarahman@bmh.com,+91 8687017927,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR040,General Medicine,Nurse Lakshmi Abraham,Female,B.Sc Nursing,nurselakshmiabraham@bmh.com,+91 9753859008,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR041,Pulmonology,Nurse Sherly Siddique,Female,B.Sc Nursing,nursesherlysiddique@bmh.com,+91 9988695559,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR042,Radiology,Nurse Meera Nambiar,Female,B.Sc Nursing,nursemeeranambiar@bmh.com,+91 9987139321,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR043,Radiology,Nurse Manu Warrier,Male,B.Sc Nursing,nursemanuwarrier@bmh.com,+91 7403990423,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR044,Psychiatry,Nurse Aswathy Ibrahim,Female,B.Sc Nursing,nurseaswathyibrahim@bmh.com,+91 7185373028,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR045,Gastroenterology,Nurse Deepak Varghese,Male,B.Sc Nursing,nursedeepakvarghese@bmh.com,+91 7774581358,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR046,Women's Care (Obstetrics & Gynaecology),Nurse Sebastian Samuel,Male,B.Sc Nursing,nursesebastiansamuel@bmh.com,+91 7446106979,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR047,Pathology,Nurse Deepak Cherian,Male,B.Sc Nursing,nursedeepakcherian@bmh.com,+91 8744467257,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR048,Ophthalmology,Nurse Sherly Varghese,Female,B.Sc Nursing,nursesherlyvarghese@bmh.com,+91 8741690174,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR049,General Surgery,Nurse Dhanya Menon,Female,B.Sc Nursing,nursedhanyamenon@bmh.com,+91 8243996229,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR050,Oncology,Nurse Sreelekshmi Varghese,Female,B.Sc Nursing,nursesreelekshmivarghese@bmh.com,+91 8692312347,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR051,Neurosciences,Nurse Reshma Kurian,Female,B.Sc Nursing,nursereshmakurian@bmh.com,+91 7740568775,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR052,ENT,Nurse Jacob Thomas,Male,B.Sc Nursing,nursejacobthomas@bmh.com,+91 8744110766,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR053,Nephrology,Nurse Thomas Warrier,Male,B.Sc Nursing,nursethomaswarrier@bmh.com,+91 7559123407,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR054,General Medicine,Nurse Rahul Rahman,Male,B.Sc Nursing,nurserahulrahman@bmh.com,+91 8282082311,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR055,Endocrinology,Nurse Aswathy Abraham,Female,B.Sc Nursing,nurseaswathyabraham@bmh.com,+91 7833235694,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR056,Pulmonology,Nurse Kiran Varghese,Male,B.Sc Nursing,nursekiranvarghese@bmh.com,+91 7127260378,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR057,Cardiology,Nurse Tessa Hashim,Female,B.Sc Nursing,nursetessahashim@bmh.com,+91 9756359752,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR058,Dermatology,Nurse Mary Varghese,Female,B.Sc Nursing,nursemaryvarghese@bmh.com,+91 9241215341,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR059,Child Care (Paediatrics),Nurse Dhanya Mathew,Female,B.Sc Nursing,nursedhanyamathew@bmh.com,+91 7585618664,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR060,Nephrology,Nurse Lakshmi Rahman,Female,B.Sc Nursing,nurselakshmirahman@bmh.com,+91 8519102477,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR061,Dermatology,Nurse Sherly Cherian,Female,B.Sc Nursing,nursesherlycherian@bmh.com,+91 7955878299,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR062,Urology,Nurse Siddharth Hashim,Male,B.Sc Nursing,nursesiddharthhashim@bmh.com,+91 8283293259,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR063,Women's Care (Obstetrics & Gynaecology),Nurse Aiswarya Kurup,Female,B.Sc Nursing,nurseaiswaryakurup@bmh.com,+91 7431984660,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR064,Cardiology,Nurse Greeshma Panicker,Female,B.Sc Nursing,nursegreeshmapanicker@bmh.com,+91 8449986413,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR065,Critical Care,Nurse Meera Ibrahim,Female,B.Sc Nursing,nursemeeraibrahim@bmh.com,+91 8447723667,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR066,Orthopaedics,Nurse Siddharth Varghese,Male,B.Sc Nursing,nursesiddharthvarghese@bmh.com,+91 8005006691,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR067,Pulmonology,Nurse Reshma Ibrahim,Female,B.Sc Nursing,nursereshmaibrahim@bmh.com,+91 9070436257,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR068,Gastroenterology,Nurse Anupama Varghese,Female,B.Sc Nursing,nurseanupamavarghese@bmh.com,+91 9151798314,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR069,Cardiology,Nurse Sanjay Abraham,Male,B.Sc Nursing,nursesanjayabraham@bmh.com,+91 9821900127,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR070,Emergency,Nurse Vineeth Mathew,Male,B.Sc Nursing,nursevineethmathew@bmh.com,+91 8976758728,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR071,Nephrology,Nurse Leelamma Hashim,Female,B.Sc Nursing,nurseleelammahashim@bmh.com,+91 8362816521,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR072,Women's Care (Obstetrics & Gynaecology),Nurse Sebastian Abraham,Male,B.Sc Nursing,nursesebastianabraham@bmh.com,+91 9647974974,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR073,Urology,Nurse Faisal Kurian,Male,B.Sc Nursing,nursefaisalkurian@bmh.com,+91 7723029353,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR074,Radiology,Nurse Sanjay Nambiar,Male,B.Sc Nursing,nursesanjaynambiar@bmh.com,+91 9845360505,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR075,Oncology,Nurse Sophy Eapen,Female,B.Sc Nursing,nursesophyeapen@bmh.com,+91 8115499927,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR076,Cardiology,Nurse Lakshmi Kurian,Female,B.Sc Nursing,nurselakshmikurian@bmh.com,+91 9362591194,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR077,Pulmonology,Nurse Mariamma Joseph,Female,B.Sc Nursing,nursemariammajoseph@bmh.com,+91 8543723582,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR078,Dental,Nurse Midhun Menon,Male,B.Sc Nursing,nursemidhunmenon@bmh.com,+91 8929925808,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR079,ENT,Nurse Sreelekshmi Thomas,Female,B.Sc Nursing,nursesreelekshmithomas@bmh.com,+91 7717130393,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR080,Gastroenterology,Nurse Varghese Thampi,Male,B.Sc Nursing,nursevarghesethampi@bmh.com,+91 9703990275,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR081,Orthopaedics,Nurse Aiswarya Siddique,Female,B.Sc Nursing,nurseaiswaryasiddique@bmh.com,+91 7351130533,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR082,Anaesthesiology,Nurse Nithin Pillai,Male,B.Sc Nursing,nursenithinpillai@bmh.com,+91 7583618311,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR083,ENT,Nurse Sumayya Chacko,Female,B.Sc Nursing,nursesumayyachacko@bmh.com,+91 8949935085,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR084,General Medicine,Nurse Vishal Kurian,Male,B.Sc Nursing,nursevishalkurian@bmh.com,+91 9740372050,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR085,Critical Care,Nurse Aswathy George,Female,B.Sc Nursing,nurseaswathygeorge@bmh.com,+91 9458925098,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR086,Orthopaedics,Nurse Riya Ibrahim,Female,B.Sc Nursing,nurseriyaibrahim@bmh.com,+91 8501891396,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR087,Dermatology,Nurse Meera Pillai,Female,B.Sc Nursing,nursemeerapillai@bmh.com,+91 7051079096,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR088,Neurosciences,Nurse Mohammed Pillai,Male,B.Sc Nursing,nursemohammedpillai@bmh.com,+91 7016544795,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR089,Neurosciences,Nurse Midhun Nambiar,Male,B.Sc Nursing,nursemidhunnambiar@bmh.com,+91 8723321485,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR090,Women's Care (Obstetrics & Gynaecology),Nurse Antony Siddique,Male,B.Sc Nursing,nurseantonysiddique@bmh.com,+91 9497491518,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR091,Critical Care,Nurse Deepak Thomas,Male,B.Sc Nursing,nursedeepakthomas@bmh.com,+91 9609514501,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR092,Dermatology,Nurse Sherly Cherian,Female,B.Sc Nursing,nursesherlycherian@bmh.com,+91 8411284181,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR093,ENT,Nurse Rahul Cherian,Male,B.Sc Nursing,nurserahulcherian@bmh.com,+91 9023299073,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR094,Oncology,Nurse Vishal Abraham,Male,B.Sc Nursing,nursevishalabraham@bmh.com,+91 7242441632,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR095,Dermatology,Nurse Deepak Varghese,Male,B.Sc Nursing,nursedeepakvarghese@bmh.com,+91 8356554556,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR096,Urology,Nurse Varghese Kurian,Male,B.Sc Nursing,nursevarghesekurian@bmh.com,+91 7763655759,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR097,Child Care (Paediatrics),Nurse Kiran Thampi,Male,B.Sc Nursing,nursekiranthampi@bmh.com,+91 9842160069,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR098,Child Care (Paediatrics),Nurse Jacob Ibrahim,Male,B.Sc Nursing,nursejacobibrahim@bmh.com,+91 9848224668,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR099,Gastroenterology,Nurse Faisal Samuel,Male,B.Sc Nursing,nursefaisalsamuel@bmh.com,+91 9957322459,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR100,General Surgery,Nurse Aiswarya Mathew,Female,B.Sc Nursing,nurseaiswaryamathew@bmh.com,+91 7206027422,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR101,Radiology,Nurse Mathew Mathew,Male,B.Sc Nursing,nursemathewmathew@bmh.com,+91 9867132421,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR102,Endocrinology,Nurse Jacob Warrier,Male,B.Sc Nursing,nursejacobwarrier@bmh.com,+91 8251459476,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR103,Radiology,Nurse Greeshma Hashim,Female,B.Sc Nursing,nursegreeshmahashim@bmh.com,+91 7348594194,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR104,Oncology,Nurse Aswathy Joseph,Female,B.Sc Nursing,nurseaswathyjoseph@bmh.com,+91 8170821767,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR105,Urology,Nurse Faisal Panicker,Male,B.Sc Nursing,nursefaisalpanicker@bmh.com,+91 8560965196,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR106,Nephrology,Nurse Lakshmi Siddique,Female,B.Sc Nursing,nurselakshmisiddique@bmh.com,+91 7824439951,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR107,Ophthalmology,Nurse Sneha Faisal,Female,B.Sc Nursing,nursesnehafaisal@bmh.com,+91 8430490465,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR108,Oncology,Nurse Tessa Faisal,Female,B.Sc Nursing,nursetessafaisal@bmh.com,+91 7275001898,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR109,Endocrinology,Nurse Aswathy Thomas,Female,B.Sc Nursing,nurseaswathythomas@bmh.com,+91 8780327016,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR110,Urology,Nurse Sebastian Panicker,Male,B.Sc Nursing,nursesebastianpanicker@bmh.com,+91 8013002166,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR111,Critical Care,Nurse Sherly Pillai,Female,B.Sc Nursing,nursesherlypillai@bmh.com,+91 7021425956,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR112,Ophthalmology,Nurse Arjun Abraham,Male,B.Sc Nursing,nursearjunabraham@bmh.com,+91 8821573796,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR113,Critical Care,Nurse Ann Thampi,Female,B.Sc Nursing,nurseannthampi@bmh.com,+91 9503191543,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR114,Emergency,Nurse Arjun Varghese,Male,B.Sc Nursing,nursearjunvarghese@bmh.com,+91 9080009006,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR115,General Surgery,Nurse Meera Nambiar,Female,B.Sc Nursing,nursemeeranambiar@bmh.com,+91 8270724284,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR116,Pulmonology,Nurse Kavya Cherian,Female,B.Sc Nursing,nursekavyacherian@bmh.com,+91 8488844121,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR117,Emergency,Nurse Aswathy Joseph,Female,B.Sc Nursing,nurseaswathyjoseph@bmh.com,+91 7982883438,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR118,Urology,Nurse Siddharth George,Male,B.Sc Nursing,nursesiddharthgeorge@bmh.com,+91 7130947004,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR119,Pulmonology,Nurse Meera Cherian,Female,B.Sc Nursing,nursemeeracherian@bmh.com,+91 9205932577,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR120,Orthopaedics,Nurse Faisal Panicker,Male,B.Sc Nursing,nursefaisalpanicker@bmh.com,+91 8631598045,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR121,Cardiology,Nurse Sneha Chacko,Female,B.Sc Nursing,nursesnehachacko@bmh.com,+91 7510835450,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR122,Emergency,Nurse Meera Abraham,Female,B.Sc Nursing,nursemeeraabraham@bmh.com,+91 8287792682,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR123,Nephrology,Nurse Manu Pillai,Male,B.Sc Nursing,nursemanupillai@bmh.com,+91 8497771627,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR124,General Surgery,Nurse Meera Kurup,Female,B.Sc Nursing,nursemeerakurup@bmh.com,+91 7735889574,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR125,Dermatology,Nurse Devika Nair,Female,B.Sc Nursing,nursedevikanair@bmh.com,+91 8094654617,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR126,General Surgery,Nurse Thomas Eapen,Male,B.Sc Nursing,nursethomaseapen@bmh.com,+91 9518499021,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR127,ENT,Nurse Mary Samuel,Female,B.Sc Nursing,nursemarysamuel@bmh.com,+91 7353870468,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR128,Dental,Nurse Anupama Siddique,Female,B.Sc Nursing,nurseanupamasiddique@bmh.com,+91 9061181930,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR129,Psychiatry,Nurse Vineeth Rahman,Male,B.Sc Nursing,nursevineethrahman@bmh.com,+91 7824485487,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR130,Endocrinology,Nurse Meera Kurup,Female,B.Sc Nursing,nursemeerakurup@bmh.com,+91 7905153566,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR131,Dental,Nurse Ann Nair,Female,B.Sc Nursing,nurseannnair@bmh.com,+91 7939278395,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR132,Cardiology,Nurse Mathew Samuel,Male,B.Sc Nursing,nursemathewsamuel@bmh.com,+91 9383289760,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR133,Child Care (Paediatrics),Nurse Reshma Faisal,Female,B.Sc Nursing,nursereshmafaisal@bmh.com,+91 7795699376,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR134,Anaesthesiology,Nurse Lakshmi Chacko,Female,B.Sc Nursing,nurselakshmichacko@bmh.com,+91 8565737320,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR135,General Surgery,Nurse Anupama Kurian,Female,B.Sc Nursing,nurseanupamakurian@bmh.com,+91 9781100194,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR136,Anaesthesiology,Nurse Sanjay Siddique,Male,B.Sc Nursing,nursesanjaysiddique@bmh.com,+91 7804796698,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR137,Orthopaedics,Nurse Arjun Panicker,Male,B.Sc Nursing,nursearjunpanicker@bmh.com,+91 7901953227,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR138,Ophthalmology,Nurse Tessa Cherian,Female,B.Sc Nursing,nursetessacherian@bmh.com,+91 9849989790,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR139,Critical Care,Nurse Faisal Faisal,Male,B.Sc Nursing,nursefaisalfaisal@bmh.com,+91 8520994828,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR140,ENT,Nurse Vishal Eapen,Male,B.Sc Nursing,nursevishaleapen@bmh.com,+91 7785652277,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR141,Endocrinology,Nurse Varghese Kurian,Male,B.Sc Nursing,nursevarghesekurian@bmh.com,+91 8283059391,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR142,General Surgery,Nurse Vishal Nair,Male,B.Sc Nursing,nursevishalnair@bmh.com,+91 9005765285,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR143,Anaesthesiology,Nurse Dhanya Joseph,Female,B.Sc Nursing,nursedhanyajoseph@bmh.com,+91 8518278171,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR144,Women's Care (Obstetrics & Gynaecology),Nurse Dhanya Kurian,Female,B.Sc Nursing,nursedhanyakurian@bmh.com,+91 9933147450,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR145,Child Care (Paediatrics),Nurse Tessa Faisal,Female,B.Sc Nursing,nursetessafaisal@bmh.com,+91 7716468754,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR146,Dental,Nurse Ann Thampi,Female,B.Sc Nursing,nurseannthampi@bmh.com,+91 9894905658,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR147,Nephrology,Nurse Varghese George,Male,B.Sc Nursing,nursevarghesegeorge@bmh.com,+91 8674355687,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR148,Dental,Nurse Meera Ibrahim,Female,B.Sc Nursing,nursemeeraibrahim@bmh.com,+91 8650098013,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR149,Gastroenterology,Nurse Sanjay Nambiar,Male,B.Sc Nursing,nursesanjaynambiar@bmh.com,+91 9273974698,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR150,Urology,Nurse Pranav Kurup,Male,B.Sc Nursing,nursepranavkurup@bmh.com,+91 8675161946,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR151,General Medicine,Nurse Jacob Hashim,Male,B.Sc Nursing,nursejacobhashim@bmh.com,+91 7378093474,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR152,Emergency,Nurse Faisal Philip,Male,B.Sc Nursing,nursefaisalphilip@bmh.com,+91 8492017308,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR153,Ophthalmology,Nurse Sanjay George,Male,B.Sc Nursing,nursesanjaygeorge@bmh.com,+91 9057793713,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR154,Orthopaedics,Nurse Sanjay Warrier,Male,B.Sc Nursing,nursesanjaywarrier@bmh.com,+91 7675479652,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR155,Nephrology,Nurse Nithin Menon,Male,B.Sc Nursing,nursenithinmenon@bmh.com,+91 7502050494,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR156,Psychiatry,Nurse Parvathy Pillai,Female,B.Sc Nursing,nurseparvathypillai@bmh.com,+91 9508868254,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR157,Radiology,Nurse Aiswarya Rahman,Female,B.Sc Nursing,nurseaiswaryarahman@bmh.com,+91 8142598448,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR158,Women's Care (Obstetrics & Gynaecology),Nurse Deepak Warrier,Male,B.Sc Nursing,nursedeepakwarrier@bmh.com,+91 8918832575,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR159,Pulmonology,Nurse Sanjay Menon,Male,B.Sc Nursing,nursesanjaymenon@bmh.com,+91 8675954398,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR160,Oncology,Nurse Sumayya Nambiar,Female,B.Sc Nursing,nursesumayyanambiar@bmh.com,+91 7436193146,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR161,Dermatology,Nurse Abhilash Kurup,Male,B.Sc Nursing,nurseabhilashkurup@bmh.com,+91 9075066090,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR162,Child Care (Paediatrics),Nurse Faisal Siddique,Male,B.Sc Nursing,nursefaisalsiddique@bmh.com,+91 9837669032,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR163,Cardiology,Nurse Siddharth Eapen,Male,B.Sc Nursing,nursesiddhartheapen@bmh.com,+91 8712631541,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR164,Cardiology,Nurse Tessa Warrier,Female,B.Sc Nursing,nursetessawarrier@bmh.com,+91 9472695265,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR165,General Medicine,Nurse Dhanya Hashim,Female,B.Sc Nursing,nursedhanyahashim@bmh.com,+91 8230718331,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR166,General Medicine,Nurse Rohan Thomas,Male,B.Sc Nursing,nurserohanthomas@bmh.com,+91 9429621124,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR167,Anaesthesiology,Nurse Thomas Ibrahim,Male,B.Sc Nursing,nursethomasibrahim@bmh.com,+91 9777580371,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR168,Ophthalmology,Nurse Anupama Nair,Female,B.Sc Nursing,nurseanupamanair@bmh.com,+91 7581574820,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR169,Women's Care (Obstetrics & Gynaecology),Nurse Mary Siddique,Female,B.Sc Nursing,nursemarysiddique@bmh.com,+91 7881478135,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR170,Neurosciences,Nurse Manu Cherian,Male,B.Sc Nursing,nursemanucherian@bmh.com,+91 8023288870,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR171,Gastroenterology,Nurse Faisal Philip,Male,B.Sc Nursing,nursefaisalphilip@bmh.com,+91 9947048759,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR172,Radiology,Nurse Sebastian Thomas,Male,B.Sc Nursing,nursesebastianthomas@bmh.com,+91 9543478544,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR173,Neurosciences,Nurse Kavya Nair,Female,B.Sc Nursing,nursekavyanair@bmh.com,+91 7285083666,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR174,Dermatology,Nurse George Samuel,Male,B.Sc Nursing,nursegeorgesamuel@bmh.com,+91 9037473074,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR175,Cardiology,Nurse Mary Abraham,Female,B.Sc Nursing,nursemaryabraham@bmh.com,+91 7290417167,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR176,Oncology,Nurse Rohan Faisal,Male,B.Sc Nursing,nurserohanfaisal@bmh.com,+91 7347492464,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR177,Orthopaedics,Nurse Varghese Samuel,Male,B.Sc Nursing,nursevarghesesamuel@bmh.com,+91 8396853271,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR178,Pulmonology,Nurse Midhun Varghese,Male,B.Sc Nursing,nursemidhunvarghese@bmh.com,+91 9974714913,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR179,Gastroenterology,Nurse Meera Faisal,Female,B.Sc Nursing,nursemeerafaisal@bmh.com,+91 8995310383,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR180,Child Care (Paediatrics),Nurse Nithin Kurian,Male,B.Sc Nursing,nursenithinkurian@bmh.com,+91 7772062161,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR181,Orthopaedics,Nurse Antony Rahman,Male,B.Sc Nursing,nurseantonyrahman@bmh.com,+91 8159821748,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR182,Pulmonology,Nurse George Panicker,Male,B.Sc Nursing,nursegeorgepanicker@bmh.com,+91 7138877377,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR183,General Surgery,Nurse Fathima Kurian,Female,B.Sc Nursing,nursefathimakurian@bmh.com,+91 8098724226,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR184,Nephrology,Nurse Manu Faisal,Male,B.Sc Nursing,nursemanufaisal@bmh.com,+91 9910096324,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR185,Psychiatry,Nurse Vineeth Siddique,Male,B.Sc Nursing,nursevineethsiddique@bmh.com,+91 7434224040,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR186,Radiology,Nurse Vineeth Siddique,Male,B.Sc Nursing,nursevineethsiddique@bmh.com,+91 8859333783,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR187,Child Care (Paediatrics),Nurse Kavya Rahman,Female,B.Sc Nursing,nursekavyarahman@bmh.com,+91 8087928623,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR188,Emergency,Nurse Parvathy Kurian,Female,B.Sc Nursing,nurseparvathykurian@bmh.com,+91 8839705159,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR189,Dermatology,Nurse Mary Chacko,Female,B.Sc Nursing,nursemarychacko@bmh.com,+91 7854861169,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR190,Urology,Nurse Mary Varghese,Female,B.Sc Nursing,nursemaryvarghese@bmh.com,+91 7681846698,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR191,Anaesthesiology,Nurse Sebastian Thomas,Male,B.Sc Nursing,nursesebastianthomas@bmh.com,+91 7205664538,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR192,Dental,Nurse Mariamma Joseph,Female,B.Sc Nursing,nursemariammajoseph@bmh.com,+91 8861287781,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR193,Neurosciences,Nurse Aswathy Siddique,Female,B.Sc Nursing,nurseaswathysiddique@bmh.com,+91 9281098103,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR194,Pathology,Nurse Anupama Samuel,Female,B.Sc Nursing,nurseanupamasamuel@bmh.com,+91 7269888532,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR195,Radiology,Nurse Mohammed Panicker,Male,B.Sc Nursing,nursemohammedpanicker@bmh.com,+91 8991983403,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR196,Gastroenterology,Nurse Vishal Abraham,Male,B.Sc Nursing,nursevishalabraham@bmh.com,+91 7273433082,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR197,Women's Care (Obstetrics & Gynaecology),Nurse Faisal Pillai,Male,B.Sc Nursing,nursefaisalpillai@bmh.com,+91 9263538843,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR198,General Surgery,Nurse Aiswarya Cherian,Female,B.Sc Nursing,nurseaiswaryacherian@bmh.com,+91 9887237084,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR199,Child Care (Paediatrics),Nurse Jacob Menon,Male,B.Sc Nursing,nursejacobmenon@bmh.com,+91 7027687302,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR200,Critical Care,Nurse Dhanya Abraham,Female,B.Sc Nursing,nursedhanyaabraham@bmh.com,+91 7136379719,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR201,Nephrology,Nurse Riya Kurian,Female,B.Sc Nursing,nurseriyakurian@bmh.com,+91 9613291393,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR202,Pulmonology,Nurse Aiswarya Rahman,Female,B.Sc Nursing,nurseaiswaryarahman@bmh.com,+91 7413382889,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR203,Endocrinology,Nurse Faisal Rahman,Male,B.Sc Nursing,nursefaisalrahman@bmh.com,+91 8184180920,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR204,Women's Care (Obstetrics & Gynaecology),Nurse Dhanya Kurian,Female,B.Sc Nursing,nursedhanyakurian@bmh.com,+91 7504540725,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR205,Neurosciences,Nurse Deepak Chacko,Male,B.Sc Nursing,nursedeepakchacko@bmh.com,+91 8040839708,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR206,Child Care (Paediatrics),Nurse Dhanya Samuel,Female,B.Sc Nursing,nursedhanyasamuel@bmh.com,+91 7440754207,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR207,Dermatology,Nurse Ann Philip,Female,B.Sc Nursing,nurseannphilip@bmh.com,+91 7631724940,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR208,Pathology,Nurse Sebastian Panicker,Male,B.Sc Nursing,nursesebastianpanicker@bmh.com,+91 7349946463,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR209,Gastroenterology,Nurse Ann Thomas,Female,B.Sc Nursing,nurseannthomas@bmh.com,+91 8820807131,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR210,Dental,Nurse Varghese Menon,Male,B.Sc Nursing,nursevarghesemenon@bmh.com,+91 8783531524,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR211,Pulmonology,Nurse Antony Nambiar,Male,B.Sc Nursing,nurseantonynambiar@bmh.com,+91 8511061492,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR212,Urology,Nurse Reshma Nambiar,Female,B.Sc Nursing,nursereshmanambiar@bmh.com,+91 8964720403,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR213,Women's Care (Obstetrics & Gynaecology),Nurse Jacob Nair,Male,B.Sc Nursing,nursejacobnair@bmh.com,+91 9665069847,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR214,Child Care (Paediatrics),Nurse Jitin Hashim,Male,B.Sc Nursing,nursejitinhashim@bmh.com,+91 7151358195,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR215,ENT,Nurse Jacob Warrier,Male,B.Sc Nursing,nursejacobwarrier@bmh.com,+91 9043457197,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR216,Women's Care (Obstetrics & Gynaecology),Nurse Vineeth Thomas,Male,B.Sc Nursing,nursevineeththomas@bmh.com,+91 9426563534,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR217,Orthopaedics,Nurse Riya Thomas,Female,B.Sc Nursing,nurseriyathomas@bmh.com,+91 7571179147,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR218,Pathology,Nurse Anjali Philip,Female,B.Sc Nursing,nurseanjaliphilip@bmh.com,+91 8465850075,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR219,Urology,Nurse Mary Varghese,Female,B.Sc Nursing,nursemaryvarghese@bmh.com,+91 8155178982,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR220,Dental,Nurse Faisal George,Male,B.Sc Nursing,nursefaisalgeorge@bmh.com,+91 7748833054,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR221,Nephrology,Nurse Abhilash Thomas,Male,B.Sc Nursing,nurseabhilashthomas@bmh.com,+91 8768579592,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR222,Pulmonology,Nurse Antony Mathew,Male,B.Sc Nursing,nurseantonymathew@bmh.com,+91 8890923119,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR223,Neurosciences,Nurse Vishal Panicker,Male,B.Sc Nursing,nursevishalpanicker@bmh.com,+91 8643726052,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR224,General Surgery,Nurse Mohammed Ibrahim,Male,B.Sc Nursing,nursemohammedibrahim@bmh.com,+91 9672411260,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR225,ENT,Nurse Manu Thampi,Male,B.Sc Nursing,nursemanuthampi@bmh.com,+91 7057388181,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR226,Oncology,Nurse Midhun Nambiar,Male,B.Sc Nursing,nursemidhunnambiar@bmh.com,+91 7103696098,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR227,Emergency,Nurse Rohan Nair,Male,B.Sc Nursing,nurserohannair@bmh.com,+91 8793780981,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR228,ENT,Nurse Manu George,Male,B.Sc Nursing,nursemanugeorge@bmh.com,+91 8102265655,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR229,General Medicine,Nurse Nithin Panicker,Male,B.Sc Nursing,nursenithinpanicker@bmh.com,+91 9305478947,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR230,Nephrology,Nurse Reshma Samuel,Female,B.Sc Nursing,nursereshmasamuel@bmh.com,+91 9380571550,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR231,Urology,Nurse Greeshma Thomas,Female,B.Sc Nursing,nursegreeshmathomas@bmh.com,+91 7115663984,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR232,General Medicine,Nurse Mohammed Abraham,Male,B.Sc Nursing,nursemohammedabraham@bmh.com,+91 9144705776,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR233,Nephrology,Nurse Anjali Nambiar,Female,B.Sc Nursing,nurseanjalinambiar@bmh.com,+91 7814848735,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR234,Neurosciences,Nurse Rohan Thampi,Male,B.Sc Nursing,nurserohanthampi@bmh.com,+91 9657312203,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR235,Ophthalmology,Nurse Aswathy Thampi,Female,B.Sc Nursing,nurseaswathythampi@bmh.com,+91 7520485184,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR236,Urology,Nurse Pranav Joseph,Male,B.Sc Nursing,nursepranavjoseph@bmh.com,+91 7070679203,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR237,Child Care (Paediatrics),Nurse Parvathy Cherian,Female,B.Sc Nursing,nurseparvathycherian@bmh.com,+91 7565036044,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR238,Endocrinology,Nurse Manu Nambiar,Male,B.Sc Nursing,nursemanunambiar@bmh.com,+91 9691381631,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR239,Psychiatry,Nurse Kavya Ibrahim,Female,B.Sc Nursing,nursekavyaibrahim@bmh.com,+91 7165490217,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR240,Endocrinology,Nurse Aswathy Mathew,Female,B.Sc Nursing,nurseaswathymathew@bmh.com,+91 8377141030,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR241,Nephrology,Nurse Leelamma Ibrahim,Female,B.Sc Nursing,nurseleelammaibrahim@bmh.com,+91 8998397957,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR242,Psychiatry,Nurse Sebastian George,Male,B.Sc Nursing,nursesebastiangeorge@bmh.com,+91 7603013705,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR243,Pulmonology,Nurse Pranav Thomas,Male,B.Sc Nursing,nursepranavthomas@bmh.com,+91 7662495275,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR244,Pulmonology,Nurse Devika Abraham,Female,B.Sc Nursing,nursedevikaabraham@bmh.com,+91 8365572664,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR245,Cardiology,Nurse Tessa Hashim,Female,B.Sc Nursing,nursetessahashim@bmh.com,+91 7479922792,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR246,Women's Care (Obstetrics & Gynaecology),Nurse Lakshmi Kurup,Female,B.Sc Nursing,nurselakshmikurup@bmh.com,+91 8263030234,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR247,ENT,Nurse Anjali Menon,Female,B.Sc Nursing,nurseanjalimenon@bmh.com,+91 7132322706,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR248,Pathology,Nurse Sebastian Philip,Male,B.Sc Nursing,nursesebastianphilip@bmh.com,+91 9974554401,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR249,Critical Care,Nurse Rahul Cherian,Male,B.Sc Nursing,nurserahulcherian@bmh.com,+91 7446625179,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR250,Urology,Nurse Kiran Menon,Male,B.Sc Nursing,nursekiranmenon@bmh.com,+91 7267000778,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR251,Dermatology,Nurse Manu Samuel,Male,B.Sc Nursing,nursemanusamuel@bmh.com,+91 8034527779,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR252,Anaesthesiology,Nurse Nithin Warrier,Male,B.Sc Nursing,nursenithinwarrier@bmh.com,+91 8202691021,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR253,Cardiology,Nurse Anupama Abraham,Female,B.Sc Nursing,nurseanupamaabraham@bmh.com,+91 7331458044,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR254,Women's Care (Obstetrics & Gynaecology),Nurse Vishal George,Male,B.Sc Nursing,nursevishalgeorge@bmh.com,+91 9938160017,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR255,Emergency,Nurse Parvathy George,Female,B.Sc Nursing,nurseparvathygeorge@bmh.com,+91 7447824164,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR256,Endocrinology,Nurse Deepak Kurup,Male,B.Sc Nursing,nursedeepakkurup@bmh.com,+91 9521711996,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR257,Psychiatry,Nurse Mary Thampi,Female,B.Sc Nursing,nursemarythampi@bmh.com,+91 8761417480,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR258,Orthopaedics,Nurse Sherly Samuel,Female,B.Sc Nursing,nursesherlysamuel@bmh.com,+91 7674788320,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR259,Child Care (Paediatrics),Nurse Reshma Philip,Female,B.Sc Nursing,nursereshmaphilip@bmh.com,+91 7910893617,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR260,Cardiology,Nurse Fathima Rahman,Female,B.Sc Nursing,nursefathimarahman@bmh.com,+91 7602199252,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR261,Pathology,Nurse Siddharth Thomas,Male,B.Sc Nursing,nursesiddharththomas@bmh.com,+91 9810704047,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR262,Oncology,Nurse Arjun Chacko,Male,B.Sc Nursing,nursearjunchacko@bmh.com,+91 8997382612,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR263,Oncology,Nurse George Hashim,Male,B.Sc Nursing,nursegeorgehashim@bmh.com,+91 9741971847,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR264,General Surgery,Nurse Sumayya Ibrahim,Female,B.Sc Nursing,nursesumayyaibrahim@bmh.com,+91 8529607051,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR265,Anaesthesiology,Nurse Abhilash Ibrahim,Male,B.Sc Nursing,nurseabhilashibrahim@bmh.com,+91 8337524863,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR266,Women's Care (Obstetrics & Gynaecology),Nurse Aneesh Chacko,Male,B.Sc Nursing,nurseaneeshchacko@bmh.com,+91 7621568576,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR267,Neurosciences,Nurse Mohammed Nair,Male,B.Sc Nursing,nursemohammednair@bmh.com,+91 8988480730,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR268,Radiology,Nurse Thomas Samuel,Male,B.Sc Nursing,nursethomassamuel@bmh.com,+91 7341183145,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR269,Child Care (Paediatrics),Nurse Reshma Ibrahim,Female,B.Sc Nursing,nursereshmaibrahim@bmh.com,+91 8822913996,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR270,Urology,Nurse Sanjay Ibrahim,Male,B.Sc Nursing,nursesanjayibrahim@bmh.com,+91 7365259460,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR271,Critical Care,Nurse Jacob Nair,Male,B.Sc Nursing,nursejacobnair@bmh.com,+91 8053390787,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR272,General Medicine,Nurse Nithin Panicker,Male,B.Sc Nursing,nursenithinpanicker@bmh.com,+91 9286645428,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR273,Pathology,Nurse Aiswarya Joseph,Female,B.Sc Nursing,nurseaiswaryajoseph@bmh.com,+91 7628721775,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR274,Critical Care,Nurse Sherly Thomas,Female,B.Sc Nursing,nursesherlythomas@bmh.com,+91 9205269884,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR275,Gastroenterology,Nurse Ann George,Female,B.Sc Nursing,nurseanngeorge@bmh.com,+91 7272433745,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR276,Endocrinology,Nurse Remya Pillai,Female,B.Sc Nursing,nurseremyapillai@bmh.com,+91 8467873530,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR277,Nephrology,Nurse Rahul Chacko,Male,B.Sc Nursing,nurserahulchacko@bmh.com,+91 8202111933,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR278,Dermatology,Nurse Siddharth Varghese,Male,B.Sc Nursing,nursesiddharthvarghese@bmh.com,+91 8612253267,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR279,General Medicine,Nurse Sreelekshmi Panicker,Female,B.Sc Nursing,nursesreelekshmipanicker@bmh.com,+91 9756839316,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR280,Neurosciences,Nurse Dhanya Cherian,Female,B.Sc Nursing,nursedhanyacherian@bmh.com,+91 9008171017,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR281,Cardiology,Nurse Mary Thampi,Female,B.Sc Nursing,nursemarythampi@bmh.com,+91 7783445613,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR282,ENT,Nurse Vineeth Ibrahim,Male,B.Sc Nursing,nursevineethibrahim@bmh.com,+91 9299698148,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR283,Pathology,Nurse Sherly Thampi,Female,B.Sc Nursing,nursesherlythampi@bmh.com,+91 8357836141,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR284,Dermatology,Nurse Abhilash Nambiar,Male,B.Sc Nursing,nurseabhilashnambiar@bmh.com,+91 7529469908,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR285,Neurosciences,Nurse Faisal Rahman,Male,B.Sc Nursing,nursefaisalrahman@bmh.com,+91 7017406933,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR286,Anaesthesiology,Nurse Kavya Ibrahim,Female,B.Sc Nursing,nursekavyaibrahim@bmh.com,+91 7941232497,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR287,Psychiatry,Nurse Mathew Siddique,Male,B.Sc Nursing,nursemathewsiddique@bmh.com,+91 8076105668,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR288,Anaesthesiology,Nurse Vineeth Thampi,Male,B.Sc Nursing,nursevineeththampi@bmh.com,+91 7678090952,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR289,ENT,Nurse Remya Samuel,Female,B.Sc Nursing,nurseremyasamuel@bmh.com,+91 9956102306,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR290,Dental,Nurse Kiran George,Male,B.Sc Nursing,nursekirangeorge@bmh.com,+91 9413915269,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR291,General Medicine,Nurse Varghese Rahman,Male,B.Sc Nursing,nursevargheserahman@bmh.com,+91 8222517997,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR292,Ophthalmology,Nurse Mohammed Thomas,Male,B.Sc Nursing,nursemohammedthomas@bmh.com,+91 7027038584,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR293,Urology,Nurse Devika Ibrahim,Female,B.Sc Nursing,nursedevikaibrahim@bmh.com,+91 9619968308,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR294,Pulmonology,Nurse Kavya Joseph,Female,B.Sc Nursing,nursekavyajoseph@bmh.com,+91 8529264535,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR295,Pulmonology,Nurse Dhanya Rahman,Female,B.Sc Nursing,nursedhanyarahman@bmh.com,+91 8660330499,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR296,Endocrinology,Nurse Rahul Samuel,Male,B.Sc Nursing,nurserahulsamuel@bmh.com,+91 9298890051,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR297,Anaesthesiology,Nurse Riya Mathew,Female,B.Sc Nursing,nurseriyamathew@bmh.com,+91 8517449401,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR298,ENT,Nurse Fathima Hashim,Female,B.Sc Nursing,nursefathimahashim@bmh.com,+91 7445849420,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR299,Ophthalmology,Nurse Tessa George,Female,B.Sc Nursing,nursetessageorge@bmh.com,+91 8227702428,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR300,Endocrinology,Nurse Thomas Nambiar,Male,B.Sc Nursing,nursethomasnambiar@bmh.com,+91 9879104408,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR301,Women's Care (Obstetrics & Gynaecology),Nurse Rohan Chacko,Male,B.Sc Nursing,nurserohanchacko@bmh.com,+91 8972575153,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR302,Oncology,Nurse Ann Kurup,Female,B.Sc Nursing,nurseannkurup@bmh.com,+91 7193495056,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR303,Pathology,Nurse Aswathy Thampi,Female,B.Sc Nursing,nurseaswathythampi@bmh.com,+91 8378032608,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR304,Child Care (Paediatrics),Nurse Mathew Cherian,Male,B.Sc Nursing,nursemathewcherian@bmh.com,+91 7543532701,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR305,Oncology,Nurse Jitin Warrier,Male,B.Sc Nursing,nursejitinwarrier@bmh.com,+91 8883400675,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR306,General Medicine,Nurse Lakshmi Faisal,Female,B.Sc Nursing,nurselakshmifaisal@bmh.com,+91 8365106318,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR307,Critical Care,Nurse Reshma Menon,Female,B.Sc Nursing,nursereshmamenon@bmh.com,+91 7117404096,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR308,Psychiatry,Nurse Reshma Nambiar,Female,B.Sc Nursing,nursereshmanambiar@bmh.com,+91 9949693556,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR309,Orthopaedics,Nurse Midhun Cherian,Male,B.Sc Nursing,nursemidhuncherian@bmh.com,+91 8800738767,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR310,Orthopaedics,Nurse Vishal Chacko,Male,B.Sc Nursing,nursevishalchacko@bmh.com,+91 9382558919,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR311,Endocrinology,Nurse Anupama George,Female,B.Sc Nursing,nurseanupamageorge@bmh.com,+91 8811282239,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR312,Pathology,Nurse Mary Rahman,Female,B.Sc Nursing,nursemaryrahman@bmh.com,+91 7567738130,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR313,Psychiatry,Nurse Antony Menon,Male,B.Sc Nursing,nurseantonymenon@bmh.com,+91 9273621845,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR314,ENT,Nurse Tessa Chacko,Female,B.Sc Nursing,nursetessachacko@bmh.com,+91 9367738468,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR315,Neurosciences,Nurse Sanjay Warrier,Male,B.Sc Nursing,nursesanjaywarrier@bmh.com,+91 9598579575,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR316,Nephrology,Nurse Devika Samuel,Female,B.Sc Nursing,nursedevikasamuel@bmh.com,+91 9679325669,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR317,General Surgery,Nurse Manu Chacko,Male,B.Sc Nursing,nursemanuchacko@bmh.com,+91 7946751404,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR318,Oncology,Nurse Rahul Philip,Male,B.Sc Nursing,nurserahulphilip@bmh.com,+91 9333342162,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR319,Ophthalmology,Nurse Midhun Mathew,Male,B.Sc Nursing,nursemidhunmathew@bmh.com,+91 8421768641,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR320,Emergency,Nurse Faisal Siddique,Male,B.Sc Nursing,nursefaisalsiddique@bmh.com,+91 8746264229,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR321,Pulmonology,Nurse Sherly Abraham,Female,B.Sc Nursing,nursesherlyabraham@bmh.com,+91 9825573828,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR322,Pulmonology,Nurse Sreelekshmi Philip,Female,B.Sc Nursing,nursesreelekshmiphilip@bmh.com,+91 9697127759,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR323,Nephrology,Nurse Varghese Menon,Male,B.Sc Nursing,nursevarghesemenon@bmh.com,+91 8604310454,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR324,ENT,Nurse Sumayya Chacko,Female,B.Sc Nursing,nursesumayyachacko@bmh.com,+91 8396539823,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR325,Gastroenterology,Nurse Sophy Abraham,Female,B.Sc Nursing,nursesophyabraham@bmh.com,+91 9610238714,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR326,General Medicine,Nurse Pranav Warrier,Male,B.Sc Nursing,nursepranavwarrier@bmh.com,+91 8329678134,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR327,Pathology,Nurse Arjun Menon,Male,B.Sc Nursing,nursearjunmenon@bmh.com,+91 8345977073,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR328,Neurosciences,Nurse Jacob Rahman,Male,B.Sc Nursing,nursejacobrahman@bmh.com,+91 9027774886,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR329,General Medicine,Nurse Sumayya Varghese,Female,B.Sc Nursing,nursesumayyavarghese@bmh.com,+91 8355573314,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR330,Pulmonology,Nurse Greeshma Samuel,Female,B.Sc Nursing,nursegreeshmasamuel@bmh.com,+91 9742835569,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR331,Child Care (Paediatrics),Nurse Ann Menon,Female,B.Sc Nursing,nurseannmenon@bmh.com,+91 7955618269,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR332,ENT,Nurse Midhun Thomas,Male,B.Sc Nursing,nursemidhunthomas@bmh.com,+91 8811816672,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR333,Cardiology,Nurse Leelamma Kurian,Female,B.Sc Nursing,nurseleelammakurian@bmh.com,+91 8664178727,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR334,Pathology,Nurse Faisal Cherian,Male,B.Sc Nursing,nursefaisalcherian@bmh.com,+91 8163621762,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR335,Emergency,Nurse Jacob Cherian,Male,B.Sc Nursing,nursejacobcherian@bmh.com,+91 8643630901,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR336,Women's Care (Obstetrics & Gynaecology),Nurse Reshma Philip,Female,B.Sc Nursing,nursereshmaphilip@bmh.com,+91 7717163270,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR337,Pulmonology,Nurse George Panicker,Male,B.Sc Nursing,nursegeorgepanicker@bmh.com,+91 9995190134,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR338,General Medicine,Nurse Parvathy George,Female,B.Sc Nursing,nurseparvathygeorge@bmh.com,+91 9969194326,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR339,Dental,Nurse Sebastian Varghese,Male,B.Sc Nursing,nursesebastianvarghese@bmh.com,+91 8494963115,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR340,ENT,Nurse Greeshma Nambiar,Female,B.Sc Nursing,nursegreeshmanambiar@bmh.com,+91 7459063342,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR341,Critical Care,Nurse Aiswarya Philip,Female,B.Sc Nursing,nurseaiswaryaphilip@bmh.com,+91 9959871668,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR342,Dental,Nurse Sophy Eapen,Female,B.Sc Nursing,nursesophyeapen@bmh.com,+91 7778389129,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR343,Dental,Nurse Siddharth Abraham,Male,B.Sc Nursing,nursesiddharthabraham@bmh.com,+91 8570855663,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR344,Cardiology,Nurse Sneha Pillai,Female,B.Sc Nursing,nursesnehapillai@bmh.com,+91 7162845505,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR345,Pathology,Nurse Abhilash Cherian,Male,B.Sc Nursing,nurseabhilashcherian@bmh.com,+91 9235871536,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR346,ENT,Nurse Aneesh Ibrahim,Male,B.Sc Nursing,nurseaneeshibrahim@bmh.com,+91 9153516883,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR347,Child Care (Paediatrics),Nurse Aneesh Pillai,Male,B.Sc Nursing,nurseaneeshpillai@bmh.com,+91 7558534311,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR348,Anaesthesiology,Nurse Aiswarya Joseph,Female,B.Sc Nursing,nurseaiswaryajoseph@bmh.com,+91 7667584478,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR349,Oncology,Nurse Deepak Eapen,Male,B.Sc Nursing,nursedeepakeapen@bmh.com,+91 9625507629,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR350,Psychiatry,Nurse Fathima Menon,Female,B.Sc Nursing,nursefathimamenon@bmh.com,+91 8184808021,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR351,Anaesthesiology,Nurse Aswathy Nair,Female,B.Sc Nursing,nurseaswathynair@bmh.com,+91 7363880986,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR352,Critical Care,Nurse Faisal Nambiar,Male,B.Sc Nursing,nursefaisalnambiar@bmh.com,+91 8948663079,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR353,Cardiology,Nurse Antony Faisal,Male,B.Sc Nursing,nurseantonyfaisal@bmh.com,+91 9436448244,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR354,Dental,Nurse Arjun Rahman,Male,B.Sc Nursing,nursearjunrahman@bmh.com,+91 9182571065,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR355,Radiology,Nurse Reshma Ibrahim,Female,B.Sc Nursing,nursereshmaibrahim@bmh.com,+91 8069039678,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR356,Pathology,Nurse Nithin Chacko,Male,B.Sc Nursing,nursenithinchacko@bmh.com,+91 7052456356,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR357,Dental,Nurse Dhanya Mathew,Female,B.Sc Nursing,nursedhanyamathew@bmh.com,+91 9744395628,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR358,Cardiology,Nurse Dhanya Cherian,Female,B.Sc Nursing,nursedhanyacherian@bmh.com,+91 7745707063,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR359,Urology,Nurse Jitin Warrier,Male,B.Sc Nursing,nursejitinwarrier@bmh.com,+91 9836875593,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR360,Critical Care,Nurse Deepak Thomas,Male,B.Sc Nursing,nursedeepakthomas@bmh.com,+91 7815482878,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR361,Cardiology,Nurse Kiran Panicker,Male,B.Sc Nursing,nursekiranpanicker@bmh.com,+91 9262786818,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR362,Radiology,Nurse Greeshma Thampi,Female,B.Sc Nursing,nursegreeshmathampi@bmh.com,+91 8137665530,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR363,Pulmonology,Nurse Varghese Thampi,Male,B.Sc Nursing,nursevarghesethampi@bmh.com,+91 8775765745,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR364,Radiology,Nurse Anupama Nair,Female,B.Sc Nursing,nurseanupamanair@bmh.com,+91 9986126672,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR365,Emergency,Nurse Riya Abraham,Female,B.Sc Nursing,nurseriyaabraham@bmh.com,+91 9217639773,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR366,Pathology,Nurse Sanjay Chacko,Male,B.Sc Nursing,nursesanjaychacko@bmh.com,+91 8127823791,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR367,Anaesthesiology,Nurse Thomas Menon,Male,B.Sc Nursing,nursethomasmenon@bmh.com,+91 9954240743,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR368,Ophthalmology,Nurse Vineeth Cherian,Male,B.Sc Nursing,nursevineethcherian@bmh.com,+91 8765780257,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR369,ENT,Nurse Mary Faisal,Female,B.Sc Nursing,nursemaryfaisal@bmh.com,+91 9255755136,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR370,Urology,Nurse Midhun Philip,Male,B.Sc Nursing,nursemidhunphilip@bmh.com,+91 7400708149,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR371,Urology,Nurse Sophy Abraham,Female,B.Sc Nursing,nursesophyabraham@bmh.com,+91 8850032186,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR372,Orthopaedics,Nurse Greeshma Thampi,Female,B.Sc Nursing,nursegreeshmathampi@bmh.com,+91 8060922154,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR373,Cardiology,Nurse George Rahman,Male,B.Sc Nursing,nursegeorgerahman@bmh.com,+91 9217521461,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR374,Pulmonology,Nurse Vishal Kurian,Male,B.Sc Nursing,nursevishalkurian@bmh.com,+91 9922418707,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR375,General Surgery,Nurse George Faisal,Male,B.Sc Nursing,nursegeorgefaisal@bmh.com,+91 7772952320,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR376,Radiology,Nurse Antony Warrier,Male,B.Sc Nursing,nurseantonywarrier@bmh.com,+91 9876156427,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR377,Urology,Nurse Tessa Joseph,Female,B.Sc Nursing,nursetessajoseph@bmh.com,+91 7862293756,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR378,Critical Care,Nurse Riya Kurian,Female,B.Sc Nursing,nurseriyakurian@bmh.com,+91 9241196070,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR379,Neurosciences,Nurse Devika Joseph,Female,B.Sc Nursing,nursedevikajoseph@bmh.com,+91 7737608018,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR380,Cardiology,Nurse Mathew Rahman,Male,B.Sc Nursing,nursemathewrahman@bmh.com,+91 7152892724,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR381,Dermatology,Nurse Arjun Rahman,Male,B.Sc Nursing,nursearjunrahman@bmh.com,+91 9924223621,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR382,Dental,Nurse Aiswarya Kurian,Female,B.Sc Nursing,nurseaiswaryakurian@bmh.com,+91 8199698747,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR383,Nephrology,Nurse Sneha Siddique,Female,B.Sc Nursing,nursesnehasiddique@bmh.com,+91 8373482408,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR384,Cardiology,Nurse George Nambiar,Male,B.Sc Nursing,nursegeorgenambiar@bmh.com,+91 9193350928,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR385,Orthopaedics,Nurse Anjali Eapen,Female,B.Sc Nursing,nurseanjalieapen@bmh.com,+91 9968552405,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR386,Pathology,Nurse Fathima Panicker,Female,B.Sc Nursing,nursefathimapanicker@bmh.com,+91 8731965332,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR387,Urology,Nurse Aiswarya Chacko,Female,B.Sc Nursing,nurseaiswaryachacko@bmh.com,+91 9500290944,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR388,Gastroenterology,Nurse Abhilash Kurian,Male,B.Sc Nursing,nurseabhilashkurian@bmh.com,+91 9714440222,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR389,Orthopaedics,Nurse Faisal Ibrahim,Male,B.Sc Nursing,nursefaisalibrahim@bmh.com,+91 8290972302,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR390,Pathology,Nurse Thomas Panicker,Male,B.Sc Nursing,nursethomaspanicker@bmh.com,+91 9434172570,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR391,Cardiology,Nurse Jacob Kurup,Male,B.Sc Nursing,nursejacobkurup@bmh.com,+91 9056921495,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR392,Emergency,Nurse Siddharth Varghese,Male,B.Sc Nursing,nursesiddharthvarghese@bmh.com,+91 9774209368,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR393,Anaesthesiology,Nurse Sanjay Abraham,Male,B.Sc Nursing,nursesanjayabraham@bmh.com,+91 9132910610,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR394,ENT,Nurse Remya Joseph,Female,B.Sc Nursing,nurseremyajoseph@bmh.com,+91 9788019057,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR395,Oncology,Nurse Kavya Nambiar,Female,B.Sc Nursing,nursekavyanambiar@bmh.com,+91 9196866223,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR396,Radiology,Nurse Sreelekshmi Nair,Female,B.Sc Nursing,nursesreelekshminair@bmh.com,+91 9672516361,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR397,General Medicine,Nurse Meera Siddique,Female,B.Sc Nursing,nursemeerasiddique@bmh.com,+91 7314742067,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR398,Urology,Nurse Pranav Nair,Male,B.Sc Nursing,nursepranavnair@bmh.com,+91 9273334132,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR399,Critical Care,Nurse Kavya Rahman,Female,B.Sc Nursing,nursekavyarahman@bmh.com,+91 7571909788,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR400,Orthopaedics,Nurse Rahul Pillai,Male,B.Sc Nursing,nurserahulpillai@bmh.com,+91 7437031877,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR401,Dental,Nurse Greeshma Philip,Female,B.Sc Nursing,nursegreeshmaphilip@bmh.com,+91 9375130687,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR402,General Surgery,Nurse Fathima Ibrahim,Female,B.Sc Nursing,nursefathimaibrahim@bmh.com,+91 7279173078,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR403,General Medicine,Nurse Reshma Cherian,Female,B.Sc Nursing,nursereshmacherian@bmh.com,+91 9412723456,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR404,Critical Care,Nurse Lakshmi George,Female,B.Sc Nursing,nurselakshmigeorge@bmh.com,+91 8398407751,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR405,General Surgery,Nurse Arjun Nambiar,Male,B.Sc Nursing,nursearjunnambiar@bmh.com,+91 9733350361,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR406,Child Care (Paediatrics),Nurse Remya Samuel,Female,B.Sc Nursing,nurseremyasamuel@bmh.com,+91 9013067194,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR407,Dental,Nurse Greeshma Philip,Female,B.Sc Nursing,nursegreeshmaphilip@bmh.com,+91 7920972234,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR408,Dermatology,Nurse Vishal Kurup,Male,B.Sc Nursing,nursevishalkurup@bmh.com,+91 9891612888,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR409,Orthopaedics,Nurse Deepak Abraham,Male,B.Sc Nursing,nursedeepakabraham@bmh.com,+91 7549781283,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR410,Gastroenterology,Nurse Nithin Menon,Male,B.Sc Nursing,nursenithinmenon@bmh.com,+91 8956437081,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR411,General Medicine,Nurse Mathew Kurup,Male,B.Sc Nursing,nursemathewkurup@bmh.com,+91 7303574189,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR412,Dermatology,Nurse Lakshmi Samuel,Female,B.Sc Nursing,nurselakshmisamuel@bmh.com,+91 8202207303,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR413,Anaesthesiology,Nurse Reshma Warrier,Female,B.Sc Nursing,nursereshmawarrier@bmh.com,+91 8559108521,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR414,Nephrology,Nurse Greeshma Samuel,Female,B.Sc Nursing,nursegreeshmasamuel@bmh.com,+91 9842204140,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR415,Women's Care (Obstetrics & Gynaecology),Nurse Manu Panicker,Male,B.Sc Nursing,nursemanupanicker@bmh.com,+91 8208090519,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR416,Pathology,Nurse Kavya Warrier,Female,B.Sc Nursing,nursekavyawarrier@bmh.com,+91 8843225890,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR417,General Medicine,Nurse Tessa Faisal,Female,B.Sc Nursing,nursetessafaisal@bmh.com,+91 7151919274,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR418,Child Care (Paediatrics),Nurse Sneha Samuel,Female,B.Sc Nursing,nursesnehasamuel@bmh.com,+91 7045226654,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR419,Child Care (Paediatrics),Nurse Riya Joseph,Female,B.Sc Nursing,nurseriyajoseph@bmh.com,+91 9507225499,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR420,Orthopaedics,Nurse Leelamma Cherian,Female,B.Sc Nursing,nurseleelammacherian@bmh.com,+91 8397670521,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR421,Pulmonology,Nurse Mathew Thampi,Male,B.Sc Nursing,nursemathewthampi@bmh.com,+91 9365033898,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR422,Ophthalmology,Nurse Mariamma Warrier,Female,B.Sc Nursing,nursemariammawarrier@bmh.com,+91 7293314348,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR423,Pulmonology,Nurse Pranav Chacko,Male,B.Sc Nursing,nursepranavchacko@bmh.com,+91 9715633689,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR424,Women's Care (Obstetrics & Gynaecology),Nurse Dhanya Thomas,Female,B.Sc Nursing,nursedhanyathomas@bmh.com,+91 7371900887,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR425,Dental,Nurse Remya Chacko,Female,B.Sc Nursing,nurseremyachacko@bmh.com,+91 7870141264,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR426,Critical Care,Nurse Jacob Kurian,Male,B.Sc Nursing,nursejacobkurian@bmh.com,+91 9367319283,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR427,ENT,Nurse Abhilash Menon,Male,B.Sc Nursing,nurseabhilashmenon@bmh.com,+91 9415646113,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR428,Emergency,Nurse Ann Pillai,Female,B.Sc Nursing,nurseannpillai@bmh.com,+91 8540451945,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR429,Dermatology,Nurse Thomas Ibrahim,Male,B.Sc Nursing,nursethomasibrahim@bmh.com,+91 8570421547,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR430,Radiology,Nurse Abhilash Ibrahim,Male,B.Sc Nursing,nurseabhilashibrahim@bmh.com,+91 9986954249,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR431,Child Care (Paediatrics),Nurse Tessa Abraham,Female,B.Sc Nursing,nursetessaabraham@bmh.com,+91 7462628728,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR432,Child Care (Paediatrics),Nurse Jacob Faisal,Male,B.Sc Nursing,nursejacobfaisal@bmh.com,+91 7887607694,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR433,Pathology,Nurse Varghese Cherian,Male,B.Sc Nursing,nursevarghesecherian@bmh.com,+91 9326552052,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR434,Endocrinology,Nurse Reshma Nambiar,Female,B.Sc Nursing,nursereshmanambiar@bmh.com,+91 8290863362,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR435,Dental,Nurse Mathew Eapen,Male,B.Sc Nursing,nursematheweapen@bmh.com,+91 7203342762,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR436,Critical Care,Nurse Dhanya Ibrahim,Female,B.Sc Nursing,nursedhanyaibrahim@bmh.com,+91 8298441042,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR437,Critical Care,Nurse George Rahman,Male,B.Sc Nursing,nursegeorgerahman@bmh.com,+91 7220392836,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR438,Emergency,Nurse Rohan Varghese,Male,B.Sc Nursing,nurserohanvarghese@bmh.com,+91 9040693358,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR439,Radiology,Nurse Aiswarya Nambiar,Female,B.Sc Nursing,nurseaiswaryanambiar@bmh.com,+91 7655434882,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR440,General Medicine,Nurse Sreelekshmi Siddique,Female,B.Sc Nursing,nursesreelekshmisiddique@bmh.com,+91 8392291396,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR441,Dermatology,Nurse Devika Faisal,Female,B.Sc Nursing,nursedevikafaisal@bmh.com,+91 9907826958,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR442,Psychiatry,Nurse Sumayya Thampi,Female,B.Sc Nursing,nursesumayyathampi@bmh.com,+91 9797873337,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR443,ENT,Nurse Fathima Rahman,Female,B.Sc Nursing,nursefathimarahman@bmh.com,+91 9368668434,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR444,Pathology,Nurse Jacob George,Male,B.Sc Nursing,nursejacobgeorge@bmh.com,+91 8870694772,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR445,Neurosciences,Nurse Sherly Menon,Female,B.Sc Nursing,nursesherlymenon@bmh.com,+91 9617459281,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR446,Gastroenterology,Nurse Sreelekshmi Abraham,Female,B.Sc Nursing,nursesreelekshmiabraham@bmh.com,+91 8767792128,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR447,Psychiatry,Nurse Sreelekshmi Faisal,Female,B.Sc Nursing,nursesreelekshmifaisal@bmh.com,+91 8534827050,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR448,General Medicine,Nurse Jitin Pillai,Male,B.Sc Nursing,nursejitinpillai@bmh.com,+91 9954583149,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR449,Nephrology,Nurse Sneha Panicker,Female,B.Sc Nursing,nursesnehapanicker@bmh.com,+91 9925105021,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR450,Dental,Nurse Varghese Ibrahim,Male,B.Sc Nursing,nursevargheseibrahim@bmh.com,+91 7555679276,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR451,Pulmonology,Nurse Lakshmi Cherian,Female,B.Sc Nursing,nurselakshmicherian@bmh.com,+91 8278459087,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR452,General Surgery,Nurse Sumayya Kurup,Female,B.Sc Nursing,nursesumayyakurup@bmh.com,+91 7978924433,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR453,Ophthalmology,Nurse Riya Faisal,Female,B.Sc Nursing,nurseriyafaisal@bmh.com,+91 9909790990,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR454,Emergency,Nurse Dhanya Panicker,Female,B.Sc Nursing,nursedhanyapanicker@bmh.com,+91 7263123848,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR455,Ophthalmology,Nurse Ann Rahman,Female,B.Sc Nursing,nurseannrahman@bmh.com,+91 8933163038,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR456,Nephrology,Nurse Anjali Ibrahim,Female,B.Sc Nursing,nurseanjaliibrahim@bmh.com,+91 8744185569,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR457,Urology,Nurse Abhilash Kurup,Male,B.Sc Nursing,nurseabhilashkurup@bmh.com,+91 7336302413,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR458,Emergency,Nurse Aneesh Kurian,Male,B.Sc Nursing,nurseaneeshkurian@bmh.com,+91 9829360788,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR459,ENT,Nurse Sanjay Varghese,Male,B.Sc Nursing,nursesanjayvarghese@bmh.com,+91 9877503516,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR460,ENT,Nurse Sherly Panicker,Female,B.Sc Nursing,nursesherlypanicker@bmh.com,+91 8840912183,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR461,Critical Care,Nurse Faisal Samuel,Male,B.Sc Nursing,nursefaisalsamuel@bmh.com,+91 8004581066,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR462,Urology,Nurse Arjun Menon,Male,B.Sc Nursing,nursearjunmenon@bmh.com,+91 7112394938,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR463,Pathology,Nurse Thomas Rahman,Male,B.Sc Nursing,nursethomasrahman@bmh.com,+91 9663520569,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR464,ENT,Nurse Mariamma Philip,Female,B.Sc Nursing,nursemariammaphilip@bmh.com,+91 8270393815,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR465,Nephrology,Nurse Mathew Joseph,Male,B.Sc Nursing,nursemathewjoseph@bmh.com,+91 9873880426,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR466,Neurosciences,Nurse Sherly George,Female,B.Sc Nursing,nursesherlygeorge@bmh.com,+91 9383697989,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR467,General Medicine,Nurse Anjali Thampi,Female,B.Sc Nursing,nurseanjalithampi@bmh.com,+91 8494555684,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR468,Endocrinology,Nurse Deepak George,Male,B.Sc Nursing,nursedeepakgeorge@bmh.com,+91 9331340048,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR469,Endocrinology,Nurse Mohammed Pillai,Male,B.Sc Nursing,nursemohammedpillai@bmh.com,+91 8245199143,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR470,Psychiatry,Nurse Mariamma Mathew,Female,B.Sc Nursing,nursemariammamathew@bmh.com,+91 7798850849,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR471,Ophthalmology,Nurse Aiswarya Warrier,Female,B.Sc Nursing,nurseaiswaryawarrier@bmh.com,+91 8999649910,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR472,Dermatology,Nurse Sebastian Nambiar,Male,B.Sc Nursing,nursesebastiannambiar@bmh.com,+91 7653668453,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR473,Oncology,Nurse Faisal George,Male,B.Sc Nursing,nursefaisalgeorge@bmh.com,+91 7799649403,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR474,Nephrology,Nurse Rohan Pillai,Male,B.Sc Nursing,nurserohanpillai@bmh.com,+91 8445845593,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR475,Endocrinology,Nurse Devika Menon,Female,B.Sc Nursing,nursedevikamenon@bmh.com,+91 7103632293,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR476,General Medicine,Nurse Sophy Faisal,Female,B.Sc Nursing,nursesophyfaisal@bmh.com,+91 9102505302,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR477,Neurosciences,Nurse Pranav Rahman,Male,B.Sc Nursing,nursepranavrahman@bmh.com,+91 7539418454,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR478,Critical Care,Nurse Vishal Pillai,Male,B.Sc Nursing,nursevishalpillai@bmh.com,+91 7063028751,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR479,General Surgery,Nurse Siddharth Menon,Male,B.Sc Nursing,nursesiddharthmenon@bmh.com,+91 7675728562,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR480,Child Care (Paediatrics),Nurse Sherly Chacko,Female,B.Sc Nursing,nursesherlychacko@bmh.com,+91 7091936318,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR481,Psychiatry,Nurse Antony Samuel,Male,B.Sc Nursing,nurseantonysamuel@bmh.com,+91 8160602518,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR482,General Surgery,Nurse Fathima Nambiar,Female,B.Sc Nursing,nursefathimanambiar@bmh.com,+91 7166353611,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR483,Gastroenterology,Nurse Sanjay Philip,Male,B.Sc Nursing,nursesanjayphilip@bmh.com,+91 8006384267,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR484,General Medicine,Nurse Sebastian Thomas,Male,B.Sc Nursing,nursesebastianthomas@bmh.com,+91 9261034794,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR485,Dermatology,Nurse Meera Samuel,Female,B.Sc Nursing,nursemeerasamuel@bmh.com,+91 7086600386,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR486,Dental,Nurse Jacob Pillai,Male,B.Sc Nursing,nursejacobpillai@bmh.com,+91 7715624460,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR487,Pathology,Nurse Tessa Mathew,Female,B.Sc Nursing,nursetessamathew@bmh.com,+91 9688926095,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR488,Nephrology,Nurse Greeshma Rahman,Female,B.Sc Nursing,nursegreeshmarahman@bmh.com,+91 7215781173,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR489,Pulmonology,Nurse Riya Pillai,Female,B.Sc Nursing,nurseriyapillai@bmh.com,+91 9357872585,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR490,Nephrology,Nurse Remya Faisal,Female,B.Sc Nursing,nurseremyafaisal@bmh.com,+91 8601490606,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR491,Women's Care (Obstetrics & Gynaecology),Nurse Anjali Nair,Female,B.Sc Nursing,nurseanjalinair@bmh.com,+91 9809218183,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR492,Radiology,Nurse Kavya George,Female,B.Sc Nursing,nursekavyageorge@bmh.com,+91 9493220151,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR493,Critical Care,Nurse Nithin Nair,Male,B.Sc Nursing,nursenithinnair@bmh.com,+91 7044009501,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR494,Critical Care,Nurse Kiran Panicker,Male,B.Sc Nursing,nursekiranpanicker@bmh.com,+91 8025612470,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR495,Dermatology,Nurse Sherly Cherian,Female,B.Sc Nursing,nursesherlycherian@bmh.com,+91 7287557386,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR496,Pathology,Nurse Parvathy Rahman,Female,B.Sc Nursing,nurseparvathyrahman@bmh.com,+91 7483763454,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR497,Oncology,Nurse Greeshma Panicker,Female,B.Sc Nursing,nursegreeshmapanicker@bmh.com,+91 7361045285,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR498,Nephrology,Nurse Kavya Samuel,Female,B.Sc Nursing,nursekavyasamuel@bmh.com,+91 7685234072,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR499,Neurosciences,Nurse Parvathy Thampi,Female,B.Sc Nursing,nurseparvathythampi@bmh.com,+91 7902268144,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR500,Psychiatry,Nurse Devika Nair,Female,B.Sc Nursing,nursedevikanair@bmh.com,+91 7157343187,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR501,Anaesthesiology,Nurse Midhun Samuel,Male,B.Sc Nursing,nursemidhunsamuel@bmh.com,+91 8316257486,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR502,Dental,Nurse Nithin Menon,Male,B.Sc Nursing,nursenithinmenon@bmh.com,+91 8360542524,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR503,Nephrology,Nurse Aneesh Nambiar,Male,B.Sc Nursing,nurseaneeshnambiar@bmh.com,+91 8079626647,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR504,General Medicine,Nurse Vineeth Pillai,Male,B.Sc Nursing,nursevineethpillai@bmh.com,+91 8280375967,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR505,Anaesthesiology,Nurse Pranav Thomas,Male,B.Sc Nursing,nursepranavthomas@bmh.com,+91 7798316479,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR506,General Medicine,Nurse Nithin George,Male,B.Sc Nursing,nursenithingeorge@bmh.com,+91 7163260676,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR507,Pathology,Nurse Aswathy Abraham,Female,B.Sc Nursing,nurseaswathyabraham@bmh.com,+91 7855492255,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR508,Critical Care,Nurse Leelamma Pillai,Female,B.Sc Nursing,nurseleelammapillai@bmh.com,+91 9807317026,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR509,General Medicine,Nurse Mathew Thampi,Male,B.Sc Nursing,nursemathewthampi@bmh.com,+91 7608711036,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR510,Dermatology,Nurse Mariamma Faisal,Female,B.Sc Nursing,nursemariammafaisal@bmh.com,+91 9841329645,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR511,Radiology,Nurse Rahul Samuel,Male,B.Sc Nursing,nurserahulsamuel@bmh.com,+91 9096685949,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR512,Pulmonology,Nurse Sophy Varghese,Female,B.Sc Nursing,nursesophyvarghese@bmh.com,+91 8634868803,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR513,Nephrology,Nurse George Eapen,Male,B.Sc Nursing,nursegeorgeeapen@bmh.com,+91 7642445064,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR514,Critical Care,Nurse Sneha Cherian,Female,B.Sc Nursing,nursesnehacherian@bmh.com,+91 7284367177,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR515,Dental,Nurse Arjun Samuel,Male,B.Sc Nursing,nursearjunsamuel@bmh.com,+91 8532741566,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR516,Critical Care,Nurse Varghese Thampi,Male,B.Sc Nursing,nursevarghesethampi@bmh.com,+91 9534772860,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR517,Dermatology,Nurse Antony Philip,Male,B.Sc Nursing,nurseantonyphilip@bmh.com,+91 7688363875,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR518,Cardiology,Nurse Tessa Rahman,Female,B.Sc Nursing,nursetessarahman@bmh.com,+91 7464132826,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR519,Radiology,Nurse Manu Nambiar,Male,B.Sc Nursing,nursemanunambiar@bmh.com,+91 8309343183,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR520,Child Care (Paediatrics),Nurse Meera George,Female,B.Sc Nursing,nursemeerageorge@bmh.com,+91 8890823965,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR521,Critical Care,Nurse Aiswarya Thomas,Female,B.Sc Nursing,nurseaiswaryathomas@bmh.com,+91 8109941251,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR522,Urology,Nurse Mohammed Kurian,Male,B.Sc Nursing,nursemohammedkurian@bmh.com,+91 8582331396,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR523,Dermatology,Nurse Thomas Nair,Male,B.Sc Nursing,nursethomasnair@bmh.com,+91 7073740627,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR524,Pathology,Nurse Kavya Ibrahim,Female,B.Sc Nursing,nursekavyaibrahim@bmh.com,+91 7558901022,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR525,General Surgery,Nurse Aneesh Nambiar,Male,B.Sc Nursing,nurseaneeshnambiar@bmh.com,+91 7231408282,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR526,General Surgery,Nurse Greeshma Samuel,Female,B.Sc Nursing,nursegreeshmasamuel@bmh.com,+91 7790182405,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR527,Urology,Nurse Pranav Warrier,Male,B.Sc Nursing,nursepranavwarrier@bmh.com,+91 8280988560,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR528,Radiology,Nurse Mariamma Ibrahim,Female,B.Sc Nursing,nursemariammaibrahim@bmh.com,+91 8502427034,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR529,Dermatology,Nurse Jacob Pillai,Male,B.Sc Nursing,nursejacobpillai@bmh.com,+91 7505595831,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR530,Critical Care,Nurse Reshma George,Female,B.Sc Nursing,nursereshmageorge@bmh.com,+91 8578839053,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR531,Critical Care,Nurse Mohammed Panicker,Male,B.Sc Nursing,nursemohammedpanicker@bmh.com,+91 8579254874,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR532,Pathology,Nurse Sneha Abraham,Female,B.Sc Nursing,nursesnehaabraham@bmh.com,+91 7014753021,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR533,Nephrology,Nurse Jacob Philip,Male,B.Sc Nursing,nursejacobphilip@bmh.com,+91 8473189712,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR534,Emergency,Nurse Aswathy Pillai,Female,B.Sc Nursing,nurseaswathypillai@bmh.com,+91 7151436962,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR535,Anaesthesiology,Nurse Remya Kurup,Female,B.Sc Nursing,nurseremyakurup@bmh.com,+91 7637350773,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR536,Critical Care,Nurse Aswathy Siddique,Female,B.Sc Nursing,nurseaswathysiddique@bmh.com,+91 9090077671,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR537,Nephrology,Nurse Anjali Siddique,Female,B.Sc Nursing,nurseanjalisiddique@bmh.com,+91 7866974869,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR538,Critical Care,Nurse Riya George,Female,B.Sc Nursing,nurseriyageorge@bmh.com,+91 8465309976,07:00,15:00,"Sat,Sun,Mon,Tue,Wed",Morning
+NUR539,Pulmonology,Nurse Lakshmi Cherian,Female,B.Sc Nursing,nurselakshmicherian@bmh.com,+91 8312379214,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR540,Radiology,Nurse Aiswarya Samuel,Female,B.Sc Nursing,nurseaiswaryasamuel@bmh.com,+91 9433939485,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR541,Radiology,Nurse Aneesh Cherian,Male,B.Sc Nursing,nurseaneeshcherian@bmh.com,+91 7421760435,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR542,General Medicine,Nurse Pranav Warrier,Male,B.Sc Nursing,nursepranavwarrier@bmh.com,+91 9424204302,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR543,ENT,Nurse Nithin Kurian,Male,B.Sc Nursing,nursenithinkurian@bmh.com,+91 9048125369,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR544,Critical Care,Nurse Varghese Panicker,Male,B.Sc Nursing,nursevarghesepanicker@bmh.com,+91 7317231576,15:00,23:00,"Sun,Mon,Tue,Wed,Thu",Evening
+NUR545,Child Care (Paediatrics),Nurse Rohan George,Male,B.Sc Nursing,nurserohangeorge@bmh.com,+91 9932557334,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR546,Women's Care (Obstetrics & Gynaecology),Nurse Sneha Rahman,Female,B.Sc Nursing,nursesneharahman@bmh.com,+91 7486104342,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR547,Ophthalmology,Nurse Mary Kurup,Female,B.Sc Nursing,nursemarykurup@bmh.com,+91 9375818118,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR548,Nephrology,Nurse Rahul Kurian,Male,B.Sc Nursing,nurserahulkurian@bmh.com,+91 9608587967,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR549,Urology,Nurse Thomas Thomas,Male,B.Sc Nursing,nursethomasthomas@bmh.com,+91 8045319170,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR550,Urology,Nurse Siddharth Samuel,Male,B.Sc Nursing,nursesiddharthsamuel@bmh.com,+91 8616761730,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR551,Nephrology,Nurse Anjali Warrier,Female,B.Sc Nursing,nurseanjaliwarrier@bmh.com,+91 8999511189,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR552,Pulmonology,Nurse Remya Thampi,Female,B.Sc Nursing,nurseremyathampi@bmh.com,+91 8146682788,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR553,Dermatology,Nurse Aneesh Samuel,Male,B.Sc Nursing,nurseaneeshsamuel@bmh.com,+91 7574718088,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR554,Women's Care (Obstetrics & Gynaecology),Nurse Sneha Samuel,Female,B.Sc Nursing,nursesnehasamuel@bmh.com,+91 7566935786,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR555,Pulmonology,Nurse Sneha Faisal,Female,B.Sc Nursing,nursesnehafaisal@bmh.com,+91 8212603280,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR556,Child Care (Paediatrics),Nurse Jitin Joseph,Male,B.Sc Nursing,nursejitinjoseph@bmh.com,+91 7780024202,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR557,Neurosciences,Nurse Faisal Warrier,Male,B.Sc Nursing,nursefaisalwarrier@bmh.com,+91 9991188370,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR558,Ophthalmology,Nurse Mohammed Eapen,Male,B.Sc Nursing,nursemohammedeapen@bmh.com,+91 7736813432,15:00,23:00,"Wed,Thu,Fri,Sat,Sun",Evening
+NUR559,Gastroenterology,Nurse Mary Menon,Female,B.Sc Nursing,nursemarymenon@bmh.com,+91 9282335858,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning
+NUR560,Anaesthesiology,Nurse Vineeth Kurian,Male,B.Sc Nursing,nursevineethkurian@bmh.com,+91 9512743879,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR561,General Surgery,Nurse Nithin Eapen,Male,B.Sc Nursing,nursenithineapen@bmh.com,+91 8917199025,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR562,Emergency,Nurse Aswathy Abraham,Female,B.Sc Nursing,nurseaswathyabraham@bmh.com,+91 8841198275,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR563,Dental,Nurse Mary Hashim,Female,B.Sc Nursing,nursemaryhashim@bmh.com,+91 7635068292,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR564,Orthopaedics,Nurse Vineeth Nair,Male,B.Sc Nursing,nursevineethnair@bmh.com,+91 7265074674,07:00,15:00,"Mon,Tue,Wed,Thu,Fri",Morning
+NUR565,Women's Care (Obstetrics & Gynaecology),Nurse Sebastian Siddique,Male,B.Sc Nursing,nursesebastiansiddique@bmh.com,+91 9243054717,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR566,Radiology,Nurse Abhilash Warrier,Male,B.Sc Nursing,nurseabhilashwarrier@bmh.com,+91 9836189604,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR567,Urology,Nurse Jacob Thomas,Male,B.Sc Nursing,nursejacobthomas@bmh.com,+91 7985495590,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR568,Child Care (Paediatrics),Nurse Varghese Faisal,Male,B.Sc Nursing,nursevarghesefaisal@bmh.com,+91 8086486122,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR569,Dental,Nurse Devika Menon,Female,B.Sc Nursing,nursedevikamenon@bmh.com,+91 9318925209,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR570,Radiology,Nurse Kavya Thampi,Female,B.Sc Nursing,nursekavyathampi@bmh.com,+91 8975251500,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR571,Radiology,Nurse Reshma Cherian,Female,B.Sc Nursing,nursereshmacherian@bmh.com,+91 7419713611,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR572,Child Care (Paediatrics),Nurse Lakshmi Nair,Female,B.Sc Nursing,nurselakshminair@bmh.com,+91 7848939220,23:00,07:00,"Tue,Wed,Thu,Fri,Sat",Night
+NUR573,Emergency,Nurse Sreelekshmi Eapen,Female,B.Sc Nursing,nursesreelekshmieapen@bmh.com,+91 9656707215,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR574,Dental,Nurse Reshma Ibrahim,Female,B.Sc Nursing,nursereshmaibrahim@bmh.com,+91 8013466997,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR575,General Surgery,Nurse Arjun Kurup,Male,B.Sc Nursing,nursearjunkurup@bmh.com,+91 7396157625,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR576,Women's Care (Obstetrics & Gynaecology),Nurse Varghese Rahman,Male,B.Sc Nursing,nursevargheserahman@bmh.com,+91 9542019348,15:00,23:00,"Fri,Sat,Sun,Mon,Tue",Evening
+NUR577,Pathology,Nurse Arjun Ibrahim,Male,B.Sc Nursing,nursearjunibrahim@bmh.com,+91 7326169860,07:00,15:00,"Sun,Mon,Tue,Wed,Thu",Morning
+NUR578,Orthopaedics,Nurse Mary Ibrahim,Female,B.Sc Nursing,nursemaryibrahim@bmh.com,+91 8429625477,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR579,Radiology,Nurse Parvathy Eapen,Female,B.Sc Nursing,nurseparvathyeapen@bmh.com,+91 7541476695,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR580,Child Care (Paediatrics),Nurse Leelamma Thomas,Female,B.Sc Nursing,nurseleelammathomas@bmh.com,+91 8165214182,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR581,Critical Care,Nurse Remya Thomas,Female,B.Sc Nursing,nurseremyathomas@bmh.com,+91 7347862271,23:00,07:00,"Mon,Tue,Wed,Thu,Fri",Night
+NUR582,Ophthalmology,Nurse Lakshmi Kurup,Female,B.Sc Nursing,nurselakshmikurup@bmh.com,+91 7221597447,23:00,07:00,"Thu,Fri,Sat,Sun,Mon",Night
+NUR583,Anaesthesiology,Nurse Mary Siddique,Female,B.Sc Nursing,nursemarysiddique@bmh.com,+91 7361977502,15:00,23:00,"Tue,Wed,Thu,Fri,Sat",Evening
+NUR584,Orthopaedics,Nurse Vishal Samuel,Male,B.Sc Nursing,nursevishalsamuel@bmh.com,+91 7097925341,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR585,Urology,Nurse Varghese Kurup,Male,B.Sc Nursing,nursevarghesekurup@bmh.com,+91 7281240207,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR586,Urology,Nurse Nithin Faisal,Male,B.Sc Nursing,nursenithinfaisal@bmh.com,+91 7408887502,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR587,Psychiatry,Nurse Sumayya Ibrahim,Female,B.Sc Nursing,nursesumayyaibrahim@bmh.com,+91 7991368179,07:00,15:00,"Fri,Sat,Sun,Mon,Tue",Morning
+NUR588,Oncology,Nurse Leelamma Rahman,Female,B.Sc Nursing,nurseleelammarahman@bmh.com,+91 9966762706,15:00,23:00,"Sat,Sun,Mon,Tue,Wed",Evening
+NUR589,ENT,Nurse Arjun Philip,Male,B.Sc Nursing,nursearjunphilip@bmh.com,+91 9935662180,07:00,15:00,"Wed,Thu,Fri,Sat,Sun",Morning
+NUR590,General Surgery,Nurse Rohan Thomas,Male,B.Sc Nursing,nurserohanthomas@bmh.com,+91 9811216794,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR591,Anaesthesiology,Nurse Kiran Panicker,Male,B.Sc Nursing,nursekiranpanicker@bmh.com,+91 7590392896,23:00,07:00,"Wed,Thu,Fri,Sat,Sun",Night
+NUR592,Orthopaedics,Nurse Tessa Thampi,Female,B.Sc Nursing,nursetessathampi@bmh.com,+91 9631298977,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR593,ENT,Nurse Antony Pillai,Male,B.Sc Nursing,nurseantonypillai@bmh.com,+91 7676392968,15:00,23:00,"Thu,Fri,Sat,Sun,Mon",Evening
+NUR594,Women's Care (Obstetrics & Gynaecology),Nurse Fathima Varghese,Female,B.Sc Nursing,nursefathimavarghese@bmh.com,+91 7942796362,23:00,07:00,"Sat,Sun,Mon,Tue,Wed",Night
+NUR595,Pathology,Nurse Fathima Nair,Female,B.Sc Nursing,nursefathimanair@bmh.com,+91 7921932319,15:00,23:00,"Mon,Tue,Wed,Thu,Fri",Evening
+NUR596,ENT,Nurse Aneesh Joseph,Male,B.Sc Nursing,nurseaneeshjoseph@bmh.com,+91 7522830508,23:00,07:00,"Fri,Sat,Sun,Mon,Tue",Night
+NUR597,General Surgery,Nurse Kiran Thomas,Male,B.Sc Nursing,nursekiranthomas@bmh.com,+91 8177060395,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR598,Anaesthesiology,Nurse Siddharth Kurup,Male,B.Sc Nursing,nursesiddharthkurup@bmh.com,+91 9251584699,07:00,15:00,"Thu,Fri,Sat,Sun,Mon",Morning
+NUR599,Emergency,Nurse Sherly Thampi,Female,B.Sc Nursing,nursesherlythampi@bmh.com,+91 8883259834,23:00,07:00,"Sun,Mon,Tue,Wed,Thu",Night
+NUR600,Critical Care,Nurse Mariamma Joseph,Female,B.Sc Nursing,nursemariammajoseph@bmh.com,+91 7172527240,07:00,15:00,"Tue,Wed,Thu,Fri,Sat",Morning

@@ -1,0 +1,167 @@
+
+import os
+
+content = """{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PredictCare - BMH Hospital{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a', // Slate 900
+                        secondary: '#334155', // Slate 700
+                        accent: '#3b82f6', // Blue 500
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Add Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body class="bg-gray-50 text-slate-800 antialiased">
+
+    <div class="flex h-screen overflow-hidden">
+        <!-- SIDEBAR -->
+        <aside class="w-64 flex-shrink-0 bg-primary text-white flex flex-col transition-all duration-300">
+            <div class="h-16 flex items-center justify-center border-b border-secondary">
+                <a href="{% url 'hub' %}" class="text-xl font-bold tracking-wider flex items-center gap-2">
+                    ✨ PredictCare <span class="text-accent">Hub</span>
+                </a>
+            </div>
+
+            <nav class="flex-1 overflow-y-auto py-4">
+                <ul class="space-y-1 px-2">
+
+                    <li class="pt-4 pb-2 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Clinical
+                    </li>
+                    <li>
+                        <a href="{% url 'reception_dashboard' %}"
+                            class="flex items-center px-4 py-3 rounded-lg hover:bg-secondary transition-colors group">
+                            <span class="mr-3 text-gray-400 group-hover:text-white">📋</span>
+                            <span class="font-medium">Reception</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'doctor_dashboard' %}"
+                            class="flex items-center px-4 py-3 rounded-lg hover:bg-secondary transition-colors group">
+                            <span class="mr-3 text-gray-400 group-hover:text-white">🩺</span>
+                            <span class="font-medium">Doctor's Console</span>
+                        </a>
+                    </li>
+
+                    <li class="pt-4 pb-2 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Pharmacy
+                    </li>
+                    <li>
+                        <a href="{% url 'pharmacy_inventory' %}"
+                            class="flex items-center px-4 py-3 rounded-lg hover:bg-secondary transition-colors group">
+                            <span class="mr-3 text-gray-400 group-hover:text-white">💊</span>
+                            <span class="font-medium">Inventory</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'pharmacy_billing' %}"
+                            class="flex items-center px-4 py-3 rounded-lg hover:bg-secondary transition-colors group">
+                            <span class="mr-3 text-gray-400 group-hover:text-white">🧾</span>
+                            <span class="font-medium">Patient Billing</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'manual_billing' %}"
+                            class="flex items-center px-4 py-3 rounded-lg hover:bg-secondary transition-colors group">
+                            <span class="mr-3 text-gray-400 group-hover:text-white">🛒</span>
+                            <span class="font-medium">Manual Billing</span>
+                        </a>
+                    </li>
+
+                    <li class="pt-4 pb-2 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Insights
+                    </li>
+                    <li>
+                        <a href="{% url 'doctor_analytics' %}"
+                            class="flex items-center px-4 py-3 rounded-lg hover:bg-secondary transition-colors group">
+                            <span class="mr-3 text-gray-400 group-hover:text-white">📊</span>
+                            <span class="font-medium">Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'prediction' %}"
+                            class="flex items-center px-4 py-3 rounded-lg hover:bg-secondary transition-colors group">
+                            <span class="mr-3 text-gray-400 group-hover:text-white">📉</span>
+                            <span class="font-medium">Predictions</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="p-4 border-t border-secondary">
+                <a href="{% url 'logout' %}"
+                    class="flex items-center px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white transition-colors justify-center text-sm font-semibold">
+                    Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 flex flex-col h-screen overflow-hidden">
+            <!-- Header -->
+            <header class="h-16 bg-white shadow-sm flex items-center justify-between px-6 z-10">
+                <div class="flex items-center">
+                    <h2 class="text-xl font-semibold text-slate-800">{% block header_title %}Overview{% endblock %}</h2>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-sm text-right">
+                        <p class="font-semibold text-slate-700">{{ user.username|default:"Guest" }}</p>
+                        <p class="text-xs text-slate-500">{% if user.is_superuser %}Administrator{% else %}Staff{% endif %}</p>
+                    </div>
+                    <div
+                        class="h-8 w-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 font-bold">
+                        {{ user.username|make_list|first|upper }}
+                    </div>
+                </div>
+            </header>
+
+            <!-- Scrollable Content -->
+            <div class="flex-1 overflow-auto bg-gray-50 p-6">
+                {% if messages %}
+                <div class="mb-6 space-y-2">
+                    {% for message in messages %}
+                    <div
+                        class="p-4 rounded-lg flex items-center justify-between shadow-sm {% if message.tags == 'error' %}bg-red-50 text-red-700 border border-red-200{% else %}bg-green-50 text-green-700 border border-green-200{% endif %}">
+                        <span>{{ message }}</span>
+                        <button onclick="this.parentElement.remove()"
+                            class="text-lg font-bold opacity-50 hover:opacity-100">&times;</button>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+    </div>
+
+    {% block extra_scripts %}{% endblock %}
+</body>
+
+</html>
+"""
+
+path = os.path.join(os.getcwd(), 'templates/base.html')
+print(f"Overwriting {path}...")
+with open(path, 'w') as f:
+    f.write(content)
+print("Done.")

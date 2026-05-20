@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+
+{% block title %}Reception Predictions - PredictCare{% endblock %}
+
+{% block header_title %}Predictions & Insights{% endblock %}
+
+{% block extra_head %}
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- INFO CARD -->
+    <div class="bg-indigo-50 border border-indigo-200 p-6 rounded-lg flex items-start gap-4">
+        <div class="bg-indigo-100 p-2 rounded-lg text-indigo-600 text-2xl">
+            📉
+        </div>
+        <div>
+            <h3 class="text-lg font-bold text-indigo-900">Department Load Forecast</h3>
+            <p class="text-indigo-800 text-sm mt-1">
+                Projected patient visits for the upcoming 3 months based on historical data. Use these trends to
+                anticipate staffing needs and schedule appointments effectively.
+            </p>
+        </div>
+    </div>
+
+    <!-- TOP ROW: FORECAST -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Load Forecast Chart -->
+        <div class="lg:col-span-3 bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <h4 class="text-gray-700 font-bold mb-6">Patient Volume Prediction by Department</h4>
+            <div class="relative h-80 w-full">
+                <canvas id="loadChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- MIDDLE ROW: DAY & WEEK ANALYSIS -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <h4 class="text-gray-700 font-bold mb-4">Day-wise Analysis (Historical)</h4>
+            <div class="h-64">
+                <canvas id="peakDayChart"></canvas>
+            </div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <h4 class="text-gray-700 font-bold mb-4">Weekly Trends (Last 8 Weeks)</h4>
+            <div class="h-64">
+                <canvas id="weeklyTrendChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM ROW: STAFFING & TABLES -->
+    <div class="grid grid-cols-1 gap-6">
+        <!-- STAFFING ANALYSIS -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+            <h4 class="text-gray-700 font-bold mb-4">Staffing & Resource Analysis</h4>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-500">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 border-b">
+                        <tr>
+                            <th class="px-6 py-3">Department</th>
+                            <th class="px-6 py-3">Monthly Load</th>
+                            <th class="px-6 py-3">Doctor Status</th>
+                            <th class="px-6 py-3">Nurse Status</th>
+                            <th class="px-6 py-3">Recommendation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for dept, stats in staffing_analysis.items %}
+                        <tr class="bg-white border-b hover:bg-gray-50">
+                            <td class="px-6 py-4 font-medium text-gray-900">{{ dept }}</td>
+                            <td class="px-6 py-4">{{ stats.load }} Visits</td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="px-2 py-1 rounded text-[10px] font-black uppercase {% if stats.doc_status == 'Overloaded' or stats.doc_status == 'Critical' %}bg-red-100 text-red-700{% elif stats.doc_status == 'Underutilized' %}bg-yellow-100 text-yellow-700{% else %}bg-green-100 text-green-700{% endif %}">
+                                    {{ stats.doc_status }}
+                                </span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="px-2 py-1 rounded text-[10px] font-black uppercase {% if stats.nurse_status == 'Overloaded' or stats.nurse_status == 'Critical' or stats.nurse_status == 'Critical (No Nurses)' %}bg-red-100 text-red-700{% elif stats.nurse_status == 'Underutilized' %}bg-yellow-100 text-yellow-700{% else %}bg-green-100 text-green-700{% endif %}">
+                                    {{ stats.nurse_status }}
+                                </span>
+                            </td>
+                            <td class="px-6 py-4">
+                                {% if stats.doc_rec == "Hire Staff" or stats.doc_rec == "Hire Immediately" or stats.nurse_rec == "Hire Nurses" %}
+                                <span class="text-xs font-bold text-red-600 flex items-center gap-1"><span>⚠</span> HIRE STAFF</span>
+                                {% else %}
+                                <span class="text-xs font-bold text-green-600">OPTIMAL</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    const ctx = document.getElementById('loadChart').getContext('2d');
+    const chartData = JSON.parse('{{ chart_data|escapejs }}' || '{"labels":[], "datasets":[]}');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: chartData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+                legend: { position: 'bottom', labels: { usePointStyle: true, padding: 20 } }
+            },
+            scales: {
+                y: { beginAtZero: true, grid: { color: '#f3f4f6' }, title: { display: true, text: 'Expected Visits' } },
+                x: { grid: { display: false } }
+            },
+            tension: 0.3
+        }
+    });
+
+    // Weekly Trend Chart
+    const weeklyCtx = document.getElementById('weeklyTrendChart').getContext('2d');
+    const weeklyData = JSON.parse('{{ peak_weekly|escapejs }}' || '[]');
+    new Chart(weeklyCtx, {
+        type: 'bar',
+        data: {
+            labels: weeklyData.map(d => d.label),
+            datasets: [{
+                label: 'Visits',
+                data: weeklyData.map(d => d.count),
+                backgroundColor: '#6366f1',
+                borderRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: { beginAtZero: true, grid: { color: '#f3f4f6' } },
+                x: { grid: { display: false } }
+            }
+        }
+    });
+
+    // Day-wise Analysis Chart
+    const peakDayCtx = document.getElementById('peakDayChart').getContext('2d');
+    const dailyData = JSON.parse('{{ peak_daily|escapejs }}' || '[]');
+    new Chart(peakDayCtx, {
+        type: 'bar',
+        data: {
+            labels: dailyData.map(d => d.day),
+            datasets: [{
+                label: 'Visits',
+                data: dailyData.map(d => d.count),
+                backgroundColor: '#10b981',
+                borderRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: { beginAtZero: true, grid: { color: '#f3f4f6' } },
+                x: { grid: { display: false } }
+            }
+        }
+    });
+</script>
+{% endblock %}

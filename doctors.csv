@@ -1,0 +1,401 @@
+staff_id,department,doctor_name,gender,qualifications,email,phone,specialization,shift_start,shift_end,work_days,shift_type,slot_duration,max_patients
+DOC001,Women's Care (Obstetrics & Gynaecology),Dr. Ann Thampi,Female,"MBBS, MS",drannthampi@bmh.com,+91 9041399570,Women's Care (Obstetrics & Gynaecology),06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC002,Cardiology,Dr. Leelamma Siddique,Female,"MBBS, MD, DM",drleelammasiddique@bmh.com,+91 7423161877,Cardiology,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC003,Gastroenterology,Dr. Anupama Varghese,Female,"MBBS, MD, DM",dranupamavarghese@bmh.com,+91 8688423165,Gastroenterology,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC004,Emergency,Dr. Antony Warrier,Male,"MBBS, MS",drantonywarrier@bmh.com,+91 9038855545,Emergency,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC005,General Surgery,Dr. Varghese Kurup,Male,"MBBS, MD",drvarghesekurup@bmh.com,+91 8653682390,General Surgery,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC006,Urology,Dr. Kavya Joseph,Female,"MBBS, MD",drkavyajoseph@bmh.com,+91 8314461034,Urology,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC007,Ophthalmology,Dr. Remya Thampi,Female,"MBBS, MS",drremyathampi@bmh.com,+91 8903290213,Ophthalmology,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC008,Pulmonology,Dr. Manu Abraham,Male,"MBBS, MD",drmanuabraham@bmh.com,+91 7623668883,Pulmonology,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC009,Critical Care,Dr. Arjun Cherian,Male,"MBBS, MD",drarjuncherian@bmh.com,+91 9785613875,Critical Care,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC010,General Medicine,Dr. Faisal Chacko,Male,"MBBS, MD",drfaisalchacko@bmh.com,+91 9425657966,General Medicine,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC011,Endocrinology,Dr. Aiswarya Pillai,Female,"MBBS, MD",draiswaryapillai@bmh.com,+91 9451642434,Endocrinology,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC012,Gastroenterology,Dr. Ann George,Female,"MBBS, MD, DM",dranngeorge@bmh.com,+91 8527937453,Gastroenterology,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC013,Ophthalmology,Dr. Aiswarya Eapen,Female,"MBBS, MD",draiswaryaeapen@bmh.com,+91 9650357335,Ophthalmology,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC014,Cardiology,Dr. Sophy Chacko,Female,"MBBS, MD, DM",drsophychacko@bmh.com,+91 7681237695,Cardiology,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC015,Dermatology,Dr. Parvathy Warrier,Female,"MBBS, MD",drparvathywarrier@bmh.com,+91 8040584875,Dermatology,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC016,Endocrinology,Dr. Jitin Eapen,Male,"MBBS, MD",drjitineapen@bmh.com,+91 7925444531,Endocrinology,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC017,Radiology,Dr. Sreelekshmi Warrier,Female,"MBBS, MD",drsreelekshmiwarrier@bmh.com,+91 7605812395,Radiology,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC018,Dermatology,Dr. Kavya Joseph,Female,"MBBS, MD",drkavyajoseph@bmh.com,+91 8936041283,Dermatology,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC019,Pathology,Dr. Manu Faisal,Male,"MBBS, MD",drmanufaisal@bmh.com,+91 9881451683,Pathology,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC020,General Surgery,Dr. Varghese Thomas,Male,"MBBS, MD",drvarghesethomas@bmh.com,+91 9008619805,General Surgery,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC021,Neurosciences,Dr. Thomas Cherian,Male,"MBBS, MS, MCh",drthomascherian@bmh.com,+91 9280140740,Neurosciences,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC022,ENT,Dr. Lakshmi Samuel,Female,"MBBS, MD",drlakshmisamuel@bmh.com,+91 9807160532,ENT,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC023,Ophthalmology,Dr. Vishal Nambiar,Male,"MBBS, MD",drvishalnambiar@bmh.com,+91 9130981023,Ophthalmology,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC024,Psychiatry,Dr. Ann Siddique,Female,"MBBS, MD",drannsiddique@bmh.com,+91 9280270472,Psychiatry,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC025,Pulmonology,Dr. Aiswarya Siddique,Female,"MBBS, MD",draiswaryasiddique@bmh.com,+91 8424873754,Pulmonology,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC026,General Medicine,Dr. Sumayya Kurian,Female,"MBBS, MD",drsumayyakurian@bmh.com,+91 8855964051,General Medicine,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC027,Emergency,Dr. Remya Chacko,Female,"MBBS, MD",drremyachacko@bmh.com,+91 9216566670,Emergency,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC028,Pulmonology,Dr. Mohammed Thampi,Male,"MBBS, MD",drmohammedthampi@bmh.com,+91 8689282019,Pulmonology,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC029,Orthopaedics,Dr. Mohammed Menon,Male,"MBBS, MD",drmohammedmenon@bmh.com,+91 9816165215,Orthopaedics,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC030,Child Care (Paediatrics),Dr. Tessa Eapen,Female,"MBBS, MS",drtessaeapen@bmh.com,+91 8663720485,Child Care (Paediatrics),06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC031,Women's Care (Obstetrics & Gynaecology),Dr. Aswathy Pillai,Female,"MBBS, MD",draswathypillai@bmh.com,+91 9593104082,Women's Care (Obstetrics & Gynaecology),12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC032,Dental,Dr. George Eapen,Male,"MBBS, MS",drgeorgeeapen@bmh.com,+91 7489549606,Dental,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC033,Pathology,Dr. Anupama Panicker,Female,"MBBS, MD",dranupamapanicker@bmh.com,+91 9546617607,Pathology,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC034,Urology,Dr. Greeshma Siddique,Female,"MBBS, MD",drgreeshmasiddique@bmh.com,+91 7778392905,Urology,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC035,Critical Care,Dr. Aneesh Faisal,Male,"MBBS, MS",draneeshfaisal@bmh.com,+91 8348842534,Critical Care,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC036,Dental,Dr. Mary Thomas,Female,"MBBS, MD",drmarythomas@bmh.com,+91 8380985080,Dental,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC037,Oncology,Dr. Lakshmi Chacko,Female,"MBBS, MD, DM",drlakshmichacko@bmh.com,+91 7688842680,Oncology,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC038,Endocrinology,Dr. Greeshma Rahman,Female,"MBBS, MS",drgreeshmarahman@bmh.com,+91 7148978377,Endocrinology,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC039,Oncology,Dr. Sophy Pillai,Female,"MBBS, MD, DM",drsophypillai@bmh.com,+91 7818282522,Oncology,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC040,Anaesthesiology,Dr. Tessa Cherian,Female,"MBBS, MD",drtessacherian@bmh.com,+91 7858422472,Anaesthesiology,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC041,Critical Care,Dr. Leelamma Eapen,Female,"MBBS, MD",drleelammaeapen@bmh.com,+91 8804294719,Critical Care,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC042,Ophthalmology,Dr. Leelamma Joseph,Female,"MBBS, MD",drleelammajoseph@bmh.com,+91 9444542648,Ophthalmology,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC043,Nephrology,Dr. Mariamma Abraham,Female,"MBBS, MD, DM",drmariammaabraham@bmh.com,+91 9681340327,Nephrology,06:00,12:00,"Mon,Tue,Wed,Thu,Fri",Morning,15,30
+DOC044,Neurosciences,Dr. Antony Varghese,Male,"MBBS, MD, DM",drantonyvarghese@bmh.com,+91 8150202612,Neurosciences,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC045,Psychiatry,Dr. Siddharth Panicker,Male,"MBBS, MS",drsiddharthpanicker@bmh.com,+91 7041290862,Psychiatry,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC046,General Surgery,Dr. Parvathy Joseph,Female,"MBBS, MS",drparvathyjoseph@bmh.com,+91 9678444212,General Surgery,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC047,Anaesthesiology,Dr. Pranav Samuel,Male,"MBBS, MD",drpranavsamuel@bmh.com,+91 9370532228,Anaesthesiology,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC048,Critical Care,Dr. Rahul Samuel,Male,"MBBS, MD",drrahulsamuel@bmh.com,+91 8460224523,Critical Care,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC049,Psychiatry,Dr. Sanjay Abraham,Male,"MBBS, MS",drsanjayabraham@bmh.com,+91 9468482296,Psychiatry,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC050,Oncology,Dr. Sophy George,Female,"MBBS, MD, DM",drsophygeorge@bmh.com,+91 8495017269,Oncology,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC051,Cardiology,Dr. Varghese Nair,Male,"MBBS, MS, MCh",drvarghesenair@bmh.com,+91 9574434956,Cardiology,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC052,Nephrology,Dr. Antony Philip,Male,"MBBS, MD, DM",drantonyphilip@bmh.com,+91 8541800607,Nephrology,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC053,General Medicine,Dr. Kiran Hashim,Male,"MBBS, MD",drkiranhashim@bmh.com,+91 8824914975,General Medicine,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC054,Oncology,Dr. Siddharth Eapen,Male,"MBBS, MD, DM",drsiddhartheapen@bmh.com,+91 8182996489,Oncology,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC055,Women's Care (Obstetrics & Gynaecology),Dr. Faisal Kurup,Male,"MBBS, MS",drfaisalkurup@bmh.com,+91 9149054926,Women's Care (Obstetrics & Gynaecology),18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC056,Cardiology,Dr. Sreelekshmi Faisal,Female,"MBBS, MD, DM",drsreelekshmifaisal@bmh.com,+91 7289255105,Cardiology,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC057,Child Care (Paediatrics),Dr. Jitin Nambiar,Male,"MBBS, MD",drjitinnambiar@bmh.com,+91 7903671803,Child Care (Paediatrics),12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC058,General Surgery,Dr. Varghese Rahman,Male,"MBBS, MD",drvargheserahman@bmh.com,+91 7039062033,General Surgery,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC059,Radiology,Dr. Nithin Nair,Male,"MBBS, MD",drnithinnair@bmh.com,+91 8444087281,Radiology,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC060,Ophthalmology,Dr. Siddharth Abraham,Male,"MBBS, MD",drsiddharthabraham@bmh.com,+91 8488113880,Ophthalmology,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC061,Orthopaedics,Dr. Sherly Pillai,Female,"MBBS, MD",drsherlypillai@bmh.com,+91 7351402764,Orthopaedics,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC062,Ophthalmology,Dr. Aneesh Philip,Male,"MBBS, MS",draneeshphilip@bmh.com,+91 7942056231,Ophthalmology,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC063,Cardiology,Dr. Jitin Chacko,Male,"MBBS, MD, DM",drjitinchacko@bmh.com,+91 7591354435,Cardiology,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC064,Psychiatry,Dr. Rohan George,Male,"MBBS, MD",drrohangeorge@bmh.com,+91 8444431247,Psychiatry,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC065,Neurosciences,Dr. Sreelekshmi Cherian,Female,"MBBS, MD, DM",drsreelekshmicherian@bmh.com,+91 7099422716,Neurosciences,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC066,Orthopaedics,Dr. Devika Ibrahim,Female,"MBBS, MS",drdevikaibrahim@bmh.com,+91 7204746648,Orthopaedics,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC067,Dermatology,Dr. Rohan Rahman,Male,"MBBS, MD",drrohanrahman@bmh.com,+91 9998695973,Dermatology,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC068,Nephrology,Dr. Sherly Philip,Female,"MBBS, MD, DM",drsherlyphilip@bmh.com,+91 9866504813,Nephrology,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC069,Oncology,Dr. Sreelekshmi Varghese,Female,"MBBS, MD, DM",drsreelekshmivarghese@bmh.com,+91 9857988073,Oncology,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC070,Dental,Dr. Sherly Cherian,Female,"MBBS, MD",drsherlycherian@bmh.com,+91 9516858325,Dental,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC071,Neurosciences,Dr. Siddharth Siddique,Male,"MBBS, MD, DM",drsiddharthsiddique@bmh.com,+91 7197227724,Neurosciences,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC072,Dermatology,Dr. Abhilash Faisal,Male,"MBBS, MD",drabhilashfaisal@bmh.com,+91 7579607351,Dermatology,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC073,Dental,Dr. Jitin George,Male,"MBBS, MD",drjitingeorge@bmh.com,+91 8557584829,Dental,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC074,Ophthalmology,Dr. Aiswarya Cherian,Female,"MBBS, MD",draiswaryacherian@bmh.com,+91 7581006201,Ophthalmology,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC075,Anaesthesiology,Dr. Siddharth Siddique,Male,"MBBS, MD",drsiddharthsiddique@bmh.com,+91 9690295705,Anaesthesiology,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC076,Dermatology,Dr. Jitin Thomas,Male,"MBBS, MD",drjitinthomas@bmh.com,+91 7869595518,Dermatology,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC077,Neurosciences,Dr. Thomas Abraham,Male,"MBBS, MS, MCh",drthomasabraham@bmh.com,+91 8851572578,Neurosciences,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC078,Nephrology,Dr. Ann Nambiar,Female,"MBBS, MD, DM",drannnambiar@bmh.com,+91 8853872753,Nephrology,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC079,Emergency,Dr. Jitin Warrier,Male,"MBBS, MS",drjitinwarrier@bmh.com,+91 8086435590,Emergency,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC080,Nephrology,Dr. Kavya Cherian,Female,"MBBS, MD, DM",drkavyacherian@bmh.com,+91 9471280576,Nephrology,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC081,Pathology,Dr. Rohan Nair,Male,"MBBS, MD",drrohannair@bmh.com,+91 8155961092,Pathology,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC082,Ophthalmology,Dr. Kiran Hashim,Male,"MBBS, MD",drkiranhashim@bmh.com,+91 7592338885,Ophthalmology,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC083,Ophthalmology,Dr. Midhun Kurian,Male,"MBBS, MD",drmidhunkurian@bmh.com,+91 7908097805,Ophthalmology,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC084,Ophthalmology,Dr. Remya Panicker,Female,"MBBS, MS",drremyapanicker@bmh.com,+91 7102802162,Ophthalmology,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC085,Orthopaedics,Dr. Jitin Faisal,Male,"MBBS, MS",drjitinfaisal@bmh.com,+91 9024242772,Orthopaedics,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC086,Urology,Dr. Kavya Cherian,Female,"MBBS, MD",drkavyacherian@bmh.com,+91 8611622737,Urology,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC087,General Medicine,Dr. Anjali Samuel,Female,"MBBS, MS",dranjalisamuel@bmh.com,+91 9660396397,General Medicine,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC088,Dermatology,Dr. Mohammed Philip,Male,"MBBS, MS",drmohammedphilip@bmh.com,+91 7744181783,Dermatology,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC089,Nephrology,Dr. Leelamma Kurian,Female,"MBBS, MD, DM",drleelammakurian@bmh.com,+91 7693867117,Nephrology,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC090,Dental,Dr. Jitin Thampi,Male,"MBBS, MD",drjitinthampi@bmh.com,+91 9420596578,Dental,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC091,General Surgery,Dr. Kiran Mathew,Male,"MBBS, MD",drkiranmathew@bmh.com,+91 9848784390,General Surgery,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC092,Women's Care (Obstetrics & Gynaecology),Dr. Dhanya Menon,Female,"MBBS, MS",drdhanyamenon@bmh.com,+91 9115687226,Women's Care (Obstetrics & Gynaecology),00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC093,ENT,Dr. Anjali George,Female,"MBBS, MS",dranjaligeorge@bmh.com,+91 9749055198,ENT,12:00,18:00,"Tue,Wed,Thu,Fri,Sat",Afternoon,15,30
+DOC094,Ophthalmology,Dr. Leelamma Mathew,Female,"MBBS, MD",drleelammamathew@bmh.com,+91 7662566147,Ophthalmology,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC095,Gastroenterology,Dr. Mathew Ibrahim,Male,"MBBS, MD, DM",drmathewibrahim@bmh.com,+91 9764476410,Gastroenterology,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC096,Endocrinology,Dr. Sreelekshmi Kurup,Female,"MBBS, MS",drsreelekshmikurup@bmh.com,+91 8454981303,Endocrinology,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC097,Dermatology,Dr. Fathima Ibrahim,Female,"MBBS, MS",drfathimaibrahim@bmh.com,+91 7740555237,Dermatology,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC098,Psychiatry,Dr. Pranav Siddique,Male,"MBBS, MS",drpranavsiddique@bmh.com,+91 8109902284,Psychiatry,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC099,Dental,Dr. Rahul Philip,Male,"MBBS, MD",drrahulphilip@bmh.com,+91 7117181120,Dental,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC100,Emergency,Dr. Aswathy Ibrahim,Female,"MBBS, MD",draswathyibrahim@bmh.com,+91 9560048673,Emergency,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC101,General Surgery,Dr. Tessa Cherian,Female,"MBBS, MD",drtessacherian@bmh.com,+91 9884971224,General Surgery,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC102,ENT,Dr. Thomas Faisal,Male,"MBBS, MD",drthomasfaisal@bmh.com,+91 9043573994,ENT,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC103,General Medicine,Dr. Fathima Kurup,Female,"MBBS, MD",drfathimakurup@bmh.com,+91 9472337935,General Medicine,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC104,Women's Care (Obstetrics & Gynaecology),Dr. Devika Cherian,Female,"MBBS, MS",drdevikacherian@bmh.com,+91 7737997869,Women's Care (Obstetrics & Gynaecology),06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC105,Dental,Dr. Rahul Cherian,Male,"MBBS, MS",drrahulcherian@bmh.com,+91 7155848330,Dental,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC106,Oncology,Dr. George Nambiar,Male,"MBBS, MS, MCh",drgeorgenambiar@bmh.com,+91 9016905955,Oncology,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC107,Critical Care,Dr. Sophy Nair,Female,"MBBS, MS",drsophynair@bmh.com,+91 8111029470,Critical Care,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC108,Critical Care,Dr. Manu Hashim,Male,"MBBS, MS",drmanuhashim@bmh.com,+91 9179226384,Critical Care,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC109,Radiology,Dr. Lakshmi Kurup,Female,"MBBS, MD",drlakshmikurup@bmh.com,+91 8580628481,Radiology,18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC110,Child Care (Paediatrics),Dr. Mary George,Female,"MBBS, MS",drmarygeorge@bmh.com,+91 9590217916,Child Care (Paediatrics),18:00,23:59,"Wed,Thu,Fri,Sat,Sun",Evening,15,30
+DOC111,Ophthalmology,Dr. Sneha Nair,Female,"MBBS, MD",drsnehanair@bmh.com,+91 8202625568,Ophthalmology,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC112,General Surgery,Dr. Manu Faisal,Male,"MBBS, MD",drmanufaisal@bmh.com,+91 8549823958,General Surgery,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC113,Urology,Dr. Aiswarya Philip,Female,"MBBS, MD",draiswaryaphilip@bmh.com,+91 9854890832,Urology,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC114,Ophthalmology,Dr. Sreelekshmi Chacko,Female,"MBBS, MD",drsreelekshmichacko@bmh.com,+91 8902305520,Ophthalmology,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC115,General Surgery,Dr. Reshma Siddique,Female,"MBBS, MS",drreshmasiddique@bmh.com,+91 9454429140,General Surgery,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC116,General Surgery,Dr. Jitin Ibrahim,Male,"MBBS, MS",drjitinibrahim@bmh.com,+91 7051668298,General Surgery,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC117,Women's Care (Obstetrics & Gynaecology),Dr. George Rahman,Male,"MBBS, MD",drgeorgerahman@bmh.com,+91 7785809302,Women's Care (Obstetrics & Gynaecology),12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC118,Cardiology,Dr. Abhilash Panicker,Male,"MBBS, MD, DM",drabhilashpanicker@bmh.com,+91 8980531278,Cardiology,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC119,Psychiatry,Dr. Sebastian Samuel,Male,"MBBS, MS",drsebastiansamuel@bmh.com,+91 8545401819,Psychiatry,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC120,General Surgery,Dr. Rahul Joseph,Male,"MBBS, MS",drrahuljoseph@bmh.com,+91 8214317200,General Surgery,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC121,Emergency,Dr. Reshma Thomas,Female,"MBBS, MD",drreshmathomas@bmh.com,+91 7608251138,Emergency,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC122,Urology,Dr. Siddharth Kurup,Male,"MBBS, MD",drsiddharthkurup@bmh.com,+91 8715992936,Urology,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC123,General Medicine,Dr. Arjun Nambiar,Male,"MBBS, MD",drarjunnambiar@bmh.com,+91 7504527916,General Medicine,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC124,Child Care (Paediatrics),Dr. Devika Faisal,Female,"MBBS, MD",drdevikafaisal@bmh.com,+91 7261940606,Child Care (Paediatrics),00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC125,Pathology,Dr. Leelamma Chacko,Female,"MBBS, MD",drleelammachacko@bmh.com,+91 9099542247,Pathology,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC126,General Medicine,Dr. Mary Philip,Female,"MBBS, MD",drmaryphilip@bmh.com,+91 8458391513,General Medicine,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC127,Anaesthesiology,Dr. Thomas Nair,Male,"MBBS, MD",drthomasnair@bmh.com,+91 9601686186,Anaesthesiology,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC128,Emergency,Dr. Reshma Nambiar,Female,"MBBS, MD",drreshmanambiar@bmh.com,+91 8448823138,Emergency,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC129,Women's Care (Obstetrics & Gynaecology),Dr. Ann Menon,Female,"MBBS, MD",drannmenon@bmh.com,+91 9995987198,Women's Care (Obstetrics & Gynaecology),18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC130,Anaesthesiology,Dr. Thomas Pillai,Male,"MBBS, MD",drthomaspillai@bmh.com,+91 7115959327,Anaesthesiology,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC131,Orthopaedics,Dr. Deepak Menon,Male,"MBBS, MD",drdeepakmenon@bmh.com,+91 9718119066,Orthopaedics,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC132,General Medicine,Dr. Reshma Joseph,Female,"MBBS, MD",drreshmajoseph@bmh.com,+91 9480202809,General Medicine,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC133,Anaesthesiology,Dr. Manu Faisal,Male,"MBBS, MD",drmanufaisal@bmh.com,+91 8530559044,Anaesthesiology,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC134,Urology,Dr. Antony Siddique,Male,"MBBS, MD",drantonysiddique@bmh.com,+91 8707176179,Urology,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC135,Anaesthesiology,Dr. Abhilash Faisal,Male,"MBBS, MS",drabhilashfaisal@bmh.com,+91 7128722624,Anaesthesiology,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC136,Emergency,Dr. Manu Philip,Male,"MBBS, MD",drmanuphilip@bmh.com,+91 7422387392,Emergency,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC137,Child Care (Paediatrics),Dr. Sherly Hashim,Female,"MBBS, MS",drsherlyhashim@bmh.com,+91 8182612365,Child Care (Paediatrics),06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC138,Neurosciences,Dr. Sreelekshmi Varghese,Female,"MBBS, MD, DM",drsreelekshmivarghese@bmh.com,+91 7092381166,Neurosciences,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC139,Cardiology,Dr. Anupama Menon,Female,"MBBS, MD, DM",dranupamamenon@bmh.com,+91 9153357708,Cardiology,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC140,Psychiatry,Dr. Nithin Rahman,Male,"MBBS, MS",drnithinrahman@bmh.com,+91 7910616380,Psychiatry,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC141,ENT,Dr. Kavya Mathew,Female,"MBBS, MD",drkavyamathew@bmh.com,+91 7067526944,ENT,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC142,Women's Care (Obstetrics & Gynaecology),Dr. Mohammed Hashim,Male,"MBBS, MD",drmohammedhashim@bmh.com,+91 8339615115,Women's Care (Obstetrics & Gynaecology),00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC143,General Medicine,Dr. Sherly Kurian,Female,"MBBS, MD",drsherlykurian@bmh.com,+91 8697706537,General Medicine,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC144,Anaesthesiology,Dr. Sebastian Joseph,Male,"MBBS, MD",drsebastianjoseph@bmh.com,+91 8379505500,Anaesthesiology,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC145,Cardiology,Dr. Sneha Hashim,Female,"MBBS, MS, MCh",drsnehahashim@bmh.com,+91 9122538994,Cardiology,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC146,Pathology,Dr. Parvathy Cherian,Female,"MBBS, MD",drparvathycherian@bmh.com,+91 7347958626,Pathology,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC147,Anaesthesiology,Dr. Anupama Abraham,Female,"MBBS, MD",dranupamaabraham@bmh.com,+91 7144861458,Anaesthesiology,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC148,Oncology,Dr. Manu Pillai,Male,"MBBS, MD, DM",drmanupillai@bmh.com,+91 7944225760,Oncology,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC149,Ophthalmology,Dr. Mohammed Cherian,Male,"MBBS, MD",drmohammedcherian@bmh.com,+91 8069515609,Ophthalmology,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC150,ENT,Dr. Sreelekshmi Pillai,Female,"MBBS, MD",drsreelekshmipillai@bmh.com,+91 9579762486,ENT,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC151,Gastroenterology,Dr. Fathima Faisal,Female,"MBBS, MD, DM",drfathimafaisal@bmh.com,+91 9354046217,Gastroenterology,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC152,Pathology,Dr. Devika Faisal,Female,"MBBS, MD",drdevikafaisal@bmh.com,+91 8613267695,Pathology,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC153,Pulmonology,Dr. Anjali Nambiar,Female,"MBBS, MD",dranjalinambiar@bmh.com,+91 8154532179,Pulmonology,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC154,Orthopaedics,Dr. Lakshmi Kurup,Female,"MBBS, MS",drlakshmikurup@bmh.com,+91 8780183603,Orthopaedics,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC155,Dental,Dr. George George,Male,"MBBS, MD",drgeorgegeorge@bmh.com,+91 9035738947,Dental,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC156,Pulmonology,Dr. Greeshma Thampi,Female,"MBBS, MD",drgreeshmathampi@bmh.com,+91 7842013414,Pulmonology,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC157,Urology,Dr. Kavya Thampi,Female,"MBBS, MD",drkavyathampi@bmh.com,+91 9697158019,Urology,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC158,Urology,Dr. Thomas Pillai,Male,"MBBS, MS",drthomaspillai@bmh.com,+91 7866821962,Urology,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC159,Women's Care (Obstetrics & Gynaecology),Dr. Riya Cherian,Female,"MBBS, MD",drriyacherian@bmh.com,+91 9294382754,Women's Care (Obstetrics & Gynaecology),06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC160,Child Care (Paediatrics),Dr. Fathima Pillai,Female,"MBBS, MS",drfathimapillai@bmh.com,+91 7149587865,Child Care (Paediatrics),12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC161,Endocrinology,Dr. Mary Warrier,Female,"MBBS, MS",drmarywarrier@bmh.com,+91 9353392986,Endocrinology,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC162,Dental,Dr. Kavya Pillai,Female,"MBBS, MD",drkavyapillai@bmh.com,+91 8473261150,Dental,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC163,Emergency,Dr. Lakshmi Joseph,Female,"MBBS, MS",drlakshmijoseph@bmh.com,+91 7581200832,Emergency,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC164,Nephrology,Dr. Tessa Menon,Female,"MBBS, MS, MCh",drtessamenon@bmh.com,+91 7702733137,Nephrology,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC165,Child Care (Paediatrics),Dr. Jacob Cherian,Male,"MBBS, MD",drjacobcherian@bmh.com,+91 7339268180,Child Care (Paediatrics),18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC166,General Surgery,Dr. Fathima Kurup,Female,"MBBS, MD",drfathimakurup@bmh.com,+91 9760466686,General Surgery,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC167,ENT,Dr. Remya Philip,Female,"MBBS, MD",drremyaphilip@bmh.com,+91 8430318059,ENT,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC168,Critical Care,Dr. Parvathy Faisal,Female,"MBBS, MD",drparvathyfaisal@bmh.com,+91 8069294084,Critical Care,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC169,Ophthalmology,Dr. Aiswarya Faisal,Female,"MBBS, MD",draiswaryafaisal@bmh.com,+91 9985026057,Ophthalmology,18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC170,Women's Care (Obstetrics & Gynaecology),Dr. Sreelekshmi Cherian,Female,"MBBS, MS",drsreelekshmicherian@bmh.com,+91 8396505669,Women's Care (Obstetrics & Gynaecology),12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC171,Pulmonology,Dr. Rohan Faisal,Male,"MBBS, MD",drrohanfaisal@bmh.com,+91 9236765033,Pulmonology,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC172,General Medicine,Dr. Antony Thampi,Male,"MBBS, MD",drantonythampi@bmh.com,+91 7941102642,General Medicine,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC173,Ophthalmology,Dr. Devika Pillai,Female,"MBBS, MD",drdevikapillai@bmh.com,+91 9489372101,Ophthalmology,00:00,06:00,"Tue,Wed,Thu,Fri,Sat",Night,15,30
+DOC174,Psychiatry,Dr. Leelamma Thampi,Female,"MBBS, MS",drleelammathampi@bmh.com,+91 7816057288,Psychiatry,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC175,Women's Care (Obstetrics & Gynaecology),Dr. Varghese Hashim,Male,"MBBS, MD",drvarghesehashim@bmh.com,+91 9113872551,Women's Care (Obstetrics & Gynaecology),18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC176,Psychiatry,Dr. Jitin Siddique,Male,"MBBS, MS",drjitinsiddique@bmh.com,+91 9266584375,Psychiatry,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC177,Dermatology,Dr. Faisal Joseph,Male,"MBBS, MD",drfaisaljoseph@bmh.com,+91 9087264416,Dermatology,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC178,Ophthalmology,Dr. Anjali Philip,Female,"MBBS, MD",dranjaliphilip@bmh.com,+91 8321637701,Ophthalmology,06:00,12:00,"Wed,Thu,Fri,Sat,Sun",Morning,15,30
+DOC179,Neurosciences,Dr. Midhun Hashim,Male,"MBBS, MD, DM",drmidhunhashim@bmh.com,+91 8013302664,Neurosciences,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC180,Critical Care,Dr. Ann Menon,Female,"MBBS, MD",drannmenon@bmh.com,+91 9601712252,Critical Care,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC181,Nephrology,Dr. Deepak Eapen,Male,"MBBS, MD, DM",drdeepakeapen@bmh.com,+91 8735928054,Nephrology,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC182,Urology,Dr. Siddharth Nair,Male,"MBBS, MS",drsiddharthnair@bmh.com,+91 9432989693,Urology,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC183,Endocrinology,Dr. Sanjay Hashim,Male,"MBBS, MD",drsanjayhashim@bmh.com,+91 8195043828,Endocrinology,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC184,Pulmonology,Dr. Varghese Varghese,Male,"MBBS, MD",drvarghesevarghese@bmh.com,+91 9964094659,Pulmonology,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC185,General Surgery,Dr. Rahul Chacko,Male,"MBBS, MD",drrahulchacko@bmh.com,+91 8141983583,General Surgery,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC186,Critical Care,Dr. Varghese Eapen,Male,"MBBS, MD",drvargheseeapen@bmh.com,+91 8645845031,Critical Care,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC187,Dental,Dr. Aiswarya Samuel,Female,"MBBS, MD",draiswaryasamuel@bmh.com,+91 8310695809,Dental,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC188,Psychiatry,Dr. Sneha Rahman,Female,"MBBS, MD",drsneharahman@bmh.com,+91 9364253478,Psychiatry,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC189,Women's Care (Obstetrics & Gynaecology),Dr. Sherly Faisal,Female,"MBBS, MD",drsherlyfaisal@bmh.com,+91 8958045984,Women's Care (Obstetrics & Gynaecology),00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC190,Pulmonology,Dr. Sneha Kurup,Female,"MBBS, MD",drsnehakurup@bmh.com,+91 8611633674,Pulmonology,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC191,Oncology,Dr. Rahul Menon,Male,"MBBS, MS, MCh",drrahulmenon@bmh.com,+91 9484344341,Oncology,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC192,Neurosciences,Dr. Jitin Cherian,Male,"MBBS, MS, MCh",drjitincherian@bmh.com,+91 7021141928,Neurosciences,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC193,Women's Care (Obstetrics & Gynaecology),Dr. Sreelekshmi Menon,Female,"MBBS, MD",drsreelekshmimenon@bmh.com,+91 9396463181,Women's Care (Obstetrics & Gynaecology),06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC194,Critical Care,Dr. Nithin George,Male,"MBBS, MD",drnithingeorge@bmh.com,+91 9399298790,Critical Care,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC195,Pulmonology,Dr. Sumayya Pillai,Female,"MBBS, MD",drsumayyapillai@bmh.com,+91 8720818419,Pulmonology,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC196,General Medicine,Dr. Jacob Menon,Male,"MBBS, MS",drjacobmenon@bmh.com,+91 8189363849,General Medicine,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC197,Critical Care,Dr. Devika Nambiar,Female,"MBBS, MD",drdevikanambiar@bmh.com,+91 9444419946,Critical Care,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC198,Neurosciences,Dr. Sumayya Abraham,Female,"MBBS, MD, DM",drsumayyaabraham@bmh.com,+91 8089426354,Neurosciences,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC199,ENT,Dr. Greeshma Cherian,Female,"MBBS, MD",drgreeshmacherian@bmh.com,+91 9244577295,ENT,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC200,Gastroenterology,Dr. Rahul Nambiar,Male,"MBBS, MD, DM",drrahulnambiar@bmh.com,+91 7088241962,Gastroenterology,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC201,Endocrinology,Dr. Meera Eapen,Female,"MBBS, MD",drmeeraeapen@bmh.com,+91 8396277788,Endocrinology,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC202,Emergency,Dr. Lakshmi Siddique,Female,"MBBS, MD",drlakshmisiddique@bmh.com,+91 8740851462,Emergency,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC203,Emergency,Dr. Sherly Varghese,Female,"MBBS, MS",drsherlyvarghese@bmh.com,+91 8821667515,Emergency,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC204,Dental,Dr. Aswathy Mathew,Female,"MBBS, MD",draswathymathew@bmh.com,+91 9837321837,Dental,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC205,Dental,Dr. Sreelekshmi Warrier,Female,"MBBS, MD",drsreelekshmiwarrier@bmh.com,+91 7951889072,Dental,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC206,Orthopaedics,Dr. Sumayya Joseph,Female,"MBBS, MD",drsumayyajoseph@bmh.com,+91 9226073133,Orthopaedics,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC207,Pulmonology,Dr. Mohammed Varghese,Male,"MBBS, MD",drmohammedvarghese@bmh.com,+91 8694298770,Pulmonology,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC208,Urology,Dr. Abhilash Faisal,Male,"MBBS, MS",drabhilashfaisal@bmh.com,+91 9622101036,Urology,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC209,General Medicine,Dr. George Mathew,Male,"MBBS, MD",drgeorgemathew@bmh.com,+91 7690620278,General Medicine,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC210,Dermatology,Dr. Reshma Menon,Female,"MBBS, MD",drreshmamenon@bmh.com,+91 9064855394,Dermatology,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC211,Dermatology,Dr. Fathima Chacko,Female,"MBBS, MD",drfathimachacko@bmh.com,+91 7274372144,Dermatology,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC212,Women's Care (Obstetrics & Gynaecology),Dr. Arjun Varghese,Male,"MBBS, MS",drarjunvarghese@bmh.com,+91 7334732283,Women's Care (Obstetrics & Gynaecology),12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC213,Critical Care,Dr. Kavya Ibrahim,Female,"MBBS, MD",drkavyaibrahim@bmh.com,+91 9377908865,Critical Care,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC214,Orthopaedics,Dr. Reshma Samuel,Female,"MBBS, MD",drreshmasamuel@bmh.com,+91 7152189992,Orthopaedics,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC215,Psychiatry,Dr. Faisal Rahman,Male,"MBBS, MD",drfaisalrahman@bmh.com,+91 7531419675,Psychiatry,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC216,Nephrology,Dr. Sherly Panicker,Female,"MBBS, MD, DM",drsherlypanicker@bmh.com,+91 7383748266,Nephrology,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC217,Radiology,Dr. Aneesh Thampi,Male,"MBBS, MD",draneeshthampi@bmh.com,+91 8634455680,Radiology,00:00,06:00,"Thu,Fri,Sat,Sun,Mon",Night,15,30
+DOC218,Endocrinology,Dr. George Rahman,Male,"MBBS, MD",drgeorgerahman@bmh.com,+91 8194778095,Endocrinology,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC219,Urology,Dr. Kiran Varghese,Male,"MBBS, MD",drkiranvarghese@bmh.com,+91 9813692957,Urology,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC220,Neurosciences,Dr. Midhun Thampi,Male,"MBBS, MD, DM",drmidhunthampi@bmh.com,+91 9563387997,Neurosciences,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC221,Cardiology,Dr. Remya Varghese,Female,"MBBS, MD, DM",drremyavarghese@bmh.com,+91 7423137233,Cardiology,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC222,Dental,Dr. Siddharth Faisal,Male,"MBBS, MS",drsiddharthfaisal@bmh.com,+91 8000091479,Dental,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC223,ENT,Dr. Mohammed Ibrahim,Male,"MBBS, MD",drmohammedibrahim@bmh.com,+91 8624422947,ENT,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC224,Dental,Dr. Kavya Thomas,Female,"MBBS, MD",drkavyathomas@bmh.com,+91 9398884957,Dental,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC225,Neurosciences,Dr. Kavya Kurian,Female,"MBBS, MD, DM",drkavyakurian@bmh.com,+91 9509873070,Neurosciences,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC226,Women's Care (Obstetrics & Gynaecology),Dr. Vineeth Siddique,Male,"MBBS, MS",drvineethsiddique@bmh.com,+91 7065591152,Women's Care (Obstetrics & Gynaecology),18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC227,Orthopaedics,Dr. Jacob Ibrahim,Male,"MBBS, MD",drjacobibrahim@bmh.com,+91 9864681846,Orthopaedics,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC228,Urology,Dr. Manu Warrier,Male,"MBBS, MD",drmanuwarrier@bmh.com,+91 8354994157,Urology,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC229,ENT,Dr. Varghese Kurup,Male,"MBBS, MD",drvarghesekurup@bmh.com,+91 7808503492,ENT,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC230,Endocrinology,Dr. Sreelekshmi Rahman,Female,"MBBS, MD",drsreelekshmirahman@bmh.com,+91 8496127776,Endocrinology,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC231,General Medicine,Dr. Anjali Mathew,Female,"MBBS, MD",dranjalimathew@bmh.com,+91 7095486959,General Medicine,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC232,Cardiology,Dr. Sanjay Kurup,Male,"MBBS, MS, MCh",drsanjaykurup@bmh.com,+91 8221634331,Cardiology,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC233,Child Care (Paediatrics),Dr. Aswathy Eapen,Female,"MBBS, MD",draswathyeapen@bmh.com,+91 8990306055,Child Care (Paediatrics),00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC234,Orthopaedics,Dr. Rohan Chacko,Male,"MBBS, MD",drrohanchacko@bmh.com,+91 7727135015,Orthopaedics,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC235,Nephrology,Dr. Siddharth Nambiar,Male,"MBBS, MD, DM",drsiddharthnambiar@bmh.com,+91 7933246628,Nephrology,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC236,Pathology,Dr. Fathima Eapen,Female,"MBBS, MS",drfathimaeapen@bmh.com,+91 7528801264,Pathology,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC237,Psychiatry,Dr. Parvathy Faisal,Female,"MBBS, MD",drparvathyfaisal@bmh.com,+91 7341178700,Psychiatry,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC238,Dermatology,Dr. Aswathy Faisal,Female,"MBBS, MD",draswathyfaisal@bmh.com,+91 8717449550,Dermatology,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC239,Psychiatry,Dr. Aswathy Mathew,Female,"MBBS, MD",draswathymathew@bmh.com,+91 7275243599,Psychiatry,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC240,Ophthalmology,Dr. Manu Menon,Male,"MBBS, MD",drmanumenon@bmh.com,+91 7758232942,Ophthalmology,12:00,18:00,"Thu,Fri,Sat,Sun,Mon",Afternoon,15,30
+DOC241,Pulmonology,Dr. Sebastian Varghese,Male,"MBBS, MD",drsebastianvarghese@bmh.com,+91 9161373437,Pulmonology,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC242,Ophthalmology,Dr. Abhilash Varghese,Male,"MBBS, MD",drabhilashvarghese@bmh.com,+91 7480367793,Ophthalmology,18:00,23:59,"Fri,Sat,Sun,Mon,Tue",Evening,15,30
+DOC243,Endocrinology,Dr. Sophy Panicker,Female,"MBBS, MD",drsophypanicker@bmh.com,+91 8744011953,Endocrinology,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC244,General Surgery,Dr. Siddharth Philip,Male,"MBBS, MD",drsiddharthphilip@bmh.com,+91 8721974438,General Surgery,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC245,Child Care (Paediatrics),Dr. Rohan Kurian,Male,"MBBS, MD",drrohankurian@bmh.com,+91 8961699122,Child Care (Paediatrics),06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC246,Urology,Dr. Kavya Kurup,Female,"MBBS, MD",drkavyakurup@bmh.com,+91 8150854421,Urology,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC247,Anaesthesiology,Dr. Dhanya Thomas,Female,"MBBS, MD",drdhanyathomas@bmh.com,+91 8263221836,Anaesthesiology,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC248,Gastroenterology,Dr. Aiswarya Samuel,Female,"MBBS, MS, MCh",draiswaryasamuel@bmh.com,+91 9362320049,Gastroenterology,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC249,Cardiology,Dr. Kiran Rahman,Male,"MBBS, MS, MCh",drkiranrahman@bmh.com,+91 7807580622,Cardiology,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC250,General Surgery,Dr. Mathew Warrier,Male,"MBBS, MD",drmathewwarrier@bmh.com,+91 8149048323,General Surgery,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC251,Anaesthesiology,Dr. Sneha George,Female,"MBBS, MD",drsnehageorge@bmh.com,+91 9597898871,Anaesthesiology,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC252,Orthopaedics,Dr. Manu Rahman,Male,"MBBS, MD",drmanurahman@bmh.com,+91 7171252574,Orthopaedics,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC253,Anaesthesiology,Dr. Antony Thampi,Male,"MBBS, MS",drantonythampi@bmh.com,+91 7396438386,Anaesthesiology,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC254,Anaesthesiology,Dr. Sumayya Nair,Female,"MBBS, MD",drsumayyanair@bmh.com,+91 8669544863,Anaesthesiology,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC255,Critical Care,Dr. Devika Joseph,Female,"MBBS, MD",drdevikajoseph@bmh.com,+91 7274728872,Critical Care,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC256,Cardiology,Dr. Greeshma Thampi,Female,"MBBS, MS, MCh",drgreeshmathampi@bmh.com,+91 7160002915,Cardiology,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC257,Child Care (Paediatrics),Dr. Arjun Nambiar,Male,"MBBS, MD",drarjunnambiar@bmh.com,+91 7583543293,Child Care (Paediatrics),12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC258,Endocrinology,Dr. Jacob Chacko,Male,"MBBS, MD",drjacobchacko@bmh.com,+91 9801505193,Endocrinology,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC259,Gastroenterology,Dr. Tessa Samuel,Female,"MBBS, MS, MCh",drtessasamuel@bmh.com,+91 8516511807,Gastroenterology,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC260,Ophthalmology,Dr. Kavya Abraham,Female,"MBBS, MD",drkavyaabraham@bmh.com,+91 8958914573,Ophthalmology,00:00,06:00,"Sat,Sun,Mon,Tue,Wed",Night,15,30
+DOC261,Nephrology,Dr. Kiran Philip,Male,"MBBS, MD, DM",drkiranphilip@bmh.com,+91 7757981422,Nephrology,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC262,Urology,Dr. Rohan Mathew,Male,"MBBS, MD",drrohanmathew@bmh.com,+91 8950379949,Urology,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC263,Psychiatry,Dr. Anjali Varghese,Female,"MBBS, MD",dranjalivarghese@bmh.com,+91 8077726589,Psychiatry,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC264,Radiology,Dr. Sebastian Warrier,Male,"MBBS, MD",drsebastianwarrier@bmh.com,+91 9720270028,Radiology,06:00,12:00,"Fri,Sat,Sun,Mon,Tue",Morning,15,30
+DOC265,Nephrology,Dr. Siddharth Abraham,Male,"MBBS, MD, DM",drsiddharthabraham@bmh.com,+91 8598393316,Nephrology,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC266,Critical Care,Dr. Sherly Thampi,Female,"MBBS, MD",drsherlythampi@bmh.com,+91 8869240049,Critical Care,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC267,Pulmonology,Dr. Parvathy Kurian,Female,"MBBS, MD",drparvathykurian@bmh.com,+91 8676611283,Pulmonology,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC268,Pulmonology,Dr. Faisal Thampi,Male,"MBBS, MS",drfaisalthampi@bmh.com,+91 9127272957,Pulmonology,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC269,Anaesthesiology,Dr. Leelamma Varghese,Female,"MBBS, MS",drleelammavarghese@bmh.com,+91 9425450333,Anaesthesiology,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC270,Radiology,Dr. Mary Siddique,Female,"MBBS, MD",drmarysiddique@bmh.com,+91 8029806765,Radiology,12:00,18:00,"Sat,Sun,Mon,Tue,Wed",Afternoon,15,30
+DOC271,Orthopaedics,Dr. Riya Faisal,Female,"MBBS, MD",drriyafaisal@bmh.com,+91 9927982494,Orthopaedics,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC272,ENT,Dr. Sebastian Faisal,Male,"MBBS, MD",drsebastianfaisal@bmh.com,+91 9103835229,ENT,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC273,Women's Care (Obstetrics & Gynaecology),Dr. Fathima Thampi,Female,"MBBS, MD",drfathimathampi@bmh.com,+91 7399791167,Women's Care (Obstetrics & Gynaecology),00:00,06:00,"Tue,Wed,Thu,Fri,Sat",Night,15,30
+DOC274,Dental,Dr. Faisal Ibrahim,Male,"MBBS, MS",drfaisalibrahim@bmh.com,+91 8825075365,Dental,18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC275,Radiology,Dr. Ann Mathew,Female,"MBBS, MD",drannmathew@bmh.com,+91 8157055434,Radiology,18:00,23:59,"Sun,Mon,Tue,Wed,Thu",Evening,15,30
+DOC276,Women's Care (Obstetrics & Gynaecology),Dr. Pranav Menon,Male,"MBBS, MD",drpranavmenon@bmh.com,+91 7354495064,Women's Care (Obstetrics & Gynaecology),06:00,12:00,"Wed,Thu,Fri,Sat,Sun",Morning,15,30
+DOC277,Psychiatry,Dr. Aswathy Siddique,Female,"MBBS, MS",draswathysiddique@bmh.com,+91 7430253327,Psychiatry,18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC278,Oncology,Dr. Deepak Rahman,Male,"MBBS, MD, DM",drdeepakrahman@bmh.com,+91 7030496354,Oncology,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC279,Pulmonology,Dr. Kavya Philip,Female,"MBBS, MS",drkavyaphilip@bmh.com,+91 7056664873,Pulmonology,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC280,General Surgery,Dr. Pranav George,Male,"MBBS, MD",drpranavgeorge@bmh.com,+91 9196486176,General Surgery,18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC281,Orthopaedics,Dr. Anjali Joseph,Female,"MBBS, MD",dranjalijoseph@bmh.com,+91 9661440249,Orthopaedics,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC282,Dermatology,Dr. Devika Abraham,Female,"MBBS, MD",drdevikaabraham@bmh.com,+91 9328387686,Dermatology,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC283,Neurosciences,Dr. Anjali Varghese,Female,"MBBS, MD, DM",dranjalivarghese@bmh.com,+91 9074270545,Neurosciences,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC284,Pulmonology,Dr. Mariamma Joseph,Female,"MBBS, MD",drmariammajoseph@bmh.com,+91 8574992395,Pulmonology,18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC285,Neurosciences,Dr. Mathew Joseph,Male,"MBBS, MD, DM",drmathewjoseph@bmh.com,+91 7525787879,Neurosciences,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC286,Emergency,Dr. Mohammed Siddique,Male,"MBBS, MS",drmohammedsiddique@bmh.com,+91 7894920435,Emergency,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC287,Neurosciences,Dr. Kavya Joseph,Female,"MBBS, MD, DM",drkavyajoseph@bmh.com,+91 9003492164,Neurosciences,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC288,Nephrology,Dr. Sreelekshmi Hashim,Female,"MBBS, MS, MCh",drsreelekshmihashim@bmh.com,+91 7978283485,Nephrology,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC289,Dental,Dr. Mary George,Female,"MBBS, MD",drmarygeorge@bmh.com,+91 7876223404,Dental,00:00,06:00,"Tue,Wed,Thu,Fri,Sat",Night,15,30
+DOC290,Orthopaedics,Dr. Parvathy Eapen,Female,"MBBS, MD",drparvathyeapen@bmh.com,+91 7614541540,Orthopaedics,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC291,Dermatology,Dr. Vishal Mathew,Male,"MBBS, MD",drvishalmathew@bmh.com,+91 8285323185,Dermatology,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC292,Cardiology,Dr. Nithin Abraham,Male,"MBBS, MS, MCh",drnithinabraham@bmh.com,+91 9314077297,Cardiology,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC293,Critical Care,Dr. Kiran Nair,Male,"MBBS, MD",drkirannair@bmh.com,+91 7408797787,Critical Care,18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC294,Women's Care (Obstetrics & Gynaecology),Dr. Rahul Kurian,Male,"MBBS, MD",drrahulkurian@bmh.com,+91 8619290140,Women's Care (Obstetrics & Gynaecology),12:00,18:00,"Thu,Fri,Sat,Sun,Mon",Afternoon,15,30
+DOC295,Critical Care,Dr. Remya Cherian,Female,"MBBS, MS",drremyacherian@bmh.com,+91 9751710698,Critical Care,00:00,06:00,"Tue,Wed,Thu,Fri,Sat",Night,15,30
+DOC296,Women's Care (Obstetrics & Gynaecology),Dr. Antony Kurian,Male,"MBBS, MD",drantonykurian@bmh.com,+91 9940605149,Women's Care (Obstetrics & Gynaecology),18:00,23:59,"Fri,Sat,Sun,Mon,Tue",Evening,15,30
+DOC297,Psychiatry,Dr. Leelamma Abraham,Female,"MBBS, MD",drleelammaabraham@bmh.com,+91 9815998837,Psychiatry,00:00,06:00,"Tue,Wed,Thu,Fri,Sat",Night,15,30
+DOC298,Gastroenterology,Dr. Rahul George,Male,"MBBS, MD, DM",drrahulgeorge@bmh.com,+91 9049027163,Gastroenterology,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC299,Nephrology,Dr. Jacob Joseph,Male,"MBBS, MS, MCh",drjacobjoseph@bmh.com,+91 9666110259,Nephrology,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC300,Neurosciences,Dr. Varghese Nambiar,Male,"MBBS, MD, DM",drvarghesenambiar@bmh.com,+91 9515105013,Neurosciences,18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC301,Child Care (Paediatrics),Dr. Vineeth Chacko,Male,"MBBS, MS",drvineethchacko@bmh.com,+91 8183426847,Child Care (Paediatrics),18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC302,Gastroenterology,Dr. Antony Hashim,Male,"MBBS, MD, DM",drantonyhashim@bmh.com,+91 7725506645,Gastroenterology,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC303,Oncology,Dr. Greeshma Menon,Female,"MBBS, MD, DM",drgreeshmamenon@bmh.com,+91 7632317163,Oncology,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC304,Neurosciences,Dr. Kiran Panicker,Male,"MBBS, MD, DM",drkiranpanicker@bmh.com,+91 8555530663,Neurosciences,00:00,06:00,"Tue,Wed,Thu,Fri,Sat",Night,15,30
+DOC305,Anaesthesiology,Dr. Nithin Thomas,Male,"MBBS, MD",drnithinthomas@bmh.com,+91 9291893775,Anaesthesiology,18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC306,Pathology,Dr. Fathima Abraham,Female,"MBBS, MD",drfathimaabraham@bmh.com,+91 8214368066,Pathology,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC307,Critical Care,Dr. Faisal Thampi,Male,"MBBS, MD",drfaisalthampi@bmh.com,+91 9387214398,Critical Care,06:00,12:00,"Wed,Thu,Fri,Sat,Sun",Morning,15,30
+DOC308,Neurosciences,Dr. Anjali Nair,Female,"MBBS, MD, DM",dranjalinair@bmh.com,+91 7149876055,Neurosciences,06:00,12:00,"Wed,Thu,Fri,Sat,Sun",Morning,15,30
+DOC309,Pathology,Dr. Deepak Faisal,Male,"MBBS, MS",drdeepakfaisal@bmh.com,+91 9421205627,Pathology,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC310,Pathology,Dr. Varghese Thomas,Male,"MBBS, MD",drvarghesethomas@bmh.com,+91 8329851913,Pathology,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC311,Radiology,Dr. George Thampi,Male,"MBBS, MD",drgeorgethampi@bmh.com,+91 7685317436,Radiology,00:00,06:00,"Mon,Tue,Wed,Thu,Fri",Night,15,30
+DOC312,Urology,Dr. Vishal Chacko,Male,"MBBS, MD",drvishalchacko@bmh.com,+91 7581936750,Urology,18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC313,Oncology,Dr. Leelamma Nambiar,Female,"MBBS, MD, DM",drleelammanambiar@bmh.com,+91 8836144456,Oncology,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC314,General Medicine,Dr. Pranav Joseph,Male,"MBBS, MD",drpranavjoseph@bmh.com,+91 8635630017,General Medicine,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC315,Ophthalmology,Dr. Manu Varghese,Male,"MBBS, MD",drmanuvarghese@bmh.com,+91 7694594600,Ophthalmology,06:00,12:00,"Sun,Mon,Tue,Wed,Thu",Morning,15,30
+DOC316,Child Care (Paediatrics),Dr. Vishal Kurup,Male,"MBBS, MD",drvishalkurup@bmh.com,+91 9288543554,Child Care (Paediatrics),00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC317,ENT,Dr. Riya Chacko,Female,"MBBS, MD",drriyachacko@bmh.com,+91 9010534793,ENT,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC318,Endocrinology,Dr. Vishal Warrier,Male,"MBBS, MS",drvishalwarrier@bmh.com,+91 8892911304,Endocrinology,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC319,Radiology,Dr. Jitin Ibrahim,Male,"MBBS, MD",drjitinibrahim@bmh.com,+91 7683820423,Radiology,06:00,12:00,"Tue,Wed,Thu,Fri,Sat",Morning,15,30
+DOC320,Cardiology,Dr. Anjali George,Female,"MBBS, MS, MCh",dranjaligeorge@bmh.com,+91 8048381323,Cardiology,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC321,Nephrology,Dr. Sanjay Rahman,Male,"MBBS, MD, DM",drsanjayrahman@bmh.com,+91 9846194912,Nephrology,18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC322,Ophthalmology,Dr. Mohammed Nambiar,Male,"MBBS, MD",drmohammednambiar@bmh.com,+91 9931687950,Ophthalmology,12:00,18:00,"Mon,Tue,Wed,Thu,Fri",Afternoon,15,30
+DOC323,Radiology,Dr. Midhun Hashim,Male,"MBBS, MD",drmidhunhashim@bmh.com,+91 8286992211,Radiology,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC324,Neurosciences,Dr. Kavya Pillai,Female,"MBBS, MS, MCh",drkavyapillai@bmh.com,+91 9884929560,Neurosciences,12:00,18:00,"Thu,Fri,Sat,Sun,Mon",Afternoon,15,30
+DOC325,Gastroenterology,Dr. Leelamma Eapen,Female,"MBBS, MD, DM",drleelammaeapen@bmh.com,+91 8343439353,Gastroenterology,12:00,18:00,"Wed,Thu,Fri,Sat,Sun",Afternoon,15,30
+DOC326,Dental,Dr. Sneha Ibrahim,Female,"MBBS, MD",drsnehaibrahim@bmh.com,+91 8116661084,Dental,06:00,12:00,"Wed,Thu,Fri,Sat,Sun",Morning,15,30
+DOC327,Anaesthesiology,Dr. Sneha Chacko,Female,"MBBS, MD",drsnehachacko@bmh.com,+91 8197188174,Anaesthesiology,00:00,06:00,"Tue,Wed,Thu,Fri,Sat",Night,15,30
+DOC328,Dermatology,Dr. Antony Varghese,Male,"MBBS, MS",drantonyvarghese@bmh.com,+91 9221487147,Dermatology,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC329,Women's Care (Obstetrics & Gynaecology),Dr. Abhilash Panicker,Male,"MBBS, MS",drabhilashpanicker@bmh.com,+91 8064256603,Women's Care (Obstetrics & Gynaecology),00:00,06:00,"Sat,Sun,Mon,Tue,Wed",Night,15,30
+DOC330,Psychiatry,Dr. Sophy Varghese,Female,"MBBS, MD",drsophyvarghese@bmh.com,+91 9973130875,Psychiatry,06:00,12:00,"Wed,Thu,Fri,Sat,Sun",Morning,15,30
+DOC331,Ophthalmology,Dr. Midhun Siddique,Male,"MBBS, MD",drmidhunsiddique@bmh.com,+91 8327987756,Ophthalmology,18:00,23:59,"Tue,Wed,Thu,Fri,Sat",Evening,15,30
+DOC332,Psychiatry,Dr. Arjun Hashim,Male,"MBBS, MD",drarjunhashim@bmh.com,+91 8892342048,Psychiatry,12:00,18:00,"Thu,Fri,Sat,Sun,Mon",Afternoon,15,30
+DOC333,Ophthalmology,Dr. Rahul Kurup,Male,"MBBS, MD",drrahulkurup@bmh.com,+91 8091925657,Ophthalmology,00:00,06:00,"Wed,Thu,Fri,Sat,Sun",Night,15,30
+DOC334,Dental,Dr. George Thomas,Male,"MBBS, MD",drgeorgethomas@bmh.com,+91 9611488734,Dental,12:00,18:00,"Thu,Fri,Sat,Sun,Mon",Afternoon,15,30
+DOC335,Gastroenterology,Dr. Sumayya Kurup,Female,"MBBS, MS, MCh",drsumayyakurup@bmh.com,+91 8111821754,Gastroenterology,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC336,ENT,Dr. Sneha Nambiar,Female,"MBBS, MD",drsnehanambiar@bmh.com,+91 9054736072,ENT,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC337,ENT,Dr. Kavya Thomas,Female,"MBBS, MD",drkavyathomas@bmh.com,+91 9141944561,ENT,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC338,Nephrology,Dr. Leelamma Thomas,Female,"MBBS, MD, DM",drleelammathomas@bmh.com,+91 7004513905,Nephrology,00:00,06:00,"Tue,Wed,Thu,Fri,Sat",Night,15,30
+DOC339,Emergency,Dr. Rahul Pillai,Male,"MBBS, MS",drrahulpillai@bmh.com,+91 9770949327,Emergency,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC340,Dental,Dr. Siddharth Joseph,Male,"MBBS, MD",drsiddharthjoseph@bmh.com,+91 7845443130,Dental,18:00,23:59,"Fri,Sat,Sun,Mon,Tue",Evening,15,30
+DOC341,General Medicine,Dr. Mariamma Kurup,Female,"MBBS, MS",drmariammakurup@bmh.com,+91 7077517873,General Medicine,18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC342,Nephrology,Dr. Sreelekshmi Joseph,Female,"MBBS, MD, DM",drsreelekshmijoseph@bmh.com,+91 7501207739,Nephrology,06:00,12:00,"Wed,Thu,Fri,Sat,Sun",Morning,15,30
+DOC343,Endocrinology,Dr. Sebastian Philip,Male,"MBBS, MD",drsebastianphilip@bmh.com,+91 8956867284,Endocrinology,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC344,Urology,Dr. Siddharth Eapen,Male,"MBBS, MD",drsiddhartheapen@bmh.com,+91 9172043986,Urology,00:00,06:00,"Tue,Wed,Thu,Fri,Sat",Night,15,30
+DOC345,Emergency,Dr. Anupama Thampi,Female,"MBBS, MD",dranupamathampi@bmh.com,+91 7274818897,Emergency,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC346,Oncology,Dr. Lakshmi Samuel,Female,"MBBS, MD, DM",drlakshmisamuel@bmh.com,+91 8425632024,Oncology,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC347,Women's Care (Obstetrics & Gynaecology),Dr. Riya Mathew,Female,"MBBS, MS",drriyamathew@bmh.com,+91 8086663514,Women's Care (Obstetrics & Gynaecology),06:00,12:00,"Sun,Mon,Tue,Wed,Thu",Morning,15,30
+DOC348,Gastroenterology,Dr. Pranav Thomas,Male,"MBBS, MS, MCh",drpranavthomas@bmh.com,+91 8579304116,Gastroenterology,00:00,06:00,"Fri,Sat,Sun,Mon,Tue",Night,15,30
+DOC349,Endocrinology,Dr. Manu Eapen,Male,"MBBS, MD",drmanueapen@bmh.com,+91 8542200902,Endocrinology,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC350,Dental,Dr. Leelamma Rahman,Female,"MBBS, MD",drleelammarahman@bmh.com,+91 7409800138,Dental,00:00,06:00,"Sat,Sun,Mon,Tue,Wed",Night,15,30
+DOC351,Anaesthesiology,Dr. Fathima Warrier,Female,"MBBS, MD",drfathimawarrier@bmh.com,+91 9586434079,Anaesthesiology,06:00,12:00,"Wed,Thu,Fri,Sat,Sun",Morning,15,30
+DOC352,Orthopaedics,Dr. Manu Nambiar,Male,"MBBS, MD",drmanunambiar@bmh.com,+91 9001419479,Orthopaedics,18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC353,Anaesthesiology,Dr. Sebastian Thampi,Male,"MBBS, MS",drsebastianthampi@bmh.com,+91 7738968270,Anaesthesiology,12:00,18:00,"Thu,Fri,Sat,Sun,Mon",Afternoon,15,30
+DOC354,Child Care (Paediatrics),Dr. Kavya Kurian,Female,"MBBS, MD",drkavyakurian@bmh.com,+91 9811028216,Child Care (Paediatrics),06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC355,Child Care (Paediatrics),Dr. Parvathy Thomas,Female,"MBBS, MD",drparvathythomas@bmh.com,+91 8222711619,Child Care (Paediatrics),12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC356,Dermatology,Dr. Faisal Varghese,Male,"MBBS, MD",drfaisalvarghese@bmh.com,+91 9608776176,Dermatology,18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC357,Endocrinology,Dr. Jitin Mathew,Male,"MBBS, MD",drjitinmathew@bmh.com,+91 8957802822,Endocrinology,18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC358,Psychiatry,Dr. Sneha Menon,Female,"MBBS, MD",drsnehamenon@bmh.com,+91 8263303229,Psychiatry,18:00,23:59,"Fri,Sat,Sun,Mon,Tue",Evening,15,30
+DOC359,ENT,Dr. Abhilash Chacko,Male,"MBBS, MD",drabhilashchacko@bmh.com,+91 8644454853,ENT,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC360,Oncology,Dr. Meera Abraham,Female,"MBBS, MD, DM",drmeeraabraham@bmh.com,+91 8219346384,Oncology,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC361,Orthopaedics,Dr. Meera Chacko,Female,"MBBS, MD",drmeerachacko@bmh.com,+91 8935574754,Orthopaedics,00:00,06:00,"Tue,Wed,Thu,Fri,Sat",Night,15,30
+DOC362,Cardiology,Dr. George Rahman,Male,"MBBS, MD, DM",drgeorgerahman@bmh.com,+91 9117495430,Cardiology,18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC363,Dental,Dr. Thomas Philip,Male,"MBBS, MD",drthomasphilip@bmh.com,+91 7675507365,Dental,06:00,12:00,"Sun,Mon,Tue,Wed,Thu",Morning,15,30
+DOC364,Urology,Dr. Ann Abraham,Female,"MBBS, MD",drannabraham@bmh.com,+91 8749199682,Urology,06:00,12:00,"Wed,Thu,Fri,Sat,Sun",Morning,15,30
+DOC365,Child Care (Paediatrics),Dr. Aiswarya Thomas,Female,"MBBS, MS",draiswaryathomas@bmh.com,+91 9254652675,Child Care (Paediatrics),18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC366,Cardiology,Dr. Sophy Philip,Female,"MBBS, MD, DM",drsophyphilip@bmh.com,+91 9422116246,Cardiology,00:00,06:00,"Tue,Wed,Thu,Fri,Sat",Night,15,30
+DOC367,General Medicine,Dr. Kiran Ibrahim,Male,"MBBS, MD",drkiranibrahim@bmh.com,+91 7023186945,General Medicine,00:00,06:00,"Tue,Wed,Thu,Fri,Sat",Night,15,30
+DOC368,Endocrinology,Dr. Fathima Mathew,Female,"MBBS, MS",drfathimamathew@bmh.com,+91 9707435170,Endocrinology,00:00,06:00,"Tue,Wed,Thu,Fri,Sat",Night,15,30
+DOC369,Nephrology,Dr. Rohan Nair,Male,"MBBS, MD, DM",drrohannair@bmh.com,+91 9380272897,Nephrology,12:00,18:00,"Thu,Fri,Sat,Sun,Mon",Afternoon,15,30
+DOC370,Oncology,Dr. Parvathy Mathew,Female,"MBBS, MS, MCh",drparvathymathew@bmh.com,+91 9982544868,Oncology,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC371,Neurosciences,Dr. Thomas Rahman,Male,"MBBS, MD, DM",drthomasrahman@bmh.com,+91 8949502110,Neurosciences,18:00,23:59,"Fri,Sat,Sun,Mon,Tue",Evening,15,30
+DOC372,Oncology,Dr. Faisal Philip,Male,"MBBS, MS, MCh",drfaisalphilip@bmh.com,+91 7128785598,Oncology,18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC373,Gastroenterology,Dr. Manu Nair,Male,"MBBS, MD, DM",drmanunair@bmh.com,+91 8457978341,Gastroenterology,06:00,12:00,"Sat,Sun,Mon,Tue,Wed",Morning,15,30
+DOC374,Endocrinology,Dr. Vishal Joseph,Male,"MBBS, MD",drvishaljoseph@bmh.com,+91 7392565509,Endocrinology,06:00,12:00,"Wed,Thu,Fri,Sat,Sun",Morning,15,30
+DOC375,Pathology,Dr. Thomas Siddique,Male,"MBBS, MD",drthomassiddique@bmh.com,+91 8202736680,Pathology,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC376,Nephrology,Dr. Meera Kurup,Female,"MBBS, MD, DM",drmeerakurup@bmh.com,+91 7461916458,Nephrology,18:00,23:59,"Fri,Sat,Sun,Mon,Tue",Evening,15,30
+DOC377,Neurosciences,Dr. Deepak George,Male,"MBBS, MS, MCh",drdeepakgeorge@bmh.com,+91 8460543722,Neurosciences,00:00,06:00,"Sat,Sun,Mon,Tue,Wed",Night,15,30
+DOC378,Critical Care,Dr. Sanjay Joseph,Male,"MBBS, MD",drsanjayjoseph@bmh.com,+91 9279098584,Critical Care,12:00,18:00,"Thu,Fri,Sat,Sun,Mon",Afternoon,15,30
+DOC379,Urology,Dr. Antony Faisal,Male,"MBBS, MD",drantonyfaisal@bmh.com,+91 7132436100,Urology,12:00,18:00,"Thu,Fri,Sat,Sun,Mon",Afternoon,15,30
+DOC380,Cardiology,Dr. Meera Philip,Female,"MBBS, MD, DM",drmeeraphilip@bmh.com,+91 7007428397,Cardiology,06:00,12:00,"Wed,Thu,Fri,Sat,Sun",Morning,15,30
+DOC381,Gastroenterology,Dr. Mathew Panicker,Male,"MBBS, MS, MCh",drmathewpanicker@bmh.com,+91 9960236617,Gastroenterology,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC382,Critical Care,Dr. Kavya Faisal,Female,"MBBS, MS",drkavyafaisal@bmh.com,+91 9822309148,Critical Care,18:00,23:59,"Fri,Sat,Sun,Mon,Tue",Evening,15,30
+DOC383,Endocrinology,Dr. Nithin Chacko,Male,"MBBS, MD",drnithinchacko@bmh.com,+91 9075601826,Endocrinology,12:00,18:00,"Thu,Fri,Sat,Sun,Mon",Afternoon,15,30
+DOC384,Radiology,Dr. Kiran Varghese,Male,"MBBS, MD",drkiranvarghese@bmh.com,+91 7815341924,Radiology,18:00,23:59,"Thu,Fri,Sat,Sun,Mon",Evening,15,30
+DOC385,Cardiology,Dr. Thomas George,Male,"MBBS, MD, DM",drthomasgeorge@bmh.com,+91 7162540902,Cardiology,12:00,18:00,"Thu,Fri,Sat,Sun,Mon",Afternoon,15,30
+DOC386,ENT,Dr. Mohammed Warrier,Male,"MBBS, MS",drmohammedwarrier@bmh.com,+91 9384749576,ENT,18:00,23:59,"Mon,Tue,Wed,Thu,Fri",Evening,15,30
+DOC387,Critical Care,Dr. Jacob Thampi,Male,"MBBS, MD",drjacobthampi@bmh.com,+91 9625155273,Critical Care,00:00,06:00,"Sat,Sun,Mon,Tue,Wed",Night,15,30
+DOC388,Women's Care (Obstetrics & Gynaecology),Dr. Aneesh Faisal,Male,"MBBS, MS",draneeshfaisal@bmh.com,+91 8844773371,Women's Care (Obstetrics & Gynaecology),12:00,18:00,"Mon,Tue,Wed,Thu,Fri",Afternoon,15,30
+DOC389,General Medicine,Dr. Manu Thampi,Male,"MBBS, MD",drmanuthampi@bmh.com,+91 7669417472,General Medicine,06:00,12:00,"Wed,Thu,Fri,Sat,Sun",Morning,15,30
+DOC390,Urology,Dr. Kavya Philip,Female,"MBBS, MD",drkavyaphilip@bmh.com,+91 9779358200,Urology,18:00,23:59,"Fri,Sat,Sun,Mon,Tue",Evening,15,30
+DOC391,Nephrology,Dr. Sherly Kurup,Female,"MBBS, MD, DM",drsherlykurup@bmh.com,+91 7232237962,Nephrology,00:00,06:00,"Sat,Sun,Mon,Tue,Wed",Night,15,30
+DOC392,Ophthalmology,Dr. Antony Mathew,Male,"MBBS, MD",drantonymathew@bmh.com,+91 8165162113,Ophthalmology,06:00,12:00,"Thu,Fri,Sat,Sun,Mon",Morning,15,30
+DOC393,Nephrology,Dr. Remya Nair,Female,"MBBS, MS, MCh",drremyanair@bmh.com,+91 9708379364,Nephrology,06:00,12:00,"Sun,Mon,Tue,Wed,Thu",Morning,15,30
+DOC394,Child Care (Paediatrics),Dr. Pranav Menon,Male,"MBBS, MD",drpranavmenon@bmh.com,+91 7088416724,Child Care (Paediatrics),00:00,06:00,"Tue,Wed,Thu,Fri,Sat",Night,15,30
+DOC395,Oncology,Dr. Leelamma Rahman,Female,"MBBS, MS, MCh",drleelammarahman@bmh.com,+91 7169105988,Oncology,00:00,06:00,"Tue,Wed,Thu,Fri,Sat",Night,15,30
+DOC396,Anaesthesiology,Dr. Aneesh Samuel,Male,"MBBS, MD",draneeshsamuel@bmh.com,+91 8685418962,Anaesthesiology,18:00,23:59,"Fri,Sat,Sun,Mon,Tue",Evening,15,30
+DOC397,Endocrinology,Dr. Lakshmi Samuel,Female,"MBBS, MD",drlakshmisamuel@bmh.com,+91 9528854289,Endocrinology,18:00,23:59,"Fri,Sat,Sun,Mon,Tue",Evening,15,30
+DOC398,Emergency,Dr. Antony Varghese,Male,"MBBS, MD",drantonyvarghese@bmh.com,+91 8317332666,Emergency,12:00,18:00,"Sun,Mon,Tue,Wed,Thu",Afternoon,15,30
+DOC399,Nephrology,Dr. Abhilash Pillai,Male,"MBBS, MD, DM",drabhilashpillai@bmh.com,+91 9408967763,Nephrology,12:00,18:00,"Mon,Tue,Wed,Thu,Fri",Afternoon,15,30
+DOC400,Nephrology,Dr. Mary Panicker,Female,"MBBS, MS, MCh",drmarypanicker@bmh.com,+91 8278481106,Nephrology,18:00,23:59,"Tue,Wed,Thu,Fri,Sat",Evening,15,30

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Medicine - Pharmacy{% endblock %}
+
+{% block header_title %}Add New Medicine{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+    <div class="mb-6 pb-4 border-b border-gray-100">
+        <h3 class="text-xl font-bold text-gray-800">New Inventory Item</h3>
+        <p class="text-sm text-gray-500">Enter details to add a new medicine to stock.</p>
+    </div>
+
+    <form method="POST" class="space-y-6">
+        {% csrf_token %}
+
+        <div>
+            <label class="block text-gray-700 text-xs font-bold uppercase mb-2">Medicine Name</label>
+            <input type="text" name="name"
+                class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-shadow"
+                placeholder="e.g. Paracetamol 500mg" required autofocus>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6">
+            <div>
+                <label class="block text-gray-700 text-xs font-bold uppercase mb-2">Price (₹)</label>
+                <div class="relative">
+                    <span class="absolute left-3 top-3 text-gray-400">₹</span>
+                    <input type="number" step="0.01" name="price"
+                        class="w-full border border-gray-300 pl-8 pr-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-shadow"
+                        placeholder="0.00" required>
+                </div>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-xs font-bold uppercase mb-2">Initial Stock</label>
+                <input type="number" name="stock"
+                    class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-shadow"
+                    placeholder="0" required>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6">
+            <div>
+                <label class="block text-gray-700 text-xs font-bold uppercase mb-2">Min Stock Alert</label>
+                <input type="number" name="min_stock" value="10"
+                    class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-shadow">
+                <p class="text-xs text-gray-400 mt-1">Alert when stock drops below this.</p>
+            </div>
+            <div>
+                <label class="block text-gray-700 text-xs font-bold uppercase mb-2">Expiry Date</label>
+                <input type="date" name="expiry"
+                    class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-shadow"
+                    required>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4 pt-4">
+            <button type="submit"
+                class="flex-grow bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors shadow-sm">
+                Add Medicine
+            </button>
+            <a href="{% url 'pharmacy_inventory' %}"
+                class="px-6 py-3 border border-gray-300 text-gray-600 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+                Cancel
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PredictCare - Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 min-h-screen flex flex-col font-sans text-gray-800">
+
+    <!-- Navbar/Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center text-xl shadow-lg shadow-blue-500/30">
+                    🏥
+                </div>
+                <h1 class="text-xl font-bold tracking-tight text-gray-900">PredictCare <span
+                        class="text-blue-600 font-extrabold">Hub</span></h1>
+            </div>
+            <a href="{% url 'logout' %}"
+                class="flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-red-600 transition-colors px-4 py-2 rounded-lg hover:bg-red-50">
+                <span>Sign Out</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                    </path>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center p-6">
+        <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- Patient Management -->
+            <a href="{% url 'patient_dashboard' %}"
+                class="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-100 hover:-translate-y-1">
+                <div
+                    class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-400 to-blue-600 rounded-t-2xl">
+                </div>
+                <div
+                    class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                    👨‍⚕️
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">Patient
+                    Management</h2>
+                <p class="text-gray-500 leading-relaxed">Comprehensive tools to admit patients, record visits, track
+                    symptoms, and manage medical history.</p>
+                <div
+                    class="mt-6 flex items-center text-blue-600 font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0">
+                    Manage Patients
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Staff Management -->
+            <a href="{% url 'staff_dashboard' %}"
+                class="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-green-100 hover:-translate-y-1">
+                <div
+                    class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-t-2xl">
+                </div>
+                <div
+                    class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                    🪪
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors">Staff
+                    Management</h2>
+                <p class="text-gray-500 leading-relaxed">Administer doctor and nurse profiles, manage departmental
+                    assignments, and staff directories.</p>
+                <div
+                    class="mt-6 flex items-center text-emerald-600 font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0">
+                    Manage Staff
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Reports -->
+            <a href="{% url 'reports' %}"
+                class="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-purple-100 hover:-translate-y-1">
+                <div
+                    class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-purple-400 to-purple-600 rounded-t-2xl">
+                </div>
+                <div
+                    class="w-16 h-16 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                    📊
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">Visit
+                    Reports</h2>
+                <p class="text-gray-500 leading-relaxed">View detailed logs of patient visits, filter by date, doctor,
+                    and department.</p>
+                <div
+                    class="mt-6 flex items-center text-purple-600 font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0">
+                    View Reports
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Predictions (New) -->
+            <a href="{% url 'prediction' %}"
+                class="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-indigo-100 hover:-translate-y-1">
+                <div
+                    class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-indigo-400 to-indigo-600 rounded-t-2xl">
+                </div>
+                <div
+                    class="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                    📈
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors">AI
+                    Predictions</h2>
+                <p class="text-gray-500 leading-relaxed">View hospital load forecasts, resource planning, and medical
+                    trends analysis.</p>
+                <div
+                    class="mt-6 flex items-center text-indigo-600 font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0">
+                    View Analytics
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Department Management -->
+            <a href="{% url 'department_dashboard' %}"
+                class="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-orange-100 hover:-translate-y-1">
+                <div
+                    class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-orange-400 to-orange-600 rounded-t-2xl">
+                </div>
+                <div
+                    class="w-16 h-16 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                    🏢
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">
+                    Department
+                    Management</h2>
+                <p class="text-gray-500 leading-relaxed">Create and manage hospital departments, clinics, and
+                    specialized
+                    units.</p>
+                <div
+                    class="mt-6 flex items-center text-orange-600 font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0">
+                    Manage Departments
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Staff Scheduling (New) -->
+            <a href="{% url 'schedule' %}"
+                class="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-pink-100 hover:-translate-y-1">
+                <div
+                    class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-400 to-pink-600 rounded-t-2xl">
+                </div>
+                <div
+                    class="w-16 h-16 bg-pink-50 text-pink-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                    📅
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-pink-600 transition-colors">Staff
+                    Schedule</h2>
+                <p class="text-gray-500 leading-relaxed">View and manage shifts, working days, and timings for doctors
+                    and nurses.</p>
+                <div
+                    class="mt-6 flex items-center text-pink-600 font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0">
+                    Manage Shifts
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="text-center py-6 text-gray-400 text-sm">
+        &copy; 2026 PredictCare | Built for BMH Hospital
+    </footer>
+
+</body>
+
+</html>

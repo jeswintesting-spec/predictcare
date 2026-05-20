@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block title %}Billing History - Pharmacy{% endblock %}
+
+{% block header_title %}Billing History{% endblock %}
+
+{% block content %}
+<div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+    <!-- HEADER -->
+    <div class="p-6 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
+        <div>
+            <h3 class="font-bold text-lg text-gray-800">Transaction Log</h3>
+            <p class="text-xs text-gray-500 mt-1">Showing all previous bills.</p>
+        </div>
+        <div class="flex items-center gap-4">
+            <!-- SEARCH BAR -->
+            <form method="GET" class="relative group">
+                <input type="text" name="q" value="{{ query|default:'' }}" 
+                    placeholder="Search name or Bill ID..." 
+                    class="pl-10 pr-4 py-2 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all w-64 group-hover:border-gray-300">
+                <span class="absolute left-3 top-2.5 text-gray-400 group-hover:text-gray-500 transition-colors">🔍</span>
+            </form>
+
+            <span class="text-xs font-medium text-gray-500 bg-white px-3 py-1 rounded border border-gray-200 h-9 flex items-center">
+                Total: {{ total_count|default:"0" }}
+            </span>
+            <a href="{% url 'manual_billing' %}"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-1 h-9">
+                <span>➕</span> New Bill
+            </a>
+        </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr class="text-xs text-gray-500 uppercase border-b bg-gray-50">
+                    <th class="p-4 font-semibold">Bill ID</th>
+                    <th class="p-4 font-semibold">Customer / Patient</th>
+                    <th class="p-4 font-semibold">Date</th>
+                    <th class="p-4 text-center font-semibold">Items</th>
+                    <th class="p-4 text-right font-semibold">Total Amount</th>
+                    <th class="p-4 text-center font-semibold text-gray-400">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+                {% for bill in bills %}
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="p-4 font-mono text-sm text-gray-500">
+                        #{{ bill.id|stringformat:"04d" }}
+                    </td>
+                    <td class="p-4 font-medium text-gray-800">
+                        {{ bill.customer_name }}
+                        {% if bill.patient %}
+                        <span
+                            class="bg-blue-100 text-blue-700 text-[10px] font-bold px-1.5 py-0.5 rounded ml-2 border border-blue-200 uppercase tracking-tighter">BMH
+                            PATIENT</span>
+                        {% else %}
+                        <span
+                            class="bg-gray-100 text-gray-600 text-[10px] font-bold px-1.5 py-0.5 rounded ml-2 border border-gray-200 uppercase tracking-tighter">WALK-IN</span>
+                        {% endif %}
+                    </td>
+                    <td class="p-4 text-sm text-gray-600 font-medium">
+                        {{ bill.created_at|date:"M d, Y" }} <span class="text-gray-400 text-xs ml-1 font-normal">{{ bill.created_at|date:"H:i" }}</span>
+                    </td>
+                    <td class="p-4 text-center text-sm">
+                        <span
+                            class="bg-indigo-50 text-indigo-700 px-2 py-1 rounded-full text-[10px] font-black border border-indigo-100 uppercase tracking-wider">
+                            {{ bill.item_count }} items
+                        </span>
+                    </td>
+                    <td class="p-4 text-right font-mono font-bold text-slate-700">
+                        ₹{{ bill.total_amount }}
+                    </td>
+                    <td class="p-4 text-center">
+                        <a href="{% url 'print_bill' bill.id %}" target="_blank"
+                            class="inline-flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-all shadow-sm hover:shadow-indigo-100 group">
+                            <span class="opacity-80 group-hover:opacity-100">🖨️</span> Print
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="p-12 text-center text-gray-400 italic">
+                        No billing history found.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PAGINATION -->
+    {% if bills.has_other_pages %}
+    <div class="px-6 py-4 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
+        <div class="text-sm text-gray-500">
+            Showing page {{ bills.number }} of {{ bills.paginator.num_pages }}
+        </div>
+        <div class="flex gap-2">
+            {% if bills.has_previous %}
+            <a href="?page=1{% if query %}&q={{ query }}{% endif %}" class="px-3 py-1 bg-white border rounded text-xs font-bold hover:bg-gray-50">« First</a>
+            <a href="?page={{ bills.previous_page_number }}{% if query %}&q={{ query }}{% endif %}" class="px-3 py-1 bg-white border rounded text-xs font-bold hover:bg-gray-50">Previous</a>
+            {% endif %}
+
+            {% if bills.has_next %}
+            <a href="?page={{ bills.next_page_number }}{% if query %}&q={{ query }}{% endif %}" class="px-3 py-1 bg-white border rounded text-xs font-bold hover:bg-gray-50">Next</a>
+            <a href="?page={{ bills.paginator.num_pages }}{% if query %}&q={{ query }}{% endif %}" class="px-3 py-1 bg-white border rounded text-xs font-bold hover:bg-gray-50">Last »</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

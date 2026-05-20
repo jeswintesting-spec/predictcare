@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PredictCare - Staff Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+    <div class="max-w-6xl mx-auto py-8 px-4">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center gap-4">
+                <a href="{% url 'hub' %}"
+                    class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg transition-colors">
+                    ← Back to Hub
+                </a>
+                <h1 class="text-3xl font-bold text-gray-800">🪪 Staff Management</h1>
+            </div>
+            <a href="{% url 'logout' %}" class="text-red-600 hover:text-red-800 font-semibold">
+                🚪 Logout
+            </a>
+        </div>
+
+        <!-- Add Staff Button -->
+        <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-100">
+            <h3 class="text-md font-bold text-gray-800 mb-3">Add New Staff</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-3">
+                <select id="newRole" title="Staff Role" onchange="toggleSpecializationField()"
+                    class="border p-2 rounded text-sm bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none">
+                    <option value="doctor">Doctor</option>
+                    <option value="nurse">Nurse</option>
+                </select>
+                <input id="newName" type="text" title="Full Name" placeholder="Full Name"
+                    class="border p-2 rounded text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+
+                <select id="newDepartment" title="Department"
+                    class="border p-2 rounded text-sm bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none">
+                    <option value="" disabled selected>Select Department</option>
+                    {% for dept in departments %}
+                    <option value="{{ dept }}">{{ dept }}</option>
+                    {% endfor %}
+                </select>
+
+                <select id="newGender" title="Gender"
+                    class="border p-2 rounded text-sm bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none">
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input id="newQual" role="textbox" title="Qualifications" type="text"
+                    placeholder="Qualifications (e.g. MBBS)"
+                    class="border p-2 rounded text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                <input id="newSpec" title="Specialization" type="text" placeholder="Specialization (e.g. Cardiologist)"
+                    class="border p-2 rounded text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                <input id="newEmail" title="Email Address" type="email" placeholder="Email Address"
+                    class="border p-2 rounded text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                <input id="newPhone" title="Phone Number" type="text" placeholder="Phone Number"
+                    class="border p-2 rounded text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+            </div>
+            <div class="flex justify-end">
+                <button onclick="addStaff()"
+                    class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg text-sm font-semibold transition-colors">Add
+                    Staff Member</button>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex mb-4 border-b border-gray-300">
+            <button onclick="switchTab('doctors')" id="tab-doctors"
+                class="px-6 py-3 font-semibold border-b-2 border-blue-500 text-blue-600 bg-white rounded-t-lg">
+                Doctors
+            </button>
+            <button onclick="switchTab('nurses')" id="tab-nurses"
+                class="px-6 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-gray-800">
+                Nurses
+            </button>
+            <div class="ml-auto flex items-center gap-2">
+                <label class="text-sm font-semibold text-gray-600">Filter by Department:</label>
+                <select id="staffDeptFilter" title="Filter by Department" onchange="filterStaff()"
+                    class="border p-2 rounded text-sm">
+                    <option value="">All Departments</option>
+                    {% for dept in departments %}
+                    <option value="{{ dept }}">{{ dept }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="bg-white shadow rounded-lg p-6 min-h-[500px]">
+            <!-- Doctors Table -->
+            <div id="content-doctors">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-blue-50 text-blue-900 border-b border-blue-100">
+                            <th class="p-3">Staff ID</th>
+                            <th class="p-3">Name</th>
+                            <th class="p-3">Department</th>
+                            <th class="p-3">Contact</th>
+                            <th class="p-3 text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="doctors-body">
+                        {% for doc in doctors %}
+                        <tr class="border-b hover:bg-gray-50 group staff-row" data-dept="{{ doc.department|lower }}">
+                            <td class="p-3">
+                                <span class="font-mono text-xs bg-gray-100 px-2 py-1 rounded">{{ doc.staff_id }}</span>
+                            </td>
+                            <td class="p-3">
+                                <div class="font-medium text-gray-900">{{ doc.name }}</div>
+                                <div class="text-xs text-gray-500">
+                                    {{ doc.qualifications }}
+                                    {% if doc.specialization %}
+                                    <span class="text-blue-600 font-semibold">• {{ doc.specialization }}</span>
+                                    {% endif %}
+                                </div>
+                            </td>
+                            <td class="p-3 text-gray-600">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+                                    {{ doc.department }}
+                                </span>
+                            </td>
+                            <td class="p-3 text-gray-500 text-sm">
+                                <div>{{ doc.email }}</div>
+                                <div>{{ doc.phone }}</div>
+                            </td>
+                            <td class="p-3 text-right opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button
+                                    onclick="editStaff('doctor', '{{ doc.staff_id|escapejs }}', '{{ doc.name|escapejs }}', '{{ doc.department|escapejs }}', '{{ doc.gender|escapejs }}', '{{ doc.qualifications|escapejs }}', '{{ doc.email|escapejs }}', '{{ doc.phone|escapejs }}', '{{ doc.specialization|escapejs }}')"
+                                    class="text-blue-600 hover:text-blue-800 mr-3">Edit</button>
+                                <button
+                                    onclick="deleteStaff('doctor', '{{ doc.staff_id|escapejs }}', '{{ doc.name|escapejs }}')"
+                                    class="text-red-600 hover:text-red-800">Delete</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        <tr id="no-doctors" class="hidden">
+                            <td colspan="5" class="p-4 text-center text-gray-500 italic">No doctors found in this
+                                department.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Nurses Table -->
+            <div id="content-nurses" class="hidden">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-green-50 text-green-900 border-b border-green-100">
+                            <th class="p-3">Staff ID</th>
+                            <th class="p-3">Name</th>
+                            <th class="p-3">Department</th>
+                            <th class="p-3">Contact</th>
+                            <th class="p-3 text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="nurses-body">
+                        {% for nurse in nurses %}
+                        <tr class="border-b hover:bg-gray-50 group staff-row" data-dept="{{ nurse.department|lower }}">
+                            <td class="p-3">
+                                <span class="font-mono text-xs bg-gray-100 px-2 py-1 rounded">{{ nurse.staff_id
+                                    }}</span>
+                            </td>
+                            <td class="p-3">
+                                <div class="font-medium text-gray-900">{{ nurse.name }}</div>
+                                <div class="text-xs text-gray-500">{{ nurse.qualifications }}</div>
+                            </td>
+                            <td class="p-3 text-gray-600">
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
+                                    {{ nurse.department }}
+                                </span>
+                            </td>
+                            <td class="p-3 text-gray-500 text-sm">
+                                <div>{{ nurse.email }}</div>
+                                <div>{{ nurse.phone }}</div>
+                            </td>
+                            <td class="p-3 text-right opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button
+                                    onclick="editStaff('nurse', '{{ nurse.staff_id|escapejs }}', '{{ nurse.name|escapejs }}', '{{ nurse.department|escapejs }}', '{{ nurse.gender|escapejs }}', '{{ nurse.qualifications|escapejs }}', '{{ nurse.email|escapejs }}', '{{ nurse.phone|escapejs }}')"
+                                    class="text-blue-600 hover:text-blue-800 mr-3">Edit</button>
+                                <button
+                                    onclick="deleteStaff('nurse', '{{ nurse.staff_id|escapejs }}', '{{ nurse.name|escapejs }}')"
+                                    class="text-red-600 hover:text-red-800">Delete</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        <tr id="no-nurses" class="hidden">
+                            <td colspan="5" class="p-4 text-center text-gray-500 italic">No nurses found in this
+                                department.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal"
+        class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center">
+        <div class="bg-white p-5 rounded-lg shadow-xl w-96">
+            <h3 class="text-lg font-bold mb-4">Edit Staff Member</h3>
+            <input type="hidden" id="editRole">
+            <input type="hidden" id="editStaffId">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="mb-2">
+                    <label class="block text-gray-700 text-sm font-bold mb-1">Name</label>
+                    <input id="editName" title="Staff Name" type="text"
+                        class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+
+                <div class="mb-2">
+                    <label class="block text-gray-700 text-sm font-bold mb-1">Department</label>
+                    <select id="editDept" title="Staff Department"
+                        class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500 outline-none">
+                        {% for dept in departments %}
+                        <option value="{{ dept }}">{{ dept }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="mb-2">
+                    <label class="block text-gray-700 text-sm font-bold mb-1">Gender</label>
+                    <select id="editGender" title="Staff Gender"
+                        class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500 outline-none">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label class="block text-gray-700 text-sm font-bold mb-1">Qualifications</label>
+                    <input id="editQual" title="Staff Qualifications" type="text"
+                        class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <div class="mb-2" id="editSpecContainer">
+                    <label class="block text-gray-700 text-sm font-bold mb-1">Specialization</label>
+                    <input id="editSpec" title="Doctor Specialization" type="text"
+                        class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <div class="mb-2">
+                    <label class="block text-gray-700 text-sm font-bold mb-1">Email</label>
+                    <input id="editEmail" title="Staff Email" type="email"
+                        class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <div class="mb-2">
+                    <label class="block text-gray-700 text-sm font-bold mb-1">Phone</label>
+                    <input id="editPhone" title="Staff Phone" type="text"
+                        class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+            </div>
+
+            <div class="flex justify-end gap-2">
+                <button onclick="closeEditModal()"
+                    class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded">Cancel</button>
+                <button onclick="submitEdit()"
+                    class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-bold">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tab) {
+            // Hide all
+            document.getElementById('content-doctors').classList.add('hidden');
+            document.getElementById('content-nurses').classList.add('hidden');
+
+            // Reset tabs
+            document.getElementById('tab-doctors').className = "px-6 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-gray-800";
+            document.getElementById('tab-nurses').className = "px-6 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-gray-800";
+
+            // Show selected
+            document.getElementById('content-' + tab).classList.remove('hidden');
+
+            // Highlight tab
+            const activeClass = tab === 'doctors' ? 'border-blue-500 text-blue-600 bg-white rounded-t-lg' : 'border-green-500 text-green-600 bg-white rounded-t-lg';
+            document.getElementById('tab-' + tab).className = "px-6 py-3 font-semibold border-b-2 " + activeClass;
+
+            // Re-apply filter when switching tabs
+            filterStaff();
+        }
+
+        function filterStaff() {
+            const filterVal = document.getElementById('staffDeptFilter').value.toLowerCase().trim();
+
+            // Map tab content ID to its "No results" row ID
+            const tabMap = {
+                'content-doctors': 'no-doctors',
+                'content-nurses': 'no-nurses'
+            };
+
+            for (const [tabId, noMsgId] of Object.entries(tabMap)) {
+                const container = document.getElementById(tabId);
+                if (!container) continue;
+
+                const rows = container.querySelectorAll('tbody tr.staff-row');
+                let visibleCount = 0;
+
+                rows.forEach(row => {
+                    // Use data attribute for robust matching
+                    const dept = (row.dataset.dept || "").trim();
+
+                    if (filterVal === "" || dept === filterVal || dept.includes(filterVal)) {
+                        row.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        row.classList.add('hidden');
+                    }
+                });
+
+                // Toggle "No results" message
+                const noMsg = document.getElementById(noMsgId);
+                if (noMsg) {
+                    if (visibleCount === 0) {
+                        noMsg.classList.remove('hidden');
+                    } else {
+                        noMsg.classList.add('hidden');
+                    }
+                }
+            }
+        }
+
+        function addStaff() {
+            const role = document.getElementById('newRole').value;
+            const name = document.getElementById('newName').value.trim();
+            const dept = document.getElementById('newDepartment').value;
+            const gender = document.getElementById('newGender').value;
+            const qual = document.getElementById('newQual').value.trim();
+            const email = document.getElementById('newEmail').value.trim();
+            const phone = document.getElementById('newPhone').value.trim();
+            const spec = document.getElementById('newSpec').value.trim();
+
+            if (!name || !dept) {
+                alert("Please enter Name and Department.");
+                return;
+            }
+
+            let fd = new FormData();
+            fd.append('role', role);
+            fd.append('name', name);
+            fd.append('department', dept);
+            fd.append('gender', gender);
+            fd.append('qualifications', qual);
+            fd.append('email', email);
+            fd.append('phone', phone);
+            if (role === 'doctor') fd.append('specialization', spec);
+
+            fetch("{% url 'add_staff' %}", { method: 'POST', body: fd })
+                .then(r => r.json())
+                .then(res => {
+                    if (res.status === 'ok') {
+                        location.reload();
+                    } else {
+                        alert('Error adding staff');
+                    }
+                })
+                .catch(err => alert('Network error'));
+        }
+
+        function editStaff(role, staffId, name, dept, gender, qual, email, phone, spec = '') {
+            document.getElementById('editRole').value = role;
+            document.getElementById('editStaffId').value = staffId;
+
+            document.getElementById('editName').value = name;
+            document.getElementById('editDept').value = dept;
+            document.getElementById('editGender').value = gender;
+            document.getElementById('editQual').value = qual;
+            document.getElementById('editEmail').value = email;
+            document.getElementById('editPhone').value = phone;
+            document.getElementById('editSpec').value = spec;
+
+            // Show/Hide Specialization field based on role
+            const specContainer = document.getElementById('editSpecContainer');
+            if (role === 'doctor') {
+                specContainer.classList.remove('hidden');
+            } else {
+                specContainer.classList.add('hidden');
+            }
+
+            document.getElementById('editModal').classList.remove('hidden');
+        }
+
+        function closeEditModal() {
+            document.getElementById('editModal').classList.add('hidden');
+        }
+
+        function submitEdit() {
+            const role = document.getElementById('editRole').value;
+            const staffId = document.getElementById('editStaffId').value;
+
+            const name = document.getElementById('editName').value.trim();
+            const dept = document.getElementById('editDept').value;
+            const gender = document.getElementById('editGender').value;
+            const qual = document.getElementById('editQual').value.trim();
+            const email = document.getElementById('editEmail').value.trim();
+            const phone = document.getElementById('editPhone').value.trim();
+            const spec = document.getElementById('editSpec').value.trim();
+
+            if (!name || !dept) {
+                alert("Name and Department cannot be empty");
+                return;
+            }
+
+            let fd = new FormData();
+            fd.append('role', role);
+            fd.append('staff_id', staffId);
+            fd.append('name', name);
+            fd.append('department', dept);
+            fd.append('gender', gender);
+            fd.append('qualifications', qual);
+            fd.append('email', email);
+            fd.append('phone', phone);
+            if (role === 'doctor') fd.append('specialization', spec);
+
+            fetch("{% url 'edit_staff' %}", { method: 'POST', body: fd })
+                .then(r => r.json())
+                .then(res => {
+                    if (res.status === 'ok') location.reload();
+                    else alert('Error editing staff');
+                });
+        }
+
+
+        function deleteStaff(role, staffId, name) {
+            if (!confirm(`Are you sure you want to delete ${role} "${name}"?`)) return;
+
+            let fd = new FormData();
+            fd.append('role', role);
+            fd.append('staff_id', staffId);
+
+            fetch("{% url 'delete_staff' %}", { method: 'POST', body: fd })
+                .then(r => r.json())
+                .then(res => {
+                    if (res.status === 'deleted') location.reload();
+                });
+        }
+
+        function toggleSpecializationField() {
+            const role = document.getElementById('newRole').value;
+            const specInput = document.getElementById('newSpec');
+            if (role === 'doctor') {
+                specInput.classList.remove('hidden');
+            } else {
+                specInput.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+
+{% block title %}Doctor Analytics - Dr. {{ doctor.doctor_name }}{% endblock %}
+
+{% block header_title %}Analytics & Performance{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+
+    <!-- STATS CARDS -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div class="flex justify-between items-start">
+                <div>
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wide">Total Patients</p>
+                    <h3 class="text-3xl font-bold text-gray-800 mt-2">{{ total_visits }}</h3>
+                </div>
+                <div class="bg-blue-50 p-2 rounded-lg text-blue-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+            <div class="mt-4 flex items-center text-sm text-green-600 font-medium">
+                <span class="bg-green-100 px-1.5 py-0.5 rounded mr-1">All Time</span>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div class="flex justify-between items-start">
+                <div>
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wide">Unique Patients</p>
+                    <h3 class="text-3xl font-bold text-indigo-600 mt-2">{{ unique_patients }}</h3>
+                </div>
+                <div class="bg-indigo-50 p-2 rounded-lg text-indigo-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="mt-4 flex items-center text-sm text-indigo-600 font-medium">
+                <span class="bg-indigo-100 px-1.5 py-0.5 rounded mr-1">Individual Cases</span>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div class="flex justify-between items-start">
+                <div>
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wide">Visits Today</p>
+                    <h3 class="text-3xl font-bold text-purple-600 mt-2">{{ today_visits }}</h3>
+                </div>
+                <div class="bg-purple-50 p-2 rounded-lg text-purple-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+            <div class="mt-4 flex items-center text-sm text-purple-600 font-medium">
+                <span class="bg-purple-100 px-1.5 py-0.5 rounded mr-1">{{ now|date:"D, d M" }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHARTS ROW 1 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Trend Chart -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <h3 class="font-bold text-gray-700 mb-6 flex items-center gap-2">
+                <span class="w-2 h-6 bg-blue-500 rounded-full"></span> Patient Visits (Last 7 Days)
+            </h3>
+            <div class="h-72">
+                <canvas id="trendChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Case Dist Chart -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <h3 class="font-bold text-gray-700 mb-6 flex items-center gap-2">
+                <span class="w-2 h-6 bg-green-500 rounded-full"></span> Case Type Distribution
+            </h3>
+            <div class="h-72 flex justify-center items-center">
+                <canvas id="caseChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- PREDICTION CHART -->
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="font-bold text-gray-700 text-lg flex items-center gap-2">
+                <span class="w-2 h-6 bg-purple-500 rounded-full"></span> Predicted Patient Load ({{ doctor.department.name }})
+            </h3>
+            <span
+                class="bg-indigo-50 text-indigo-600 text-xs font-bold px-3 py-1 rounded-full border border-indigo-100 flex items-center gap-1">
+                <span>🤖</span> AI Forecast
+            </span>
+        </div>
+        <p class="text-gray-500 text-sm mb-6 max-w-3xl">
+            Based on historical trends, this is the expected patient volume for your department over the upcoming
+            months.
+            Use this to plan leave or staffing adjustments.
+        </p>
+        <div class="h-80">
+            <canvas id="predChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    // Data from Django
+    const trendLabels = JSON.parse('{{ trend_labels|safe }}');
+    const trendData = JSON.parse('{{ trend_data|safe }}');
+
+    const caseLabels = JSON.parse('{{ case_labels|safe }}');
+    const caseData = JSON.parse('{{ case_data|safe }}');
+
+    const predLabels = JSON.parse('{{ pred_labels|safe }}');
+    const predData = JSON.parse('{{ pred_data|safe }}');
+
+    // 1. Trend Chart
+    new Chart(document.getElementById('trendChart'), {
+        type: 'line',
+        data: {
+            labels: trendLabels,
+            datasets: [{
+                label: 'Visits',
+                data: trendData,
+                borderColor: '#4F46E5', // Indigo 600
+                backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                tension: 0.3,
+                fill: true,
+                pointBackgroundColor: '#fff',
+                pointBorderColor: '#4F46E5',
+                pointBorderWidth: 2,
+                pointRadius: 4,
+                pointHoverRadius: 6
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
+            scales: {
+                y: { beginAtZero: true, grid: { borderDash: [4, 4], color: '#f3f4f6' }, border: { display: false } },
+                x: { grid: { display: false }, border: { display: false } }
+            },
+            interaction: {
+                mode: 'nearest',
+                axis: 'x',
+                intersect: false
+            }
+        }
+    });
+
+    // 2. Case Dist Chart
+    new Chart(document.getElementById('caseChart'), {
+        type: 'doughnut',
+        data: {
+            labels: caseLabels,
+            datasets: [{
+                data: caseData,
+                backgroundColor: [
+                    '#3B82F6', '#10B981', '#EF4444', '#F59E0B', '#8B5CF6'
+                ],
+                borderWidth: 0,
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'right', labels: { usePointStyle: true, padding: 20 } }
+            },
+            cutout: '70%'
+        }
+    });
+
+    // 3. Prediction Chart
+    new Chart(document.getElementById('predChart'), {
+        type: 'bar',
+        data: {
+            labels: predLabels,
+            datasets: [{
+                label: 'Projected Visits',
+                data: predData,
+                backgroundColor: '#8B5CF6', // Purple 500
+                borderRadius: 4,
+                barThickness: 30,
+                hoverBackgroundColor: '#7C3AED'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: { beginAtZero: true, grid: { borderDash: [4, 4], color: '#f3f4f6' }, border: { display: false } },
+                x: { grid: { display: false }, border: { display: false } }
+            }
+        }
+    });
+</script>
+{% endblock %}

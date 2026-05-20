@@ -1,0 +1,593 @@
+{% extends 'base.html' %}
+
+{% block title %}Reception Dashboard - PredictCare{% endblock %}
+
+{% block header_title %}Patient Management{% endblock %}
+
+{% block extra_head %}
+{{ doctors_by_dept|json_script:"doctors-data" }}
+{% endblock %}
+
+{% block content %}
+<div class="bg-white p-6 shadow rounded-lg border border-gray-200">
+    <!-- TOP ACTIONS -->
+    <div class="flex justify-between items-center mb-6">
+        <h3 class="text-lg font-semibold text-gray-700">Patient Operations</h3>
+        <div class="space-x-2">
+            <a href="{% url 'schedule' %}"
+                class="inline-block bg-pink-50 text-pink-600 hover:bg-pink-100 border border-pink-200 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
+                View Staff Shifts
+            </a>
+            <button onclick="deletePatient()"
+                class="bg-red-50 text-red-600 hover:bg-red-100 border border-red-200 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
+                Delete Patient
+            </button>
+            <button onclick="exportToExcel()"
+                class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
+                Export Excel
+            </button>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <!-- ADD PATIENT -->
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <h3 class="font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                <span class="bg-blue-100 text-blue-600 p-1 rounded">➕</span> Add New Patient
+            </h3>
+            <div class="space-y-3">
+                <input id="newName" title="Patient Name"
+                    class="border p-2.5 w-full rounded focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    placeholder="Patient Name">
+                <input id="newDob" title="Date of Birth"
+                    class="border p-2.5 w-full rounded focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    placeholder="Date of Birth" type="date">
+                <select id="newGender" title="Gender"
+                    class="border p-2.5 w-full rounded bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input id="newLoc" title="Location" list="keralaDistricts"
+                    class="border p-2.5 w-full rounded focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    placeholder="Location (e.g. Kochi, Kerala)">
+                <datalist id="keralaDistricts">
+                    <option value="Thiruvananthapuram, Kerala"></option>
+                    <option value="Kochi, Kerala"></option>
+                    <option value="Kozhikode, Kerala"></option>
+                    <option value="Thrissur, Kerala"></option>
+                    <option value="Kannur, Kerala"></option>
+                    <option value="Kollam, Kerala"></option>
+                    <option value="Alappuzha, Kerala"></option>
+                    <option value="Palakkad, Kerala"></option>
+                    <option value="Malappuram, Kerala"></option>
+                    <option value="Kottayam, Kerala"></option>
+                    <option value="Kasaragod, Kerala"></option>
+                    <option value="Idukki, Kerala"></option>
+                    <option value="Wayanad, Kerala"></option>
+                    <option value="Pathanamthitta, Kerala"></option>
+                </datalist>
+                <button onclick="addPatient()"
+                    class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 w-full rounded-lg font-medium transition-colors shadow-sm">
+                    Create Patient Record
+                </button>
+            </div>
+        </div>
+
+        <!-- SEARCH PATIENT -->
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <h3 class="font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                <span class="bg-purple-100 text-purple-600 p-1 rounded">🔍</span> Search Patient
+            </h3>
+            <div class="space-y-3">
+                <input id="searchId"
+                    class="border p-2.5 w-full rounded focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                    placeholder="Enter Patient ID (e.g. PC0001) or Name">
+                <button onclick="searchPatient()"
+                    class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2.5 w-full rounded-lg font-medium transition-colors shadow-sm">
+                    Find Patient
+                </button>
+                <p class="text-xs text-gray-500 mt-2">Search by ID for exact match, or Name for partial match.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PATIENT DETAILS & VISIT FORM -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-6">
+        <!-- PATIENT INFO CARD -->
+        <div class="bg-blue-50 p-6 rounded-lg border border-blue-100 relative">
+            <button onclick="editPatient()"
+                class="absolute top-4 right-4 text-blue-600 hover:text-blue-800 bg-white p-1.5 rounded-full shadow-sm"
+                title="Edit Details">
+                ✏️
+            </button>
+            <h4 class="text-blue-800 font-bold mb-4 uppercase text-xs tracking-wider">Patient Details</h4>
+            <div class="space-y-2 text-sm">
+                <p class="flex justify-between"><span class="text-blue-600">ID:</span> <span id="pid"
+                        class="font-mono font-bold text-gray-800">—</span></p>
+                <p class="flex justify-between"><span class="text-blue-600">Name:</span> <span id="pname"
+                        class="font-bold text-gray-900 text-base">—</span></p>
+                <p class="flex justify-between"><span class="text-blue-600">Age:</span> <span id="page"
+                        class="text-gray-800">—</span></p>
+                <p class="flex justify-between"><span class="text-blue-600">DOB:</span> <span id="pdob"
+                        class="text-gray-800">—</span></p>
+                <p class="flex justify-between"><span class="text-blue-600">Gender:</span> <span id="pgender"
+                        class="text-gray-800">—</span></p>
+                <p class="flex justify-between"><span class="text-blue-600">Location:</span> <span id="ploc"
+                        class="text-gray-800">—</span></p>
+                <p class="flex justify-between hidden"><span class="text-blue-600">Assigned Slot:</span> <span
+                        id="pslot" class="text-blue-700 font-mono font-bold bg-blue-100 px-1 rounded">—</span></p>
+            </div>
+            <div id="msg" class="text-xs text-gray-500 mt-4 border-t border-blue-200 pt-2">System Initializing...</div>
+        </div>
+
+        <!-- VISIT ENTRY FORM -->
+        <div class="lg:col-span-2 bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+            <h3 class="font-semibold text-gray-800 mb-4">Add New Visit</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <select id="department"
+                    class="border p-2.5 w-full rounded focus:ring-2 focus:ring-indigo-500 focus:outline-none" required
+                    aria-label="Department">
+                    <option value="">Select Department</option>
+                    <option>Cardiology</option>
+                    <option>Oncology</option>
+                    <option>Neurosciences</option>
+                    <option>Gastroenterology</option>
+                    <option>Orthopaedics</option>
+                    <option>Women's Care (Obstetrics & Gynaecology)</option>
+                    <option>Child Care (Paediatrics)</option>
+                    <option>Radiology</option>
+                    <option>ENT</option>
+                </select>
+
+                <select id="doctor"
+                    class="border p-2.5 w-full rounded focus:ring-2 focus:ring-indigo-500 focus:outline-none" required
+                    disabled aria-label="Doctor">
+                    <option value="">Select Doctor</option>
+                </select>
+
+                <select id="caseType" title="Case Type"
+                    class="border p-2.5 w-full rounded focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                    <option value="">Case Type</option>
+                    <option>Normal</option>
+                    <option>Emergency</option>
+                    <option>Critical</option>
+                </select>
+
+                <input type="date" id="visitDate" title="Visit Date"
+                    class="border p-2.5 w-full rounded focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+            </div>
+
+            <!-- Hidden Inputs for Reception -->
+            <div class="hidden">
+                <div id="symptomTags"></div>
+                <div id="medicineTags"></div>
+            </div>
+
+            <div class="mt-6">
+                <button onclick="addVisit()"
+                    class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-lg font-medium transition-colors w-full md:w-auto">
+                    Save Visit Record
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- VISITS HISTORY -->
+    <h3 class="font-semibold text-gray-800 mb-4 text-lg">Previous Visits History</h3>
+    <div class="overflow-x-auto rounded-lg border border-gray-200">
+        <table class="w-full bg-white">
+            <thead>
+                <tr class="bg-gray-100 border-b border-gray-200 text-gray-600 text-sm uppercase leading-normal">
+                    <th class="py-3 px-4 text-left font-semibold">Date</th>
+                    <th class="py-3 px-4 text-left font-semibold">Slot</th>
+                    <th class="py-3 px-4 text-left font-semibold">Department</th>
+                    <th class="py-3 px-4 text-left font-semibold">Doc ID</th>
+                    <th class="py-3 px-4 text-left font-semibold">Doctor</th>
+                    <th class="py-3 px-4 text-left font-semibold">Case</th>
+                    <th class="py-3 px-4 text-left font-semibold">Details</th>
+                    <th class="py-3 px-4 text-left font-semibold">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="visits" class="text-gray-700 text-sm">
+                <!-- Loaded via JS -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- EDIT PATIENT MODAL -->
+<div id="editPatientModal"
+    class="hidden fixed inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full z-50 flex items-center justify-center">
+    <div class="relative p-6 border w-96 shadow-xl rounded-lg bg-white">
+        <h3 class="text-xl font-bold mb-4 text-gray-800">Edit Patient Details</h3>
+        <input type="hidden" id="editPid">
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1" for="editPName">Name</label>
+                <input id="editPName" title="Patient Name"
+                    class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1" for="editPDob">Date of Birth</label>
+                <input id="editPDob" title="Date of Birth" type="date"
+                    class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Gender</label>
+                <select id="editPGender" title="Gender"
+                    class="border p-2 w-full rounded bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1" for="editPLoc">Location</label>
+                <input id="editPLoc" title="Location" list="keralaDistricts"
+                    class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1" for="editPAge">Age (Override)</label>
+                <input id="editPAge" title="Age" type="number"
+                    class="border p-2 w-full rounded bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    placeholder="Auto-calculated">
+            </div>
+        </div>
+        <div class="flex justify-end gap-3 mt-6">
+            <button onclick="closeEditPatientModal()"
+                class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg font-medium transition-colors">Cancel</button>
+            <button onclick="submitEditPatient()"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors">Save
+                Changes</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    // Existing script content...
+    let patients = {};
+    let activeId = null;
+    let counter = 1;
+    let doctorsByDept = {}; // Global scope for access in loadVisits
+
+    window.onload = () => {
+        // Set max visit date to today
+        const todayStr = new Date().toISOString().split('T')[0];
+        const vd = document.getElementById('visitDate');
+        if (vd) {
+            vd.setAttribute('max', todayStr);
+            vd.value = todayStr;
+        }
+
+        // Load patients for ID generation
+        fetch("/load-patients/?t=" + new Date().getTime())
+            .then(r => r.json())
+            .then(data => {
+                // Ensure all keys are uppercase for reliable lookup
+                patients = Object.fromEntries(
+                    Object.entries(data).map(([k, v]) => [k.trim().toUpperCase(), v])
+                );
+                console.log('Loaded patients (normalized):', patients);
+                const count = Object.keys(patients).length;
+                document.getElementById('msg').innerText = `System Ready: Loaded ${count} patients.`;
+                document.getElementById('msg').className = "text-xs text-green-600 mt-4 border-t border-blue-200 pt-2 font-semibold";
+
+                if (count)
+                    // logic to find max ID remains same
+                    counter = parseInt(Object.keys(patients).sort().pop().replace("PC", "")) + 1;
+            })
+            .catch(err => {
+                console.error("Failed to load patients:", err);
+                document.getElementById('msg').innerText = "Error loading patients. Check console.";
+            });
+
+        // Load doctors data from JSON script
+        doctorsByDept = JSON.parse(document.getElementById('doctors-data').textContent);
+        const deptSelect = document.getElementById('department');
+        const doctorSelect = document.getElementById('doctor');
+        deptSelect.addEventListener('change', () => {
+            const dept = deptSelect.value;
+            const doctors = doctorsByDept[dept] || [];
+            console.log(`Dept selected: "${dept}", Doctors found:`, doctors);
+
+            doctorSelect.innerHTML = '<option value="">Select Doctor</option>';
+            doctors.forEach(d => {
+                const opt = document.createElement('option');
+                opt.value = d.name;
+                opt.setAttribute('data-staff-id', d.staff_id);
+                opt.textContent = `${d.staff_id} - ${d.name}`;
+                doctorSelect.appendChild(opt);
+            });
+            doctorSelect.disabled = doctors.length === 0;
+        });
+    };
+
+    function generateId() {
+        return "PC" + String(counter++).padStart(4, "0");
+    }
+
+    function addPatient() {
+        const name = newName.value.trim();
+        const dob = newDob.value;
+        const gender = newGender.value;
+        const loc = newLoc.value.trim();
+        // Optional: calculate age client-side for immediate feedback
+        let age = "";
+        if (dob) {
+            const birthDate = new Date(dob);
+            const today = new Date();
+            age = today.getFullYear() - birthDate.getFullYear();
+            const m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+        } else {
+            // Fallback
+        }
+
+        if (!name || !dob) { alert("Please enter Name and Date of Birth"); return; }
+
+        const id = generateId();
+        patients[id] = { name: name, age: age, dob: dob, gender: gender, location: loc };
+
+        let fd = new FormData();
+        fd.append("id", id);
+        fd.append("name", name);
+        fd.append("dob", dob);
+        fd.append("gender", gender);
+        fd.append("location", loc);
+        // Backend will calculate age, but we can send what we have or let backend handle it completely.
+        // Sending dob is enough.
+
+        fetch("/add-patient/", { method: "POST", body: fd })
+            .then(r => r.json())
+            .then(res => {
+                if (res.status === 'ok') location.reload();
+                // Reloading is safer to ensure consistency with backend calc
+            });
+    }
+
+    function searchPatient() {
+        const rawInput = searchId.value.trim();
+        const input = rawInput.toUpperCase().replace(/\s+/g, ''); // Remove spaces for ID search
+        console.log('Search input:', rawInput, 'Normalized:', input);
+
+        // 1. Try exact ID lookup (normalized)
+        if (patients[input]) {
+            selectPatient(input);
+            return;
+        }
+
+        // 2. Try Name search (case-insensitive partial match)
+        // or ID search with fallback logic
+        const foundKey = Object.keys(patients).find(k => {
+            const pID = k.toUpperCase();
+            const pName = patients[k].name.toUpperCase();
+            const search = rawInput.toUpperCase();
+            return pID === input || pName.includes(search);
+        });
+
+        if (foundKey) {
+            selectPatient(foundKey);
+            return;
+        }
+
+        console.log('Patient not found for input:', rawInput);
+        alert("Patient not found");
+    }
+
+    function selectPatient(id) {
+        console.log('Selected:', id);
+        activeId = id;
+        const p = patients[id];
+        pid.innerText = id;
+        pname.innerText = p.name;
+        page.innerText = p.age || "—";
+        pdob.innerText = p.dob || "—";
+        pgender.innerText = p.gender || "—";
+        ploc.innerText = p.location || "—";
+
+        const slotSpan = document.getElementById("pslot");
+        if (p.assigned_slot) {
+            slotSpan.innerText = p.assigned_slot;
+            slotSpan.parentElement.classList.remove("hidden");
+        } else {
+            slotSpan.parentElement.classList.add("hidden");
+        }
+
+        // Clear message
+        document.getElementById('msg').innerText = "Patient loaded.";
+        document.getElementById('msg').className = "text-xs text-green-600 mt-4 border-t border-blue-200 pt-2 font-semibold";
+        loadVisits();
+    }
+
+    function editPatient() {
+        if (!activeId) return;
+        const p = patients[activeId];
+
+        document.getElementById('editPid').value = activeId;
+        document.getElementById('editPName').value = p.name || "";
+        document.getElementById('editPDob').value = p.dob || "";
+        document.getElementById('editPAge').value = p.age || "";
+        document.getElementById('editPGender').value = p.gender || "Male";
+        document.getElementById('editPLoc').value = p.location || "";
+
+        document.getElementById('editPatientModal').classList.remove('hidden');
+    }
+
+    function closeEditPatientModal() {
+        document.getElementById('editPatientModal').classList.add('hidden');
+    }
+
+    function submitEditPatient() {
+        const id = document.getElementById('editPid').value;
+        const name = document.getElementById('editPName').value;
+        const dob = document.getElementById('editPDob').value;
+        const gender = document.getElementById('editPGender').value;
+        const loc = document.getElementById('editPLoc').value;
+        const age = document.getElementById('editPAge').value; // Optional override
+
+        let fd = new FormData();
+        fd.append("patient_id", id);
+        fd.append("new_name", name);
+        fd.append("new_dob", dob);
+        fd.append("new_gender", gender);
+        fd.append("new_location", loc);
+        fd.append("new_age", age);
+
+        fetch("/edit-patient/", { method: "POST", body: fd })
+            .then(r => r.json())
+            .then(res => {
+                if (res.status === "ok") {
+                    location.reload();
+                }
+            });
+    }
+
+    function deletePatient() {
+        if (!activeId) {
+            alert("Please search for a patient first.");
+            return;
+        }
+        if (!confirm(`Are you sure you want to delete patient ${activeId} and ALL their records?`)) return;
+
+        let fd = new FormData();
+        fd.append("patient_id", activeId);
+        fetch("/delete-patient/", { method: "POST", body: fd })
+            .then(() => {
+                alert("Deleted successfully.");
+                location.reload();
+            });
+    }
+
+    // Tag Handling (Hidden for Reception but preserved for potential future use or consistency)
+    let currentSymptoms = [];
+    let currentMedicines = [];
+
+    function renderTags(type) {
+        // No-op or implementation if we decide to show these
+    }
+
+    let editingVisitData = null;
+
+    function addVisit() {
+        if (!activeId) {
+            alert("Search a patient first.");
+            return;
+        }
+        let fd = new FormData();
+        fd.append("patient_id", activeId);
+        fd.append("department", department.value);
+        fd.append("doctor", doctor.value);
+        fd.append("case_type", caseType.value);
+        fd.append("visit_date", visitDate.value);
+        // Reception doesn't add clinical data
+        fd.append("medicines", "");
+        fd.append("symptoms", "");
+
+        let url = "/add-visit/";
+        if (editingVisitData) {
+            url = "/edit-visit/";
+            fd.append("old_department", editingVisitData[1]);
+            fd.append("old_doctor", editingVisitData[2]);
+            fd.append("old_case_type", editingVisitData[3]);
+            fd.append("old_visit_date", editingVisitData[4]);
+            fd.append("old_medicines", editingVisitData[5]);
+            fd.append("old_symptoms", editingVisitData[6]);
+        }
+
+        fetch(url, { method: "POST", body: fd })
+            .then(() => {
+                editingVisitData = null;
+                document.querySelector('button[onclick="addVisit()"]').innerText = "Save Visit Record";
+                loadVisits();
+            });
+    }
+
+    function loadVisits() {
+        if (!activeId) return;
+        fetch(`/load-visits/${activeId}/`)
+            .then(r => r.json())
+            .then(rows => {
+                visits.innerHTML = "";
+                rows.forEach((r, idx) => {
+                    // r = [pid, dept, doc, case, date, meds, symp, slot]
+
+                    const doctorName = r[2];
+                    let doctorId = '—';
+
+                    // Try to find doctor ID
+                    const dept = r[1];
+                    if (doctorsByDept[dept]) {
+                        const doctor = doctorsByDept[dept].find(d => d.name === doctorName);
+                        if (doctor) doctorId = doctor.staff_id;
+                    }
+
+                    const rowHtml = `
+                <tr class="border-b hover:bg-gray-50 transition-colors">
+                    <td class="p-4 text-sm font-medium text-gray-800">${r[4]}</td>
+                    <td class="p-4 text-sm"><span class="font-mono text-blue-600 bg-blue-50 px-2 py-1 rounded text-xs font-bold">${r[7] || '—'}</span></td>
+                    <td class="p-4 text-sm text-gray-600">${r[1]}</td>
+                    <td class="p-4 text-sm"><span class="font-mono text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded border border-gray-200">${doctorId}</span></td>
+                    <td class="p-4 text-sm text-gray-800 font-medium">${doctorName}</td>
+                    <td class="p-4 text-sm"><span class="px-2 py-1 rounded-full text-xs font-semibold ${r[3] === 'Emergency' || r[3] === 'Critical' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'
+                        }">${r[3]}</span></td>
+                    <td class="p-4 text-sm text-gray-500 italic">Clinical details hidden</td>
+                    <td class="p-4 flex gap-2">
+                        <button onclick='prepareEditVisit(${JSON.stringify(r)})' class="text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-2 py-1 rounded text-xs font-semibold transition-colors">Edit</button>
+                        <button onclick='deleteVisit(${JSON.stringify(r)})' class="text-red-600 hover:text-red-800 hover:bg-red-50 px-2 py-1 rounded text-xs font-semibold transition-colors">Delete</button>
+                    </td>
+                </tr>`;
+                    visits.innerHTML += rowHtml;
+                });
+            });
+    }
+
+    function prepareEditVisit(rowData) {
+        editingVisitData = rowData;
+        department.value = rowData[1];
+        department.dispatchEvent(new Event('change'));
+        setTimeout(() => {
+            doctor.value = rowData[2];
+        }, 50);
+        caseType.value = rowData[3];
+        visitDate.value = rowData[4];
+
+        document.querySelector('button[onclick="addVisit()"]').innerText = "Update Visit";
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function deleteVisit(rowData) {
+        if (!confirm("Delete this visit entry?")) return;
+        let fd = new FormData();
+        fd.append("patient_id", rowData[0]);
+        fd.append("department", rowData[1]);
+        fd.append("doctor", rowData[2]);
+        fd.append("case_type", rowData[3]);
+        fd.append("visit_date", rowData[4]);
+        fd.append("medicines", rowData[5]);
+        fd.append("symptoms", rowData[6] || "");
+
+        fetch("/delete-visit/", { method: "POST", body: fd })
+            .then(() => loadVisits());
+    }
+
+    // Helper to format tags (retained for consistency if needed later)
+    function formatTags(str, type) {
+        if (!str) return "—";
+        return str.split(',').length + " items";
+    }
+
+    function exportToExcel() {
+        if (!activeId) {
+            alert("Please search for a patient first to export their details.");
+            return;
+        }
+        window.location.href = "/export-visits/?patient_id=" + activeId;
+    }
+</script>
+{% endblock %}

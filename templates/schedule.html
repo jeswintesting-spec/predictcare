@@ -1,0 +1,488 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Scheduling - PredictCare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 min-h-screen text-gray-800">
+
+    <!-- Navbar -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-20">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <a href="{% url 'hub' %}" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                    <div
+                        class="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center text-xl shadow-lg shadow-blue-500/30">
+                        📅
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold tracking-tight text-gray-900">Staff <span
+                                class="text-blue-600">Schedule</span></h1>
+                        <p class="text-xs text-gray-500 font-medium">Manage Shifts & Timings</p>
+                    </div>
+                </a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="{% url 'hub' %}"
+                    class="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">Back to Hub</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+
+        <!-- Controls -->
+        <div
+            class="mb-6 flex flex-col md:flex-row gap-4 justify-between items-center bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+            <div class="flex gap-4 w-full md:w-auto">
+                <select id="roleFilter" title="Filter by Role"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
+                    <option value="All">All Roles</option>
+                    <option value="Doctor">Doctors</option>
+                    <option value="Nurse">Nurses</option>
+                </select>
+                <input type="date" id="dateFilter" title="Filter by Date"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
+                <input type="text" id="searchInput" title="Search staff" placeholder="Search staff..."
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            </div>
+            <div class="text-sm text-gray-500">
+                Found: <span id="staffCount" class="font-bold text-gray-900">0</span>
+            </div>
+        </div>
+
+        <!-- Schedule Table -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-500">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 border-b border-gray-200">
+                        <tr>
+                            <th scope="col" class="px-6 py-4">Name</th>
+                            <th scope="col" class="px-6 py-4">Role</th>
+                            <th scope="col" class="px-6 py-4">Shift Details</th>
+                            <th scope="col" class="px-6 py-4">Time</th>
+                            <th scope="col" class="px-6 py-4">Working Days</th>
+                            <th scope="col" class="px-6 py-4 text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scheduleTableBody">
+                        <!-- Rows injected via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Edit Modal -->
+    <div id="editModal" aria-hidden="true"
+        class="fixed inset-0 bg-gray-900/50 hidden items-center justify-center z-50 backdrop-blur-sm transition-all duration-300">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 transform transition-all scale-95 opacity-0"
+            id="modalContent">
+            <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+                <h3 class="text-lg font-bold text-gray-900">Edit Schedule</h3>
+                <button onclick="closeModal()" title="Close Modal"
+                    class="text-gray-400 hover:text-gray-600 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <form id="editForm" class="p-6 space-y-4">
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900">Staff Name</label>
+                    <input type="text" id="editName" title="Staff Name"
+                        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed"
+                        readonly>
+                    <input type="hidden" id="editRole">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block mb-2 text-sm font-medium text-gray-900">Shift Type</label>
+                        <select id="editShiftType" title="Shift Type"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            onchange="handleShiftTypeChange()">
+                            <!-- Populated by JS -->
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block mb-2 text-sm font-medium text-gray-900">Shift Start</label>
+                        <input type="time" id="editStart" title="Shift Start Time" required
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-sm font-medium text-gray-900">Shift End</label>
+                        <input type="time" id="editEnd" title="Shift End Time" required
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    </div>
+                </div>
+
+                <!-- Doctor Specific Fields -->
+                <div id="doctorFields" class="grid grid-cols-2 gap-4 hidden">
+                    <div>
+                        <label class="block mb-2 text-sm font-medium text-gray-900">Slot Duration</label>
+                        <select id="editSlot" title="Slot Duration"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                            <option value="10">10 mins</option>
+                            <option value="15">15 mins</option>
+                            <option value="30">30 mins</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-sm font-medium text-gray-900">Max Slots</label>
+                        <input type="number" id="editMaxPatients" title="Max Slots" placeholder="Default: 25"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900">Working Days</label>
+                    <div class="flex flex-wrap gap-2" id="dayContainer">
+                        <!-- Checkboxes generated by JS -->
+                    </div>
+                </div>
+
+                <div class="pt-4 flex justify-end gap-3">
+                    <button type="button" onclick="closeModal()"
+                        class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Cancel</button>
+                    <button type="submit"
+                        class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 shadow-md shadow-blue-500/30">Save
+                        Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Slots Viewer Modal -->
+    <div id="slotsModal" aria-hidden="true"
+        class="fixed inset-0 bg-gray-900/50 hidden items-center justify-center z-[60] backdrop-blur-sm">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-sm mx-4 p-6 relative">
+            <button
+                onclick="document.getElementById('slotsModal').classList.add('hidden'); document.getElementById('slotsModal').classList.remove('flex')"
+                class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Appointment Slots</h3>
+            <p class="text-sm text-gray-500 mb-4">Total Slots: <span id="slotCount"
+                    class="font-bold text-gray-900"></span></p>
+            <div id="slotsList" class="max-h-60 overflow-y-auto space-y-2 pr-2">
+                <!-- Slots injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let allStaff = [];
+        const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+        // Load Data
+        async function loadData() {
+            try {
+                const res = await fetch("{% url 'load_schedules' %}");
+                const data = await res.json();
+                allStaff = data;
+                renderTable(allStaff);
+            } catch (err) {
+                console.error("Error loading schedules:", err);
+                alert("Failed to load schedules.");
+            }
+        }
+
+        // Render Table
+        function renderTable(data) {
+            const tbody = document.getElementById("scheduleTableBody");
+            const filterRole = document.getElementById("roleFilter").value;
+            const search = document.getElementById("searchInput").value.toLowerCase();
+            const dateInput = document.getElementById("dateFilter").value;
+
+            let filterDay = "";
+            if (dateInput) {
+                const d = new Date(dateInput + "T00:00:00");
+                filterDay = d.toLocaleDateString('en-US', { weekday: 'short' });
+            }
+
+            tbody.innerHTML = "";
+            let count = 0;
+
+            const filteredAndSorted = data.filter(staff => {
+                if (filterRole !== "All" && staff.role !== filterRole) return false;
+                if (search && !staff.name.toLowerCase().includes(search) && !staff.department.toLowerCase().includes(search)) return false;
+
+                if (filterDay) {
+                    if (!staff.work_days || !staff.work_days.includes(filterDay)) return false;
+                }
+
+                return true;
+            }).sort((a, b) => a.role.localeCompare(b.role) || a.department.localeCompare(b.department));
+
+            count = filteredAndSorted.length;
+            document.getElementById("staffCount").textContent = count;
+
+            filteredAndSorted.forEach(staff => {
+                const tr = document.createElement("tr");
+                tr.className = "bg-white border-b hover:bg-gray-50 transition-colors";
+
+                const roleBadge = staff.role === "Doctor"
+                    ? `<span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded border border-blue-200">Doctor</span>`
+                    : `<span class="bg-emerald-100 text-emerald-800 text-xs font-medium px-2.5 py-0.5 rounded border border-emerald-200">Nurse</span>`;
+
+                let details = `<span class="font-medium text-gray-900">${staff.shift_type || '-'}</span>`;
+                if (staff.role === "Doctor") {
+                    // Calculate Total Slots
+                    const toMins = (t) => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
+                    let s = toMins(staff.shift_start || "09:00");
+                    let e = toMins(staff.shift_end || "17:00");
+                    if (e < s) e += 24 * 60;
+                    const dur = parseInt(staff.slot_duration) || 15;
+                    const maxSlots = parseInt(staff.max_patients) || 25;
+
+                    let total = Math.floor((e - s) / dur);
+                    if (total > maxSlots) total = maxSlots;
+
+                    details += `<div class="text-xs text-gray-500">${dur} min slots • <strong>${total}</strong> total</div>`;
+                }
+
+                tr.innerHTML = `
+                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                        ${staff.name}
+                <div class="test-xs text-gray-500 font-normal">${staff.department}</div>
+                    </td>
+                    <td class="px-6 py-4">${roleBadge}</td>
+                    <td class="px-6 py-4">
+                        ${details}
+                        ${staff.role === 'Doctor' ? `<button onclick='openSlotsModal("${staff.shift_start}", "${staff.shift_end}", "${staff.slot_duration}", "Doctor", ${parseInt(staff.max_patients) || 25})' class="text-xs text-blue-600 hover:underline block mt-1">View Slots</button>` : ''}
+                    </td>
+                    <td class="px-6 py-4 font-mono text-gray-600 text-xs">${staff.shift_start} - ${staff.shift_end}</td>
+                    <td class="px-6 py-4 text-gray-600 text-xs max-w-xs truncate" title="${staff.work_days}">${staff.work_days}</td>
+                    <td class="px-6 py-4 text-right">
+                        <button onclick='openModal(${JSON.stringify(staff).replace(/'/g, "&#39;")})' 
+                            class="font-medium text-blue-600 hover:underline hover:text-blue-800 transition-colors">Edit</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Search & Filter
+        document.getElementById("roleFilter").addEventListener("change", () => renderTable(allStaff));
+        document.getElementById("dateFilter").addEventListener("change", () => renderTable(allStaff));
+        document.getElementById("searchInput").addEventListener("input", () => renderTable(allStaff));
+
+        // Modal Logic
+        const modal = document.getElementById("editModal");
+        const modalContent = document.getElementById("modalContent");
+
+        function openModal(staff) {
+            document.getElementById("editRole").value = staff.role;
+            document.getElementById("editName").value = staff.name;
+            document.getElementById("editStart").value = staff.shift_start;
+            document.getElementById("editEnd").value = staff.shift_end;
+
+            // Work Days Generation
+            const container = document.getElementById("dayContainer");
+            container.innerHTML = "";
+            const currentDays = (staff.work_days || "").split(",");
+            DAYS.forEach(day => {
+                const checked = currentDays.includes(day) ? "checked" : "";
+                const html = `
+                    <label class="cursor-pointer">
+                        <input type="checkbox" name="work_day" value="${day}" ${checked} class="peer sr-only">
+                        <div class="px-3 py-1 rounded-full border border-gray-200 text-xs font-medium text-gray-500 peer-checked:bg-blue-100 peer-checked:text-blue-600 peer-checked:border-blue-200 transition-all select-none">
+                            ${day}
+                        </div>
+                    </label>
+                `;
+                container.insertAdjacentHTML("beforeend", html);
+            });
+
+            // Shift Type UI
+            const shiftSelect = document.getElementById("editShiftType");
+            shiftSelect.innerHTML = "";
+            let shifts = [];
+            if (staff.role === "Doctor") {
+                shifts = ["Morning", "Afternoon", "Evening", "Night"];
+            } else {
+                shifts = ["Morning", "Evening", "Night"];
+            }
+            shifts.forEach(s => {
+                const opt = document.createElement("option");
+                opt.value = s;
+                opt.text = s;
+                if (s === staff.shift_type) opt.selected = true;
+                shiftSelect.appendChild(opt);
+            });
+
+            // Doctor Fields
+            const docFields = document.getElementById("doctorFields");
+            if (staff.role === "Doctor") {
+                docFields.classList.remove("hidden");
+                document.getElementById("editSlot").value = staff.slot_duration || "15";
+                document.getElementById("editMaxPatients").value = staff.max_patients || "";
+            } else {
+                docFields.classList.add("hidden");
+            }
+
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            setTimeout(() => {
+                modalContent.classList.remove("scale-95", "opacity-0");
+                modalContent.classList.add("scale-100", "opacity-100");
+            }, 10);
+        }
+
+        function handleShiftTypeChange() {
+            const role = document.getElementById("editRole").value;
+            const shift = document.getElementById("editShiftType").value;
+
+            let start = "", end = "";
+
+            if (role === "Nurse") {
+                // 3 Shift System (8 hours)
+                if (shift === "Morning") { start = "07:00"; end = "15:00"; }
+                else if (shift === "Evening") { start = "15:00"; end = "23:00"; }
+                else if (shift === "Night") { start = "23:00"; end = "07:00"; }
+            } else if (role === "Doctor") {
+                // 4 Shift System (6 hours) for 24h coverage
+                if (shift === "Morning") { start = "06:00"; end = "12:00"; }
+                else if (shift === "Afternoon") { start = "12:00"; end = "18:00"; }
+                else if (shift === "Evening") { start = "18:00"; end = "23:59"; }
+                else if (shift === "Night") { start = "00:00"; end = "06:00"; }
+            }
+
+            if (start && end) {
+                document.getElementById("editStart").value = start;
+                document.getElementById("editEnd").value = end;
+            }
+        }
+
+        function openSlotsModal(start, end, duration, role, maxSlotsFromData) {
+            const list = document.getElementById("slotsList");
+            const countSpan = document.getElementById("slotCount");
+            list.innerHTML = "";
+
+            const dur = parseInt(duration) || 15;
+            const maxSlots = maxSlotsFromData || 25;
+            let slots = [];
+
+            // Convert to minutes
+            const toMins = (t) => {
+                const [h, m] = t.split(":").map(Number);
+                return h * 60 + m;
+            };
+
+            let startTime = toMins(start);
+            let endTime = toMins(end);
+
+            // Handle overnight
+            if (endTime < startTime) endTime += 24 * 60;
+
+            let current = startTime;
+            while (current + dur <= endTime) {
+                // Cap at max slots for doctors
+                if (role === "Doctor" && slots.length >= maxSlots) break;
+
+                let sH = Math.floor(current / 60) % 24;
+                let sM = current % 60;
+                let eH = Math.floor((current + dur) / 60) % 24;
+                let eM = (current + dur) % 60;
+
+                const fmt = (h, m) => `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+
+                slots.push(`${fmt(sH, sM)} - ${fmt(eH, eM)}`);
+                current += dur;
+            }
+
+            countSpan.textContent = slots.length;
+
+            if (slots.length === 0) {
+                list.innerHTML = `<div class="text-sm text-gray-500 italic">No slots available. Check shift times.</div>`;
+            } else {
+                slots.forEach(s => {
+                    const div = document.createElement("div");
+                    div.className = "bg-gray-50 border border-gray-200 rounded px-3 py-2 text-sm font-mono text-gray-600 text-center";
+                    div.textContent = s;
+                    list.appendChild(div);
+                });
+            }
+
+            const modal = document.getElementById("slotsModal");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        }
+
+        function closeModal() {
+            modalContent.classList.remove("scale-100", "opacity-100");
+            modalContent.classList.add("scale-95", "opacity-0");
+            setTimeout(() => {
+                modal.classList.add("hidden");
+                modal.classList.remove("flex");
+            }, 300);
+        }
+
+        // Submit Form
+        document.getElementById("editForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            // Gather checkboxes
+            const checkedDays = Array.from(document.querySelectorAll('input[name="work_day"]:checked'))
+                .map(cb => cb.value)
+                .join(",");
+
+            const formData = new FormData();
+            formData.append("role", document.getElementById("editRole").value);
+            formData.append("name", document.getElementById("editName").value);
+            formData.append("shift_start", document.getElementById("editStart").value);
+            formData.append("shift_end", document.getElementById("editEnd").value);
+            formData.append("work_days", checkedDays);
+            formData.append("shift_type", document.getElementById("editShiftType").value);
+
+            if (document.getElementById("editRole").value === "Doctor") {
+                formData.append("slot_duration", document.getElementById("editSlot").value);
+                formData.append("max_patients", document.getElementById("editMaxPatients").value);
+            }
+
+            try {
+                const res = await fetch("{% url 'edit_schedule' %}", {
+                    method: "POST",
+                    body: formData
+                });
+                const json = await res.json();
+                if (json.status === "ok") {
+                    closeModal();
+                    await loadData(); // Reload table
+                } else {
+                    alert("Error updating schedule: " + json.message);
+                }
+            } catch (err) {
+                console.error("Update failed:", err);
+                alert("Failed to update schedule.");
+            }
+        });
+
+        // Initialize
+        loadData();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PredictCare - BMH Hospital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    {{ doctors_by_dept|json_script:"doctors-data" }}
+</head>
+
+<body class="bg-gray-100">
+
+    <div class="max-w-6xl mx-auto mt-8 bg-white p-6 shadow rounded">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold">✨ PredictCare – Patient Management</h1>
+            <a href="{% url 'hub' %}"
+                class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
+                ← Back to Hub
+            </a>
+        </div>
+        <a href="{% url 'prediction' %}" class="text-blue-600 hover:underline mr-4"
+            style="margin-top: 1rem; display: inline-block;">
+            📈 View Load Prediction
+        </a>
+        <a href="{% url 'logout' %}" class="text-red-600 hover:underline"
+            style="margin-top: 1rem; display: inline-block;">
+            🚪 Logout
+        </a>
+        <!-- TOP -->
+        <button onclick="deletePatient()" class="bg-red-600 text-white px-4 py-2">Delete Patient</button>
+        <button onclick="exportToExcel()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2">Export
+            Excel</button>
+        <div class="grid grid-cols-2 gap-4 mb-6">
+            <div>
+                <h3 class="font-semibold">Add New Patient</h3>
+                <input id="newName" title="Patient Name" class="border p-2 w-full mb-2" placeholder="Patient Name">
+                <input id="newDob" title="Date of Birth" class="border p-2 w-full mb-2" placeholder="Date of Birth"
+                    type="date">
+                <select id="newGender" title="Gender" class="border p-2 w-full mb-2 bg-white">
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input id="newLoc" title="Location" list="keralaDistricts" class="border p-2 w-full mb-2"
+                    placeholder="Location (e.g. Kochi, Kerala)">
+                <datalist id="keralaDistricts">
+                    <option value="Thiruvananthapuram, Kerala"></option>
+                    <option value="Kochi, Kerala"></option>
+                    <option value="Kozhikode, Kerala"></option>
+                    <option value="Thrissur, Kerala"></option>
+                    <option value="Kannur, Kerala"></option>
+                    <option value="Kollam, Kerala"></option>
+                    <option value="Alappuzha, Kerala"></option>
+                    <option value="Palakkad, Kerala"></option>
+                    <option value="Malappuram, Kerala"></option>
+                    <option value="Kottayam, Kerala"></option>
+                    <option value="Kasaragod, Kerala"></option>
+                    <option value="Idukki, Kerala"></option>
+                    <option value="Wayanad, Kerala"></option>
+                    <option value="Pathanamthitta, Kerala"></option>
+                </datalist>
+                <button onclick="addPatient()" class="bg-green-600 text-white px-4 py-2 w-full">
+                    Add Patient
+                </button>
+            </div>
+
+            <div>
+                <h3 class="font-semibold">Search Patient</h3>
+                <input id="searchId" class="border p-2 w-full mb-2" placeholder="PC0001">
+                <button onclick="searchPatient()" class="bg-blue-600 text-white px-4 py-2 w-full">
+                    Search
+                </button>
+            </div>
+        </div>
+
+        <!-- DETAILS -->
+        <div class="grid grid-cols-3 gap-4 mb-6">
+            <div class="bg-gray-50 p-4 rounded relative">
+                <button onclick="editPatient()" class="absolute top-2 right-2 text-blue-600 hover:text-blue-800"
+                    title="Edit Details">
+                    ✏️
+                </button>
+                <p><b>ID:</b> <span id="pid" class="text-gray-800">—</span></p>
+                <p><b>Name:</b> <span id="pname" class="font-bold text-lg text-gray-900">—</span></p>
+                <p><b>Age:</b> <span id="page">—</span></p>
+                <p><b>DOB:</b> <span id="pdob" class="text-sm text-gray-600">—</span></p>
+                <p><b>Gender:</b> <span id="pgender">—</span></p>
+                <p><b>Location:</b> <span id="ploc">—</span></p>
+                <p><b>Slot:</b> <span id="pslot" class="text-blue-600 font-mono font-bold">—</span></p>
+                <p id="msg" class="text-sm text-gray-600 mt-2">System Initializing...</p>
+            </div>
+
+            <!-- VISIT FORM -->
+            <div class="col-span-2 bg-gray-50 p-4 rounded">
+                <h3 class="font-semibold mb-2">Add Visit</h3>
+
+                <select id="department" class="border p-2 w-full mb-2" required aria-label="Department">
+                    <option value="">Department</option>
+                    <option>Cardiology</option>
+                    <option>Oncology</option>
+                    <option>Neurosciences</option>
+                    <option>Gastroenterology</option>
+                    <option>Orthopaedics</option>
+                    <option>Women's Care (Obstetrics & Gynaecology)</option>
+                    <option>Child Care (Paediatrics)</option>
+                    <option>Radiology</option>
+                    <option>ENT</option>
+                </select>
+                <!-- Doctor dropdown, populated based on selected department -->
+                <select id="doctor" class="border p-2 w-full mb-2" required disabled aria-label="Doctor">
+                    <option value="">Doctor</option>
+                </select>
+                <select id="caseType" title="Case Type" class="border p-2 w-full mb-2">
+                    <option value="">Case Type</option>
+                    <option>Normal</option>
+                    <option>Emergency</option>
+                    <option>Critical</option>
+                </select>
+
+                <input type="date" id="visitDate" title="Visit Date" class="border p-2 w-full mb-2">
+
+                <div class="mb-2">
+                    <div class="flex gap-2 mb-1">
+                        <input id="symptomInput" list="symptomList" class="border p-2 flex-grow"
+                            placeholder="Add Symptom">
+                        <datalist id="symptomList"></datalist>
+                        <button onclick="addTag('symptom')"
+                            class="bg-blue-500 text-white px-3 py-1 rounded">Add</button>
+                    </div>
+                    <div id="symptomTags" class="flex flex-wrap gap-1"></div>
+                </div>
+
+                <div class="mb-2">
+                    <div class="flex gap-2 mb-1">
+                        <input id="medicineInput" list="medicineList" class="border p-2 flex-grow"
+                            placeholder="Add Medicine">
+                        <input id="medicineQty" type="number" min="1" value="1" class="border p-2 w-20"
+                            placeholder="Qty">
+                        <input id="medicineDosage" type="text" class="border p-2 w-32" placeholder="Dosage">
+                        <datalist id="medicineList"></datalist>
+                        <button onclick="addMedicine()" class="bg-green-500 text-white px-3 py-1 rounded">Add</button>
+                    </div>
+                    <div id="medicineTags" class="flex flex-col gap-1"></div>
+                </div>
+
+                <button onclick="addVisit()" class="bg-indigo-600 text-white px-4 py-2">
+                    Save Visit
+                </button>
+            </div>
+        </div>
+
+        <!-- VISITS TABLE -->
+        <h3 class="font-semibold mb-2">Previous Visits</h3>
+        <table class="w-full bg-white border">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="p-2 text-left">Date</th>
+                    <th class="p-2 text-left">Slot</th>
+                    <th class="p-2 text-left">Department</th>
+                    <th class="p-2 text-left">Doctor ID</th>
+                    <th class="p-2 text-left">Doctor</th>
+                    <th class="p-2 text-left">Case</th>
+                    <th class="p-2 text-left">Symptoms</th>
+                    <th class="p-2 text-left">Medicines</th>
+                    <th class="p-2 text-left">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="visits"></tbody>
+        </table>
+    </div>
+
+
+
+    <!-- EDIT PATIENT MODAL -->
+    <div id="editPatientModal"
+        class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <h3 class="text-lg font-bold mb-4">Edit Patient Details</h3>
+            <input type="hidden" id="editPid">
+            <div class="mb-3">
+                <label class="block text-sm font-bold mb-1" for="editPName">Name</label>
+                <input id="editPName" title="Patient Name" class="border p-2 w-full rounded">
+            </div>
+            <div class="mb-3">
+                <label class="block text-sm font-bold mb-1" for="editPDob">Date of Birth</label>
+                <input id="editPDob" title="Date of Birth" type="date" class="border p-2 w-full rounded">
+            </div>
+            <div class="mb-3">
+                <label class="block text-sm font-bold mb-1">Gender</label>
+                <select id="editPGender" title="Gender" class="border p-2 w-full rounded bg-white">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="block text-sm font-bold mb-1" for="editPLoc">Location</label>
+                <input id="editPLoc" title="Location" list="keralaDistricts" class="border p-2 w-full rounded">
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-bold mb-1" for="editPAge">Age (Override)</label>
+                <input id="editPAge" title="Age" type="number" class="border p-2 w-full rounded text-sm bg-gray-50"
+                    placeholder="Auto-calculated">
+                <p class="text-xs text-gray-500">Usually auto-calculated from DOB.</p>
+            </div>
+            <div class="flex justify-end gap-2">
+                <button onclick="closeEditPatientModal()"
+                    class="bg-gray-300 text-gray-700 px-4 py-2 rounded">Cancel</button>
+                <button onclick="submitEditPatient()" class="bg-blue-600 text-white px-4 py-2 rounded">Save
+                    Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let patients = {};
+        let activeId = null;
+        let counter = 1;
+        let doctorsByDept = {}; // Global scope for access in loadVisits
+
+        window.onload = () => {
+            const todayStr = new Date().toISOString().split('T')[0];
+            const vd = document.getElementById('visitDate');
+            if (vd) {
+                vd.setAttribute('max', todayStr);
+                vd.value = todayStr;
+            }
+
+            // Load patients for ID generation
+            fetch("/load-patients/?t=" + new Date().getTime())
+                .then(r => r.json())
+                .then(data => {
+                    // Ensure all keys are uppercase for reliable lookup
+                    patients = Object.fromEntries(
+                        Object.entries(data).map(([k, v]) => [k.trim().toUpperCase(), v])
+                    );
+                    console.log('Loaded patients (normalized):', patients);
+                    const count = Object.keys(patients).length;
+                    document.getElementById('msg').innerText = `System Ready: Loaded ${count} patients.`;
+                    document.getElementById('msg').className = "text-sm text-green-600 mt-2";
+
+                    if (count)
+                        // logic to find max ID remains same
+                        counter = parseInt(Object.keys(patients).sort().pop().replace("PC", "")) + 1;
+                })
+                .catch(err => {
+                    console.error("Failed to load patients:", err);
+                    document.getElementById('msg').innerText = "Error loading patients. Check console.";
+                });
+
+            // Load doctors data from JSON script
+            doctorsByDept = JSON.parse(document.getElementById('doctors-data').textContent);
+            const deptSelect = document.getElementById('department');
+            const doctorSelect = document.getElementById('doctor');
+            deptSelect.addEventListener('change', () => {
+                const dept = deptSelect.value;
+                const doctors = doctorsByDept[dept] || [];
+                console.log(`Dept selected: "${dept}", Doctors found:`, doctors);
+
+                doctorSelect.innerHTML = '<option value="">Doctor</option>';
+                doctors.forEach(d => {
+                    const opt = document.createElement('option');
+                    opt.value = d.name;
+                    opt.setAttribute('data-staff-id', d.staff_id);
+                    opt.textContent = `${d.staff_id} - ${d.name}`;
+                    doctorSelect.appendChild(opt);
+                });
+                doctorSelect.disabled = doctors.length === 0;
+            });
+        };
+
+        function generateId() {
+            return "PC" + String(counter++).padStart(4, "0");
+        }
+
+        function addPatient() {
+            const name = newName.value.trim();
+            const dob = newDob.value;
+            const gender = newGender.value;
+            const loc = newLoc.value.trim();
+            // Optional: calculate age client-side for immediate feedback
+            let age = "";
+            if (dob) {
+                const birthDate = new Date(dob);
+                const today = new Date();
+                age = today.getFullYear() - birthDate.getFullYear();
+                const m = today.getMonth() - birthDate.getMonth();
+                if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                    age--;
+                }
+            } else {
+                // Fallback if user types age directly (though we removed the age input, 
+                // keeping logic robust or assuming age is derived).
+                // We don't have an age input anymore.
+            }
+
+            if (!name || !dob) { alert("Please enter Name and Date of Birth"); return; }
+
+            const id = generateId();
+            patients[id] = { name: name, age: age, dob: dob, gender: gender, location: loc };
+
+            let fd = new FormData();
+            fd.append("id", id);
+            fd.append("name", name);
+            fd.append("dob", dob);
+            fd.append("gender", gender);
+            fd.append("location", loc);
+            // Backend will calculate age, but we can send what we have or let backend handle it completely.
+            // Sending dob is enough.
+
+            fetch("/add-patient/", { method: "POST", body: fd })
+                .then(r => r.json())
+                .then(res => {
+                    if (res.status === 'ok') location.reload();
+                    // Reloading is safer to ensure consistency with backend calc
+                });
+        }
+
+        function searchPatient() {
+            const rawInput = searchId.value.trim();
+            const input = rawInput.toUpperCase().replace(/\s+/g, ''); // Remove spaces for ID search
+            console.log('Search input:', rawInput, 'Normalized:', input);
+
+            // 1. Try exact ID lookup (normalized)
+            if (patients[input]) {
+                selectPatient(input);
+                return;
+            }
+
+            // 2. Try Name search (case-insensitive partial match)
+            // or ID search with fallback logic
+            const foundKey = Object.keys(patients).find(k => {
+                const pID = k.toUpperCase();
+                const pName = patients[k].name.toUpperCase();
+                const search = rawInput.toUpperCase();
+                return pID === input || pName.includes(search);
+            });
+
+            if (foundKey) {
+                selectPatient(foundKey);
+                return;
+            }
+
+            console.log('Patient not found for input:', rawInput);
+            alert("Patient not found");
+        }
+
+        function selectPatient(id) {
+            console.log('Selected:', id);
+            activeId = id;
+            const p = patients[id];
+            pid.innerText = id;
+            pname.innerText = p.name;
+            page.innerText = p.age || "—";
+            pdob.innerText = p.dob || "—";
+            pgender.innerText = p.gender || "—";
+            ploc.innerText = p.location || "—";
+
+            const slotSpan = document.getElementById("pslot");
+            if (p.assigned_slot) {
+                slotSpan.innerText = p.assigned_slot;
+                slotSpan.parentElement.classList.remove("hidden");
+            } else {
+                slotSpan.parentElement.classList.add("hidden");
+            }
+
+            // Clear message
+            document.getElementById('msg').innerText = "Patient loaded.";
+            document.getElementById('msg').className = "text-sm text-green-600 mt-2";
+            loadVisits();
+        }
+
+        function editPatient() {
+            if (!activeId) return;
+            const p = patients[activeId];
+
+            document.getElementById('editPid').value = activeId;
+            document.getElementById('editPName').value = p.name || "";
+            document.getElementById('editPDob').value = p.dob || "";
+            document.getElementById('editPAge').value = p.age || "";
+            document.getElementById('editPGender').value = p.gender || "Male";
+            document.getElementById('editPLoc').value = p.location || "";
+
+            document.getElementById('editPatientModal').classList.remove('hidden');
+        }
+
+        function closeEditPatientModal() {
+            document.getElementById('editPatientModal').classList.add('hidden');
+        }
+
+        function submitEditPatient() {
+            const id = document.getElementById('editPid').value;
+            const name = document.getElementById('editPName').value;
+            const dob = document.getElementById('editPDob').value;
+            const gender = document.getElementById('editPGender').value;
+            const loc = document.getElementById('editPLoc').value;
+            const age = document.getElementById('editPAge').value; // Optional override
+
+            let fd = new FormData();
+            fd.append("patient_id", id);
+            fd.append("new_name", name);
+            fd.append("new_dob", dob);
+            fd.append("new_gender", gender);
+            fd.append("new_location", loc);
+            fd.append("new_age", age);
+
+            fetch("/edit-patient/", { method: "POST", body: fd })
+                .then(r => r.json())
+                .then(res => {
+                    if (res.status === "ok") {
+                        location.reload();
+                    }
+                });
+        }
+
+        function deletePatient() {
+            if (!activeId) {
+                alert("Please search for a patient first.");
+                return;
+            }
+            if (!confirm(`Are you sure you want to delete patient ${activeId} and ALL their records?`)) return;
+
+            let fd = new FormData();
+            fd.append("patient_id", activeId);
+            fetch("/delete-patient/", { method: "POST", body: fd })
+                .then(() => {
+                    alert("Deleted successfully.");
+                    location.reload();
+                });
+        }
+
+        let currentSymptoms = [];
+        let currentMedicines = [];
+
+        function addTag(type) {
+            if (type !== 'symptom') return;
+            const input = document.getElementById('symptomInput');
+            const val = input.value.trim();
+            if (!val) return;
+
+            if (!currentSymptoms.includes(val)) currentSymptoms.push(val);
+            input.value = '';
+            renderTags('symptom');
+        }
+
+        function removeTag(type, val) {
+            if (type !== 'symptom') return;
+            currentSymptoms = currentSymptoms.filter(s => s !== val);
+            renderTags('symptom');
+        }
+
+        function renderTags(type) {
+            if (type !== 'symptom') return;
+            const container = document.getElementById('symptomTags');
+            container.innerHTML = currentSymptoms.map(item => `
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs flex items-center">
+                    ${item}
+                    <button onclick="removeTag('symptom', '${item}')" class="ml-1 text-red-500 hover:text-red-700 font-bold">&times;</button>
+                </span>
+            `).join('');
+        }
+
+        function addMedicine() {
+            const nameInput = document.getElementById('medicineInput');
+            const qtyInput = document.getElementById('medicineQty');
+            const dosInput = document.getElementById('medicineDosage');
+
+            const name = nameInput.value.trim();
+            const qty = parseInt(qtyInput.value) || 1;
+            const dosage = dosInput.value.trim();
+
+            if (!name) return;
+
+            const existingInfo = currentMedicines.find(m => m.name === name);
+            if (!existingInfo) {
+                currentMedicines.push({ name, qty, dosage });
+            } else {
+                existingInfo.qty += qty;
+                if (dosage) existingInfo.dosage = dosage;
+            }
+
+            nameInput.value = '';
+            qtyInput.value = '1';
+            dosInput.value = '';
+            renderMedicines();
+        }
+
+        function removeMedicine(name) {
+            currentMedicines = currentMedicines.filter(m => m.name !== name);
+            renderMedicines();
+        }
+
+        function renderMedicines() {
+            const container = document.getElementById('medicineTags');
+            container.innerHTML = currentMedicines.map(m => `
+                <div class="bg-green-100 text-green-800 border-green-200 border px-3 py-1.5 rounded text-sm font-medium flex justify-between items-center">
+                    <span><strong>${m.name}</strong> <span class="text-xs text-green-700 ml-2">Qty: ${m.qty} ${m.dosage ? `| ${m.dosage}` : ''}</span></span>
+                    <button onclick="removeMedicine('${m.name}')" class="text-red-500 hover:text-red-700 font-bold ml-4">&times;</button>
+                </div>
+            `).join('');
+        }
+
+        function formatTags(str, type) {
+            if (!str) return "—";
+            const items = str.split(',').map(i => i.trim()).filter(i => i);
+            const bgColor = type === 'symptom' ? 'bg-blue-50' : 'bg-green-50';
+            const textColor = type === 'symptom' ? 'text-blue-700' : 'text-green-700';
+            const borderColor = type === 'symptom' ? 'border-blue-200' : 'border-green-200';
+
+            return items.map(item => `
+                <span class="${bgColor} ${textColor} border ${borderColor} px-2 py-0.5 rounded text-xs mr-1 mb-1 inline-block">
+                    ${item}
+                </span>
+            `).join('');
+        }
+
+        let editingVisitData = null;
+
+        function addVisit() {
+            if (!activeId) {
+                alert("Search a patient first.");
+                return;
+            }
+            let fd = new FormData();
+            fd.append("patient_id", activeId);
+            fd.append("department", department.value);
+            fd.append("doctor", doctor.value);
+            fd.append("case_type", caseType.value);
+            fd.append("visit_date", visitDate.value);
+            fd.append("medicines", JSON.stringify(currentMedicines));
+            fd.append("symptoms", currentSymptoms.join(', '));
+
+            let url = "/add-visit/";
+            if (editingVisitData) {
+                url = "/edit-visit/";
+                fd.append("old_department", editingVisitData[1]);
+                fd.append("old_doctor", editingVisitData[2]);
+                fd.append("old_case_type", editingVisitData[3]);
+                fd.append("old_visit_date", editingVisitData[4]);
+                fd.append("old_medicines", editingVisitData[5]);
+                fd.append("old_symptoms", editingVisitData[6]);
+            }
+
+            fetch(url, { method: "POST", body: fd })
+                .then(() => {
+                    editingVisitData = null;
+                    document.querySelector('button[onclick="addVisit()"]').innerText = "Save Visit";
+                    // Clear form
+                    currentSymptoms = [];
+                    currentMedicines = [];
+                    renderTags('symptom');
+                    renderMedicines();
+                    loadVisits();
+                });
+        }
+
+        function loadVisits() {
+            if (!activeId) return;
+            fetch(`/load-visits/${activeId}/`)
+                .then(r => r.json())
+                .then(rows => {
+                    visits.innerHTML = "";
+                    rows.forEach((r, idx) => {
+                        // r = [pid, dept, doc, case, date, meds, symp, slot, rx_json]
+                        // Extract doctor ID from doctor name if it contains ID
+                        const doctorName = r[2];
+                        let doctorId = '—';
+                        let displayName = doctorName;
+
+                        // Try to find doctor ID from the doctors list
+                        const dept = r[1];
+                        if (doctorsByDept[dept]) {
+                            const doctor = doctorsByDept[dept].find(d => d.name === doctorName);
+                            if (doctor) {
+                                doctorId = doctor.staff_id;
+                            }
+                        }
+
+                        const rowHtml = `
+                <tr class="border-b hover:bg-gray-50">
+                    <td class="p-2 text-sm">${r[4]}</td>
+                    <td class="p-2 text-sm font-mono text-blue-600">${r[7] || '—'}</td>
+                    <td class="p-2 text-sm">${r[1]}</td>
+                    <td class="p-2 text-sm"><span class="font-mono text-xs bg-gray-100 px-2 py-1 rounded">${doctorId}</span></td>
+                    <td class="p-2 text-sm">${displayName}</td>
+                    <td class="p-2 text-sm">${r[3]}</td>
+                    <td class="p-2">${formatTags(r[6], 'symptom')}</td>
+                    <td class="p-2">${formatTags(r[5], 'medicine')}</td>
+                    <td class="p-2">
+                        <button onclick='prepareEditVisit(${JSON.stringify(r)})' class="text-blue-600 mr-2">Edit</button>
+                        <button onclick='deleteVisit(${JSON.stringify(r)})' class="text-red-600">Delete</button>
+                    </td>
+                </tr>`;
+                        visits.innerHTML += rowHtml;
+                    });
+                });
+        }
+
+        function prepareEditVisit(rowData) {
+            editingVisitData = rowData;
+            // pid, dept, doc, case, date, meds, symp, slot, rx_json
+            department.value = rowData[1];
+            // Trigger doctor reload
+            department.dispatchEvent(new Event('change'));
+            setTimeout(() => {
+                doctor.value = rowData[2];
+            }, 50);
+            caseType.value = rowData[3];
+            visitDate.value = rowData[4];
+
+            // Parse tags
+            let medsData = [];
+            try {
+                if (rowData[8]) medsData = JSON.parse(rowData[8]);
+            } catch (e) { }
+
+            currentMedicines = medsData;
+            currentSymptoms = rowData[6] ? rowData[6].split(',').map(i => i.trim()).filter(i => i) : [];
+            renderTags('symptom');
+            renderMedicines();
+
+            document.querySelector('button[onclick="addVisit()"]').innerText = "Update Visit";
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function deleteVisit(rowData) {
+            if (!confirm("Delete this visit entry?")) return;
+            let fd = new FormData();
+            fd.append("patient_id", rowData[0]);
+            fd.append("department", rowData[1]);
+            fd.append("doctor", rowData[2]);
+            fd.append("case_type", rowData[3]);
+            fd.append("visit_date", rowData[4]);
+            fd.append("medicines", rowData[5]);
+            fd.append("symptoms", rowData[6] || "");
+
+            fetch("/delete-visit/", { method: "POST", body: fd })
+                .then(() => loadVisits());
+        }
+
+        // Setup suggestions
+        function loadSuggestions() {
+            fetch("/get-suggestions/")
+                .then(r => r.json())
+                .then(data => {
+                    const sList = document.getElementById('symptomList');
+                    const mList = document.getElementById('medicineList');
+
+                    if (sList && data.symptoms) {
+                        sList.innerHTML = data.symptoms.map(s => `<option value="${s}">`).join('');
+                    }
+                    if (mList && data.medicines) {
+                        mList.innerHTML = data.medicines.map(m => `<option value="${m}">`).join('');
+                    }
+                })
+                .catch(err => console.error("Error loading suggestions:", err));
+        }
+
+        // Call on load
+        loadSuggestions();
+
+        function exportToExcel() {
+            if (!activeId) {
+                alert("Please search for a patient first to export their details.");
+                return;
+            }
+            window.location.href = "/export-visits/?patient_id=" + activeId;
+        }
+    </script>
+
+
+</body>
+
+</html>

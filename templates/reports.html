@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PredictCare - Reports</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+    <div class="max-w-6xl mx-auto py-8 px-4">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center gap-4">
+                <a href="{% url 'hub' %}"
+                    class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg transition-colors">
+                    ← Back to Hub
+                </a>
+                <h1 class="text-3xl font-bold text-gray-800">📊 Visit Reports</h1>
+            </div>
+            <a href="{% url 'logout' %}" class="text-red-600 hover:text-red-800 font-semibold">
+                🚪 Logout
+            </a>
+        </div>
+
+        <!-- Filters -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <div class="flex flex-wrap gap-6 items-end">
+                <!-- Filters -->
+                <div class="flex flex-wrap gap-6 items-end">
+                    <!-- Filter Type Selection -->
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">Filter By</label>
+                        <select id="filterType" onchange="toggleInputs()" class="border p-2 rounded w-40">
+                            <option value="date">Specific Date</option>
+                            <option value="month">Month</option>
+                        </select>
+                    </div>
+
+                    <!-- Date Input -->
+                    <div id="dateInputGroup">
+                        <label class="block text-gray-700 font-bold mb-2">Select Date</label>
+                        <input type="date" id="dateInput" class="border p-2 rounded w-48">
+                    </div>
+
+                    <!-- Month Input -->
+                    <div id="monthInputGroup" class="hidden">
+                        <label class="block text-gray-700 font-bold mb-2">Select Month</label>
+                        <input type="month" id="monthInput" class="border p-2 rounded w-48">
+                    </div>
+
+                    <!-- Department Filter (Optional) -->
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">Department</label>
+                        <select id="deptFilter" onchange="onDeptChange()" class="border p-2 rounded w-48">
+                            <option value="">All Departments</option>
+                            {% for dept in departments %}
+                            <option value="{{ dept }}">{{ dept }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Doctor Filter (Optional) -->
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">Doctor</label>
+                        <select id="docFilter" class="border p-2 rounded w-48">
+                            <option value="">All Doctors</option>
+                            <!-- Populated via JS -->
+                        </select>
+                    </div>
+
+                    <!-- Search Button -->
+                    <button onclick="fetchReport()"
+                        class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 font-bold">
+                        Generate Report
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Table -->
+            <div class="bg-white shadow rounded-lg overflow-hidden">
+                <div class="p-4 border-b border-gray-200 bg-gray-50 flex justify-between items-center">
+                    <h2 class="font-bold text-lg text-gray-700">Results</h2>
+                    <div class="flex items-center gap-4">
+                        <button id="exportBtn" onclick="exportToExcel()"
+                            class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded font-semibold transition-colors hidden">
+                            📥 Export to Excel
+                        </button>
+                        <span id="resultCount" class="text-sm text-gray-500"></span>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto max-h-[600px] overflow-y-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-gray-100 sticky top-0">
+                            <tr>
+                                <th class="p-4 border-b">Date</th>
+                                <th class="p-4 border-b">Patient ID</th>
+                                <th class="p-4 border-b">Patient Name</th>
+                                <th class="p-4 border-b">Department</th>
+                                <th class="p-4 border-b">Doctor</th>
+                                <th class="p-4 border-b">Case Type</th>
+                                <th class="p-4 border-b">Medicines</th>
+                                <th class="p-4 border-b">Symptoms</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportTableBody">
+                            <tr>
+                                <td colspan="8" class="p-8 text-center text-gray-500">
+                                    Select a date or month and click "Generate Report" to see data.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Parse the department-doctor mapping passed from backend
+            // Use 'safe' filter to render the JSON object directly into JS
+            const deptDocMap = {{ doctor_map_json| safe }};
+
+            function toggleInputs() {
+                const type = document.getElementById('filterType').value;
+                if (type === 'date') {
+                    document.getElementById('dateInputGroup').classList.remove('hidden');
+                    document.getElementById('monthInputGroup').classList.add('hidden');
+                } else {
+                    document.getElementById('dateInputGroup').classList.add('hidden');
+                    document.getElementById('monthInputGroup').classList.remove('hidden');
+                }
+            }
+
+            function onDeptChange() {
+                const dept = document.getElementById('deptFilter').value;
+                const docSelect = document.getElementById('docFilter');
+
+                // Clear current options
+                docSelect.innerHTML = '<option value="">All Doctors</option>';
+
+                if (dept && deptDocMap[dept]) {
+                    deptDocMap[dept].forEach(doc => {
+                        const opt = document.createElement('option');
+                        opt.value = doc;
+                        opt.textContent = doc;
+                        docSelect.appendChild(opt);
+                    });
+                } else {
+                    // If no dept, show all? Or keep empty? 
+                    // Currently keeping empty (except 'All') for simplicity, checking implementation plan
+                }
+            }
+
+            function fetchReport() {
+                const type = document.getElementById('filterType').value;
+                let value = '';
+
+                if (type === 'date') {
+                    value = document.getElementById('dateInput').value;
+                } else {
+                    value = document.getElementById('monthInput').value;
+                }
+
+                if (!value) {
+                    alert("Please select a date or month.");
+                    return;
+                }
+
+                const dept = document.getElementById('deptFilter').value;
+                const doc = document.getElementById('docFilter').value;
+
+                const tbody = document.getElementById('reportTableBody');
+                tbody.innerHTML = '<tr><td colspan="8" class="p-8 text-center text-gray-500">Loading...</td></tr>';
+                document.getElementById('resultCount').innerText = '';
+                document.getElementById('exportBtn').classList.add('hidden');
+
+                let url = `{% url 'api_reports' %}?type=${type}&value=${value}`;
+                if (dept) url += `&department=${encodeURIComponent(dept)}`;
+                if (doc) url += `&doctor=${encodeURIComponent(doc)}`;
+
+                fetch(url)
+                    .then(r => r.json())
+                    .then(data => {
+                        if (data.error) {
+                            tbody.innerHTML = `<tr><td colspan="8" class="p-8 text-center text-red-500">${data.error}</td></tr>`;
+                            return;
+                        }
+
+                        if (data.visits.length === 0) {
+                            tbody.innerHTML = '<tr><td colspan="8" class="p-8 text-center text-gray-500">No visits found for this selection.</td></tr>';
+                            document.getElementById('resultCount').innerText = '0 records found';
+                            return;
+                        }
+
+                        document.getElementById('resultCount').innerText = `${data.visits.length} records found`;
+                        document.getElementById('exportBtn').classList.remove('hidden');
+
+                        let html = '';
+                        data.visits.forEach(v => {
+                            const rowClass = v.case_type === 'Emergency' ? 'bg-red-50' :
+                                v.case_type === 'Critical' ? 'bg-orange-50' : '';
+
+                            html += `
+                            <tr class="border-b hover:bg-gray-50 ${rowClass}">
+                                <td class="p-3 text-sm">${v.date}</td>
+                                <td class="p-3 font-mono text-sm font-semibold text-gray-600">${v.id}</td>
+                                <td class="p-3 font-medium">${v.name}</td>
+                                <td class="p-3 text-sm">${v.dept}</td>
+                                <td class="p-3 text-sm">${v.doc}</td>
+                                <td class="p-3 text-sm">
+                                    <span class="px-2 py-1 rounded-full text-xs font-bold 
+                                        ${v.case_type === 'Emergency' ? 'bg-red-200 text-red-800' :
+                                    v.case_type === 'Critical' ? 'bg-orange-200 text-orange-800' : 'bg-green-100 text-green-800'}">
+                                        ${v.case_type}
+                                    </span>
+                                </td>
+                                <td class="p-3 text-sm text-gray-600 max-w-xs truncate" title="${v.medicines || ''}">${v.medicines || ''}</td>
+                                <td class="p-3 text-sm text-gray-600 max-w-xs truncate" title="${v.symptoms || ''}">${v.symptoms || ''}</td>
+                            </tr>
+                        `;
+                        });
+                        tbody.innerHTML = html;
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        tbody.innerHTML = '<tr><td colspan="8" class="p-8 text-center text-red-500">Error loading data.</td></tr>';
+                    });
+            }
+
+            function exportToExcel() {
+                const type = document.getElementById('filterType').value;
+                let value = '';
+
+                if (type === 'date') {
+                    value = document.getElementById('dateInput').value;
+                } else {
+                    value = document.getElementById('monthInput').value;
+                }
+
+                if (!value) {
+                    alert("Please select a date or month first.");
+                    return;
+                }
+
+                const dept = document.getElementById('deptFilter').value;
+                const doc = document.getElementById('docFilter').value;
+
+                let url = `{% url 'export_reports' %}?type=${type}&value=${value}`;
+                if (dept) url += `&department=${encodeURIComponent(dept)}`;
+                if (doc) url += `&doctor=${encodeURIComponent(doc)}`;
+
+                // Trigger download
+                window.location.href = url;
+            }
+        </script>
+</body>
+
+</html>
